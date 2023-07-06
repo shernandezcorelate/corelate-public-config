@@ -1,0 +1,457 @@
+html {
+  font-family: $isv-font-primary;
+}
+
+body {
+  background-color: $isv-default-bg-color;
+  font-family: $isv-font-primary;
+}
+
+.btn-default {
+  background-color: transparent;
+  border-color: $isv-btn-primary-color;
+  color: $isv-btn-primary-color;
+}
+
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open > .dropdown-toggle.btn-default:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open > .dropdown-toggle.btn-default:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.open > .dropdown-toggle.btn-default.focus {
+  background-color: transparent;
+  border-color: $isv-btn-primary-color;
+}
+
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled.focus,
+.btn-default[disabled].focus,
+fieldset[disabled] .btn-default.focus {
+  background-color: transparent;
+}
+
+.btn-default .badge {
+  color: $isv-btn-primary-color;
+  background-color: transparent;
+}
+.btn-primary {
+  background-color: $isv-btn-primary-color;
+  border-color: $isv-btn-primary-color;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+  background-color: darken($isv-btn-primary-color, 12%);
+  border-color: darken($isv-btn-primary-color, 12%);
+}
+.btn-primary:hover {
+  background-color: darken($isv-btn-primary-color, 12%);
+  border-color: darken($isv-btn-primary-color, 12%);
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background-color: darken($isv-btn-primary-color, 12%);
+  border-color: darken($isv-btn-primary-color, 12%);
+}
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+  background-color: darken($isv-btn-primary-color, 12%);
+  border-color: darken($isv-btn-primary-color, 12%);
+}
+
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+  background-color: darken($isv-btn-primary-color, 12%);
+  border-color: darken($isv-btn-primary-color, 12%);
+}
+.btn-primary .badge {
+  color: $isv-btn-primary-font-color;
+  background-color: $isv-btn-primary-color;
+}
+
+.btn-secondary {
+  color: $isv-btn-secondary-font-color;
+  background-color: $isv-btn-secondary-color;
+  border-color: $isv-btn-secondary-color;
+}
+.btn-secondary:focus,
+.btn-secondary.focus {
+  color: $isv-btn-secondary-font-color;
+  background-color: darken($isv-btn-secondary-color, 12%);
+  border-color: darken($isv-btn-secondary-color, 12%);
+}
+.btn-secondary:hover {
+  color: $isv-btn-secondary-font-color;
+  background-color: darken($isv-btn-secondary-color, 12%);
+  border-color: darken($isv-btn-secondary-color, 12%);
+}
+.btn-secondary:active,
+.btn-secondary.active,
+.open > .dropdown-toggle.btn-secondary {
+  color: $isv-btn-secondary-font-color;
+  background-color: darken($isv-btn-secondary-color, 12%);
+  border-color: darken($isv-btn-secondary-color, 12%);
+}
+.btn-secondary:active:hover,
+.btn-secondary.active:hover,
+.open > .dropdown-toggle.btn-secondary:hover,
+.btn-secondary:active:focus,
+.btn-secondary.active:focus,
+.open > .dropdown-toggle.btn-secondary:focus,
+.btn-secondary:active.focus,
+.btn-secondary.active.focus,
+.open > .dropdown-toggle.btn-secondary.focus {
+  color: $isv-btn-secondary-font-color;
+  background-color: darken($isv-btn-secondary-color, 12%);
+  border-color: darken($isv-btn-secondary-color, 12%);
+}
+.btn-secondary:active,
+.btn-secondary.active,
+.open > .dropdown-toggle.btn-secondary {
+  background-image: none;
+}
+.btn-secondary.disabled:hover,
+.btn-secondary[disabled]:hover,
+fieldset[disabled] .btn-secondary:hover,
+.btn-secondary.disabled:focus,
+.btn-secondary[disabled]:focus,
+fieldset[disabled] .btn-secondary:focus,
+.btn-secondary.disabled.focus,
+.btn-secondary[disabled].focus,
+fieldset[disabled] .btn-secondary.focus {
+  background-color: darken($isv-btn-secondary-color, 12%);
+  border-color: darken($isv-btn-secondary-color, 12%);
+}
+.btn-secondary .badge {
+  color: $isv-btn-secondary-font-color;
+  background-color: $isv-btn-secondary-color;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: $isv-dropdown-menu-font-color;
+  background-color: $isv-dropdown-menu-hover-color;
+}
+
+.btn .caret {
+  margin-left: $isv-margin-sm - 2;
+}
+
+.nav > li {
+  display: flex;
+}
+
+.nav-tabs {
+  border-bottom: 0;
+}
+
+.nav-tabs > li > a {
+  border: 0;
+  border-radius: none;
+}
+
+.nav-tabs > li > a:hover {
+  color: $isv-nav-tab-font-color;
+  background: $isv-nav-tab-color;
+  border-radius: 4px;
+
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus  {
+  color: $isv-nav-tab-color;
+  border-bottom: 2px solid $isv-nav-tab-color;
+}
+.nav-tabs > li.active > a:hover {
+  color: $isv-nav-tab-font-color;
+}
+
+.navbar {
+  border: 0;
+}
+
+.header-right {
+  text-align: -webkit-right;
+}
+.login {
+  display: none;
+}
+.login-nav {
+  display: initial;
+}
+.logout {
+  display: none;
+}
+.logout-nav {
+  display: initial;
+}
+.user-info {
+  align-items: center;
+  display: flex;
+  min-width: 100px;
+}
+
+.user {
+  text-align: left;
+}
+
+.user-dropdown {
+  left: unset;
+  right: 0;
+}
+
+.navbar-header {
+  padding: $isv-padding-lg;
+}
+
+.navbar-collapse {
+  -webkit-box-shadow: 0;
+  background-color: $isv-navbar-collapse-color;
+  border-top: 0;
+  box-shadow: 0;
+  overflow-x: visible;
+  padding-left: $isv-padding-md;
+  padding-right: $isv-padding-md;
+}
+
+.navbar-brand {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  float: unset;
+  height: 80px;
+  line-height: 11px;
+  padding: 0;
+}
+
+.navbar-toggle {
+  margin-right: 0;
+  margin-top: $isv-margin-md - 1;
+}
+
+.navbar-default {
+  border-color: none;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: none;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: $isv-navbar-hover-color;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: none;
+}
+
+.navbar-inverse {
+  background-color: $isv-navbar-color;
+}
+.navbar-inverse .navbar-brand {
+  color: $isv-navbar-font-color;
+  padding-right: $isv-padding-lg;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: $isv-navbar-font-hover-color;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  background-color: lighten($isv-navbar-color, 12%);
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background-color: darken($isv-navbar-color, 12%);
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: none;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: darken($isv-navbar-color, 12%);
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: none;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: lighten($isv-navbar-color, 12%);
+}
+@media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+    background-color: darken($isv-navbar-color, 8%);
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: $isv-navbar-font-hover-color;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+    background-color: darken($isv-navbar-color, 12%);
+  }
+}
+
+.navbar-logo {
+  padding: 0;
+}
+.navbar-site-name {
+  font-family: 'Vollkorn', serif;
+  padding: 10px 0 0 10px;
+}
+.navbar-title{
+  font-size: 22px;
+}
+.navbar-subtitle {
+  font-size: 14px;
+}
+.edit-button {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}
+.edit-element {
+  position: relative;
+  z-index: 0;
+}
+.language-select {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 8px 0 0;
+}
+.language-select span {
+  margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+  .navbar-header {
+    display: flex;
+    flex-flow: row wrap;
+    float: unset;
+    padding: $isv-padding-sm;
+  }
+
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-static-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    padding-right: $isv-padding-xl;
+    padding-left: $isv-padding-xl;
+  }
+
+  .navbar-logo {
+    padding: $isv-padding-sm;
+  }
+}
+
+.tooltip,
+.popover {
+  font-family: $isv-font-primary;
+}
+
+.carousel-control {
+  width: 8%;
+}
+
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  font-family: $isv-font-secondary;
+}
+
+.carousel-caption a,
+.carousel-caption a:hover,
+.carousel-caption a:focus {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.text-serif {
+  font-family: $isv-font-secondary;
+}
+
+.text-sans-serif {
+  font-family: $isv-font-primary;
+}
+
+
+.home-container {
+  margin-top: 120px;
+}
+.slider {
+}
+.content {
+  padding: 40px 10px 10px;
+}
+.side-nav {
+  background: #0a3654;
+  color: #fff;
+  border-radius: 4px;
+  padding: 15px 10px;
+  position: fixed;
+  z-index:2000;
+  right: 0;
+  top: 200px;
+  text-align: center;
+}
+.side-nav ul{
+  list-style: none;
+}
+.grid-block, .faq-block, .support-block, .contact-info-block, .contact-form-block {
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+.faq-item, .support-item, .news-item, .announce-item, .advocacy-item, .events-item, .article-item {
+  margin-bottom: 40px;
+}
+.grid-image {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .home-container {
+    margin-top: 170px;
+  }
+  .login {
+    display: block;
+    padding: 20px;
+  }
+  .login-nav{
+    display: none !important;
+  }
+  .logout {
+    display: block;
+  }
+  .logout-nav{
+    display: none !important;
+  }
+}

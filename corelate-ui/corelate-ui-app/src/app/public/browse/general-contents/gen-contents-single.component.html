@@ -1,0 +1,69 @@
+<header id="top-section" class="w-100">
+  <corelate-ui-header></corelate-ui-header>
+</header>
+
+<main>
+  <!--BACK TO TOP -->
+  <button class="isv-back-to-top btn btn-floating btn-large red waves-light" mdbPageScroll href="#top-section" mdbTooltip="Back to Top" placement="left" mdbRippleRadius [pageScrollDuration]="750">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <div class="isv-article container p-4" *ngIf="content">
+    <div class="row p-4">
+      <div class="col">
+      </div>
+      <div class="col-12 col-lg-10 pt-4">
+
+        <div class="row pb-4">
+          <div class="isv-category__details col-12 col-md-4">
+            <div class="row">
+              <div class="isv-category__featured-image text-center col-12">
+                <img *ngIf="!content.file" src="https://isv.corelate.net/assets/images/default-post-img.png" class="img-fluid w-100 mb-3 post-img" alt="">
+                <img *ngIf="content.file" src="{{ imageSourceUrl }}/{{ content.file }}" class="img-fluid w-100 mb-3 post-img" alt="{{ content.title }}">
+              </div>
+            </div>
+            <div class="row">
+              <div class="isv-category__meta col-12">
+                <p class="font-bold text-uppercase mb-0"><small>
+                  <a routerLink="/contents/browse" [queryParams]="{category: content.category}" [ngClass]="{'green-text': content.category == 'NEWS',
+                  'blue-text': content.category == 'ANNOUNCEMENTS',
+                  'brown-text': content.category == 'ADVOCACIES',
+                'cyan-text': content.category == 'EVENTS'}">
+
+                  <i class="fa" [ngClass]="{'fa-newspaper-o': content.category == 'NEWS',
+                  'fa-bullhorn': content.category == 'ANNOUNCEMENTS',
+                  'fa-group': content.category == 'ADVOCACIES',
+                  'fa-clock-o': content.category == 'EVENTS'}"></i>
+                    {{ content.category }}
+                  </a></small></p>
+                <p class="font-bold grey-text"><small>{{ content.createdDate | date: 'short' }}</small></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="isv-article__content col-12 col-md-8">
+            <div class="row">
+              <div class="isv-article__title col-12 pb-4">
+                <h1 class="h1-responsive"><strong>{{ content.title }}</strong></h1>
+              </div>
+              <div class="isv-article__body col-12 pb-4" [innerHTML]="content.content">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col">
+      </div>
+
+      <div class="isv-article-back col-12 text-center mt-4">
+        <p><strong><button type="button" class="btn btn-lg btn-outline-primary waves-light" routerLink="/contents/browse" [queryParams]="{category: content.category}">Back to Articles List</button></strong></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="mt-auto w-100">
+  <corelate-ui-footer></corelate-ui-footer>
+</footer>

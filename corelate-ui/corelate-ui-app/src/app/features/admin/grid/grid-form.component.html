@@ -1,0 +1,111 @@
+<div class="isv-admin-grid-new">
+  <div class="row pt-1">
+    <div class="isv-admin-grid-new__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Grid Management
+      </h3>
+      <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3" />
+
+  <form *ngIf="gridForm" [formGroup]="gridForm" novalidate (ngSubmit)="onSave(gridForm.value, gridForm.valid)" class="p-2">
+    <div class="isv-admin-grid-new__input row px-4">
+      <div class="col-12 col-sm-8">
+        <div class="md-form">
+          <input mdbActive type="text" id="heading" formControlName="heading" class="form-control" mdbInputValidate>
+          <label for="heading">Heading <span class="text-danger">*</span></label>
+        </div>
+        <div class="md-form">
+          <input mdbActive type="text" id="description" formControlName="description" class="form-control" mdbInputValidate>
+          <label for="description">Description <span class="text-danger">*</span></label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 text-right pt-3">
+        <button (click)="addGridItem()" class="btn btn-md blue darken-1 waves-effect waves-light" type="button"><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add A New Grid Item</button>
+      </div>
+    </div>
+
+    <div formArrayName="gridItems" class="row isv-admin-grid-new__list">
+      <div class="col-12">
+        <mdb-squeezebox [multiple]="false" aria-multiselectable="true" class="isv-admin-grid-new__item">
+          <mdb-item *ngFor="let gridItem of gridItems.controls; let i=index" [formGroupName]="i">
+            <mdb-item-head class="grey darken-3">
+              <div class="md-form input-group mb-0 pl-0 pr-4 float-left pb-3 tab-title">
+                  <span class="input-group-addon grey darken-3 border-0 white-text" id="basic-addon1">Grid Item Name &nbsp;<span class="text-danger">*</span></span>
+                  <input type="text" class="form-control white-text w-100" aria-describedby="basic-addon1" id="title" formControlName="title" mdbInputValidate>
+              </div>
+            </mdb-item-head>
+            <mdb-item-body>
+              <div class="row isv-admin-help-new__input p-4">
+                <div class="col-12 col-md-6">
+                  <div class="md-form">
+                    <textarea mdbActive type="text" id="excerpt" formControlName="excerpt" class="md-textarea" mdbInputValidate length="40" mdbCharCounter></textarea>
+                    <label for="excerpt">Excerpt <span class="text-danger">*</span></label>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 isv-admin-help-new__upload mt-2">
+                  <div class="md-form pb-4">
+                    <label>Featured Image <span class="text-danger">*</span></label>
+                  </div>
+                  <div *ngIf="files[i] || gridItem.value.files" class="text-center pb-2">
+                    <ng-container *ngIf="files[i]">
+                      <ng-container *ngIf="files[i].name != ''">
+                        <img [src]="url" class="isv-admin-grid-image__preview img-fluid">
+                      </ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="!files[i] && gridForm.value.gridItems[i].files != ''">
+                      <img src="{{imageSourceUrl}}/{{gridForm.value.gridItems[i].files[0]}}" class="isv-admin-grid-image__preview img-fluid">
+                    </ng-container>
+                  </div>
+                    <input (change)="fileChange($event, i)" [id]="'gridItemImage' + i" type="file" [ngStyle]="{'visibility':'hidden', 'width':0}" accept=".png,.jpg"/>
+                    <button type="button" class="btn btn-indigo waves-effect waves-light ml-0" (click)="selectFile(i);">
+                      Browse
+                    </button>
+                    <ng-container *ngIf="files[i]">{{ files[i].name }}</ng-container>
+                    <ng-container *ngIf="!files[i] && gridForm.value.gridItems[i].files != null">{{ gridForm.value.gridItems[i].files[0] }}</ng-container>
+
+                  <p class="grey-text pl-2"><small>Image should be 400px X 150px.</small></p>
+                </div>
+
+                <!--<div class="md-form">
+                  <input mdbActive type="number" id="position" formControlName="position" class="form-control" mdbInputValidate>
+                  <label for="position">Position <span class="text-danger">*</span></label>
+                </div>-->
+
+              </div>
+              <div class="row">
+                <div class="col-12 text-right pt-4">
+                  <button (click)="deleteGridItem(i)" type="button" class="btn btn-md red darken-3 waves-effect waves-light" mdbRippleRadius>
+                    <i class="fa fa-trash" aria-hidden="true"></i> Delete Grid Item
+                  </button>
+                </div>
+              </div>
+            </mdb-item-body>
+          </mdb-item>
+        </mdb-squeezebox>
+      </div>
+    </div>
+
+    <div class="isv-admin-grid-new__actions row pt-3 d-flex">
+      <div class="col-6 align-self-center">
+        <button *ngIf="modal" (click)="modal.hide()" class="btn btn-outline-blue-grey" type="button">Cancel</button>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <span *ngIf="gridForm.hasError('NoRepeat')" class="text-danger">
+          Invalid positioning of items
+        </span>
+        <span *ngIf="gridForm.hasError('NumberMin')" class="text-danger">
+          Invalid minimum input
+        </span>
+        <button class="btn light-green darken-2 waves-effect waves-light" type="submit" [disabled]="gridForm.invalid">
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div [ngBusy]="gridGetSubs"></div>
+<div [ngBusy]="gridSaveSubs"></div>

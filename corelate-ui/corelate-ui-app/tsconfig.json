@@ -1,0 +1,77 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "paths": {
+      "rxjs/*": ["../node_modules/rxjs/*"],
+      "@angular/*": ["../node_modules/@angular/*"],
+      "alfresco-js-api": ["./alfresco-js-api"],
+      "@corelate/*": [
+        "./app/*"
+      ],
+      "ng2-alfresco-core": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-core/"
+      ],
+      "ng2-alfresco-datatable": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-datatable/"
+      ],
+       "ng2-alfresco-tag": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-tag/"
+      ],
+      "ng2-activiti-form": [
+        "./alfresco-ng2-components/ng2-components/ng2-activiti-form/"
+      ],
+      "ng2-activiti-diagrams": [
+        "./alfresco-ng2-components/ng2-components/ng2-activiti-diagrams/"
+      ],
+      "ng2-activiti-tasklist": [
+        "./alfresco-ng2-components/ng2-components/ng2-activiti-tasklist/"
+      ],
+       "ng2-activiti-processlist": [
+        "./alfresco-ng2-components/ng2-components/ng2-activiti-processlist/"
+      ],
+      "ng2-activiti-analytics": [
+        "./alfresco-ng2-components/ng2-components/ng2-activiti-analytics/"
+      ],
+       "ng2-alfresco-login": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-login/"
+      ],
+      "ng2-alfresco-userinfo": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-userinfo/"
+      ],
+      "ng2-alfresco-viewer": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-viewer/"
+      ],
+      "ng2-alfresco-documentlist": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-documentlist/"
+      ],
+      "ng2-alfresco-upload": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-upload/"
+      ],
+      "ng2-alfresco-search": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-search/"
+      ],
+      "ng2-alfresco-social": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-social/"
+      ],
+      "ng2-alfresco-webscript": [
+        "./alfresco-ng2-components/ng2-components/ng2-alfresco-webscript/"
+      ]
+    }
+  }
+}

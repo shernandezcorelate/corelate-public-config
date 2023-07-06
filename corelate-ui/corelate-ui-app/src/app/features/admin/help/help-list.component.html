@@ -1,0 +1,90 @@
+<div class="isv-admin-help">
+  <ng-container *ngIf="(modal && !showForm) || !modal">
+    <div class="row pt-1">
+      <div class="isv-admin-help__title col-12">
+        <h3 class="h3-responsive w-75 float-left pt-0">
+          Help Topics Management
+        </h3>
+        <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </div>
+    <hr class="mb-4 mt-3"/>
+  </ng-container>
+  <ng-container *ngIf="!showForm">
+    <div class="row">
+      <div class="isv-admin-help__new col-12 text-right" *isAuthorized="['HELP_TOPICS_ADD']">
+        <button (click)="edit()" class="btn btn-md blue darken-1 waves-effect waves-light" type="button"><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add A New Topic</button>
+      </div>
+    </div>
+    <div class="row p-4">
+      <div class="col-12 px-0">
+        <ngx-datatable #datatable
+                       class="custom"
+                       [rows]="helpTopics"
+                       [loadingIndicator]="loading"
+                       [columnMode]="'force'"
+                       [footerHeight]="'auto'"
+                       [rowHeight]="'auto'"
+                       [externalPaging]="true"
+                       [count]="params.totalElements"
+                       [offset]="params.page"
+                       [limit]="params.size"
+                       (page)='setPage($event)'>
+          <ngx-datatable-column name="topic">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <strong>Help Topic</strong>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <div class="py-3">
+                <h4 class="title h4-responsive blue-text py-2 mb-0 pl-2 mr-3">
+                  <a *isAuthorized="['HELP_TOPICS_EDIT']" (click)="edit(row.id)" class="clickable">{{ row.topic }}</a>
+                  <span *isNotAuthorized="['HELP_TOPICS_EDIT']"></span>
+                </h4>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="published">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <strong>Published</strong>
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <div class="text-center py-3">
+                <h3 class="green-text m-0 p-0"><i *ngIf="value" class="fa fa-check"></i>
+                <span class="red-text"><i *ngIf="!value" class="fa fa-times"></i></span></h3>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column *isAuthorized="['HELP_TOPICS_EDIT','HELP_TOPICS_PUBLISH','HELP_TOPICS_DELETE']">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <strong>Actions</strong>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <div class="text-center py-3">
+                <button *isAuthorized="['HELP_TOPICS_DELETE']" (click)="delete(row)" type="button" class="btn btn-sm isv-btn-help-list btn-red waves-light" mdbRippleRadius mdbTooltip="Delete" placement="top">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+                <ng-container *isAuthorized="['HELP_TOPICS_PUBLISH']">
+                  <button *ngIf="row.published" (click)="unpublish(row.id)" type="button" class="btn btn-sm isv-btn-help-list btn-deep-purple waves-light" mdbRippleRadius mdbTooltip="Unpublish" placement="top">
+                    <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                  </button>
+                  <button *ngIf="!row.published" (click)="publish(row.id)" type="button" class="btn btn-sm isv-btn-help-list btn-deep-purple waves-light" mdbRippleRadius mdbTooltip="Publish" placement="top">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                  </button>
+                </ng-container>
+                <button *isAuthorized="['HELP_TOPICS_EDIT']" (click)="edit(row.id)" type="button" class="btn btn-sm isv-btn-help-list btn-amber waves-light" mdbRippleRadius mdbTooltip="Edit" placement="top">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="showForm">
+    <corelate-ui-help-form [id]="selectedId" [modal]="modal" (onModalSave)="saveModal()" (onModalCancel)="cancelModal()"></corelate-ui-help-form>
+  </ng-container>
+</div>
+

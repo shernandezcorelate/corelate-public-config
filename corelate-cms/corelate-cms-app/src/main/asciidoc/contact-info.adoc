@@ -1,0 +1,37 @@
+[[resources-contact-info-get]]
+=== Get contact information
+
+A `GET` request is used to retrieve the contact information.
+
+==== Example request
+
+include::{snippets}/contactInfoResource/get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/contactInfoResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/contactInfoResource/get/response-fields.adoc[]
+
+[[resources-contact-info-update]]
+=== Updating contact information
+
+A `PUT` request is used to update the contact information.
+
+==== Example request
+
+include::{snippets}/contactInfoResource/update/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/contactInfoResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/contactInfoResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/contactInfoResource/update/response-fields.adoc[]

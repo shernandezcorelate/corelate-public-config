@@ -1,0 +1,3 @@
+<select class="form-control" [(ngModel)]="currentLanguage" (change)="switchLanguage()">
+    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === currentLanguage">{{ lang }}</option>
+</select>

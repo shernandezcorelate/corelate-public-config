@@ -1,0 +1,206 @@
+[[resources-carousel-slide-list]]
+=== Get carousel slide list
+
+A `GET` request will list all of the carousel slides.
+
+==== Example request
+
+include::{snippets}/carouselSlideResource/list/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/carouselSlideResource/list/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselSlideResource/list/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/carouselSlideResource/list/response-fields.adoc[]
+
+[[resources-carousel-slide-list-published]]
+=== Get published carousel slide list
+
+A `GET` request will list all of the published carousel slides.
+
+==== Example request
+
+include::{snippets}/carouselSlideResource/getPublished/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/carouselSlideResource/getPublished/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselSlideResource/getPublished/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/carouselSlideResource/getPublished/response-fields.adoc[]
+
+[[resources-carousel-slide-create]]
+=== Creating a carousel slide
+
+A `POST` request is used to insert a carousel slide.
+
+==== Example request
+
+include::{snippets}/carouselSlideResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/carouselSlideResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselSlideResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/carouselSlideResource/create/response-fields.adoc[]
+
+[[resources-carousel-slide-get]]
+=== Get a carousel slide
+
+A `GET` request is used to get a carousel slide.
+
+==== Example request
+
+include::{snippets}/carouselSlideResource/get/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/carouselSlideResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselSlideResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/carouselSlideResource/get/response-fields.adoc[]
+
+[[resources-carousel-slide-update]]
+=== Update a carousel slide
+
+A `PUT` request is used to update a carousel slide.
+
+==== Example request
+
+include::{snippets}/carouselSlideResource/update/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/carouselSlideResource/update/path-parameters.adoc[]
+
+
+==== Request structure
+
+include::{snippets}/carouselSlideResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselSlideResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/carouselSlideResource/update/response-fields.adoc[]
+
+[[resources-carousel-slide-delete]]
+=== Delete a carousel slide
+
+A `DELETE` request is used to delete a carousel slide.
+
+==== Example request
+
+include::{snippets}/carouselSlideResource/delete/curl-request.adoc[]
+
+==== Path Parameter
+
+include::{snippets}/carouselSlideResource/delete/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselSlideResource/delete/http-response.adoc[]
+
+[[resources-carousel-slide-upload-image]]
+=== Uploading a carousel slide image
+
+A `POST` request is used to upload a carousel slide image.
+
+==== Example request
+
+include::{snippets}/carouselSlideResource/uploadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/carouselSlideResource/uploadImage/path-parameters.adoc[]
+
+==== Request parts
+
+include::{snippets}/carouselSlideResource/uploadImage/request-parts.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselSlideResource/uploadImage/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/carouselSlideResource/uploadImage/response-fields.adoc[]
+
+[[resources-carousel-slide-download-image]]
+=== Download a carousel slide image
+
+A `GET` request is used to download a carousel slide image.
+
+==== Example request
+
+include::{snippets}/carouselSlideResource/downloadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/carouselSlideResource/downloadImage/path-parameters.adoc[]
+
+[[resources-carousel-slide-publish]]
+=== Publish a carousel slide
+
+A `PUT` request is used to publish a carousel slide.
+
+==== Example request
+
+include::{snippets}/carouselSlideResource/publish/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/carouselSlideResource/publish/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselSlideResource/publish/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/carouselSlideResource/publish/response-fields.adoc[]
+
+[[resources-carousel-slide-unpublish]]
+=== Unpublish a carousel slide
+
+A `PUT` request is used to unpublish a carousel slide.
+
+==== Example request
+
+include::{snippets}/carouselSlideResource/unpublish/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/carouselSlideResource/unpublish/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselSlideResource/unpublish/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/carouselSlideResource/unpublish/response-fields.adoc[]

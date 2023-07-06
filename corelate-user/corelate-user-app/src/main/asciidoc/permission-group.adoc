@@ -1,0 +1,133 @@
+[[resources-permission-group-list]]
+=== Listing permission group
+
+A `GET` request will list all of the permission group.
+
+==== Example request
+
+include::{snippets}/permissionGroupResource/list/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/permissionGroupResource/list/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/permissionGroupResource/list/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/permissionGroupResource/list/response-fields.adoc[]
+
+[[resources-permission-group-create]]
+=== Creating a permission group
+
+A `POST` request is used to insert a permission group.
+
+==== Example request
+
+include::{snippets}/permissionGroupResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/permissionGroupResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/permissionGroupResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/permissionGroupResource/create/response-fields.adoc[]
+
+[[resources-permission-group-get]]
+=== Get a permission group
+
+A `GET` request is used to get a permission group.
+
+==== Example request
+
+include::{snippets}/permissionGroupResource/get/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/permissionGroupResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/permissionGroupResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/permissionGroupResource/get/response-fields.adoc[]
+
+[[resources-permission-group-update]]
+=== Update a permission group
+
+A `PUT` request is used to update a permission group.
+
+==== Example request
+
+include::{snippets}/permissionGroupResource/update/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/permissionGroupResource/update/path-parameters.adoc[]
+
+
+==== Request structure
+
+include::{snippets}/permissionGroupResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/permissionGroupResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/permissionGroupResource/update/response-fields.adoc[]
+
+[[resources-permission-group-delete]]
+=== Delete a permission group
+
+A `DELETE` request is used to delete a permission group.
+
+==== Example request
+
+include::{snippets}/permissionGroupResource/delete/curl-request.adoc[]
+
+==== Path Parameter
+
+include::{snippets}/permissionGroupResource/delete/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/permissionGroupResource/delete/http-response.adoc[]
+
+[[resources-permission-group-permission]]
+=== Permission Group Permissions
+
+[[resources-permission-group-permission-add-action]]
+==== Add Permission Action to Permission Group
+
+A `POST` request is used to add a permission action to a permission group.
+
+===== Example request
+
+include::{snippets}/permissionGroupResource/addPermissionActions/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/permissionGroupResource/addPermissionActions/path-parameters.adoc[]
+
+==== Request structure
+
+include::{snippets}/permissionGroupResource/addPermissionActions/request-fields.adoc[]
+
+===== Example response
+
+include::{snippets}/permissionGroupResource/addPermissionActions/http-response.adoc[]
+
+===== Response structure
+
+include::{snippets}/permissionGroupResource/addPermissionActions/response-fields.adoc[]

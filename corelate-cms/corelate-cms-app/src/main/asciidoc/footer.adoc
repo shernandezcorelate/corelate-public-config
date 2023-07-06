@@ -1,0 +1,80 @@
+[[resources-footer-get]]
+=== Get footer
+
+A `GET` request is used to retrieve the footer.
+
+==== Example request
+
+include::{snippets}/footerResource/get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/footerResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/footerResource/get/response-fields.adoc[]
+
+[[resources-footer-update]]
+=== Updating footer
+
+A `PUT` request is used to update the footer.
+
+==== Example request
+
+include::{snippets}/footerResource/update/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/footerResource/update/path-parameters.adoc[]
+
+==== Request structure
+
+include::{snippets}/footerResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/footerResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/footerResource/update/response-fields.adoc[]
+
+
+[[resources-footer-upload-image]]
+=== Uploading the footer image
+
+A `POST` request is used to upload a footer image.
+
+==== Example request
+
+include::{snippets}/footerResource/uploadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/footerResource/uploadImage/path-parameters.adoc[]
+
+==== Request parts
+
+include::{snippets}/footerResource/uploadImage/request-parts.adoc[]
+
+==== Example response
+
+include::{snippets}/footerResource/uploadImage/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/footerResource/uploadImage/response-fields.adoc[]
+
+[[resources-footer-download-image]]
+=== Download the footer image
+
+A `GET` request is used to download a footer image.
+
+==== Example request
+
+include::{snippets}/footerResource/downloadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/footerResource/downloadImage/path-parameters.adoc[]

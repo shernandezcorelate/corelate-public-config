@@ -1,0 +1,113 @@
+<div class="corelate-ui-contact-form edit">
+  <ng-container *ngIf="layout === BlockTemplate.ONE_COLUMN">
+    <div class="col-12 py-4">
+      <div class="container p-4">
+        <div class="row px-4">
+          <div class="col">
+          </div>
+          <div class="col-12 col-md-10">
+            <div class="isv-block-name row">
+              <div class="col-12 text-center pb-4">
+                <h4 class="h4-responsive grey-text text-uppercase"><strong>Contact Us</strong></h4>
+              </div>
+            </div>
+            <!--
+            <div class="isv-block-lead row">
+              <div class="col-12 text-center pb-4">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna.</p>
+              </div>
+            </div>
+            -->
+            <div class="isv-block-contact-form row">
+              <div class="col">
+              </div>
+              <div class="col-12 col-md-10 col-lg-8">
+                <div class="row pb-1">
+                  <div class="col-12 pb-2">
+                    <form *ngIf="contactForm" [formGroup]="contactForm" novalidate (ngSubmit)="onSave(contactForm.value, contactForm.valid)">
+                      <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input type="text" id="name" formControlName="name" class="form-control" mdbActive>
+                        <label class="active" for="name">Your name <span class="text-danger">*</span></label>
+                      </div>
+                      <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <input type="email" id="email" formControlName="email" class="form-control" mdbActive email>
+                        <label class="active" for="email">Your email <span class="text-danger">*</span></label>
+                      </div>
+                      <div class="md-form">
+                        <i class="fa fa-tag prefix grey-text"></i>
+                        <input type="text" id="subject" formControlName="subject" class="form-control" mdbActive>
+                        <label class="active" for="subject">Subject <span class="text-danger">*</span></label>
+                      </div>
+                      <div class="md-form">
+                        <i class="fa fa-pencil prefix grey-text"></i>
+                        <textarea type="text" id="message" formControlName="message" class="md-textarea" mdbActive></textarea>
+                        <label class="active" for="message">Your message <span class="text-danger">*</span></label>
+                      </div>
+                      <div class="text-center">
+                        <button type="submit" [disabled]="contactForm.invalid" class="btn btn-lg btn-primary waves-light" mdbRippleRadius mdbInputValidate>Send</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+<ng-container *ngIf="layout === BlockTemplate.TWO_COLUMNS">
+    <div class="isv-block-name row">
+      <div class="col-12 pb-4">
+        <h4 class="h4-responsive grey-text text-uppercase"><strong>Contact Us</strong></h4>
+      </div>
+    </div>
+  <div class="isv-block-body row d-flex flex-grow">
+    <!--
+    <div class="isv-block-lead col-12 pb-4">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna.</p>
+    </div>
+    -->
+    <div class="isv-block-contact-form col-12">
+      <div class="row pb-1">
+        <div class="col-12 pb-2">
+          <form form *ngIf="contactForm" [formGroup]="contactForm" novalidate (ngSubmit)="onSave(contactForm.value, contactForm.valid)">
+            <div class="md-form">
+              <i class="fa fa-user prefix grey-text"></i>
+              <input type="text" id="name" formControlName="name" class="form-control" mdbActive>
+              <label class="active" for="name">Your name <span class="text-danger">*</span></label>
+            </div>
+
+            <div class="md-form">
+              <i class="fa fa-envelope prefix grey-text"></i>
+              <input type="text" id="email" formControlName="email" class="form-control" mdbActive>
+              <label class="active" for="email">Your email <span class="text-danger">*</span></label>
+            </div>
+
+            <div class="md-form">
+              <i class="fa fa-tag prefix grey-text"></i>
+              <input type="text" id="subject" formControlName="subject" class="form-control" mdbActive>
+              <label class="active" for="subject">Subject <span class="text-danger">*</span></label>
+            </div>
+
+            <div class="md-form">
+              <i class="fa fa-pencil prefix grey-text"></i>
+              <textarea type="text" id="message" formControlName="message" class="md-textarea" mdbActive></textarea>
+              <label class="active" for="message">Your message <span class="text-danger">*</span></label>
+            </div>
+            <div class="text-center">
+              <button type="submit" [disabled]="contactForm.invalid" class="btn btn-lg btn-primary waves-light" mdbRippleRadius>Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

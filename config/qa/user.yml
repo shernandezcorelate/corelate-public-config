@@ -1,0 +1,45 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: '{cipher}AQAtYdf1vv5EpQdU2a089HuIO6KRnUlWD6WDCefJxgfh3GcKlXVZJtIEV9LouBL422QLoZZWpdz/rk3bX+aXPyaxG6BFFoWw3pvM/NLDWhMEtfPvg1mZlUi0AgBBe4pxdXwNGU/9lVG9H7+G6d3OUxbkFBdEu8p4vgL0IPX2NsjjYoYll9l9BmUDWow3TWCCwjhGoSNnJRqqT7SWAu4eW8mT3dIDsAHvIghetFxen0QYNWyWN6aAvLROt3BCvu2WeYjqFnoO+FFZpZpMPrZ/A7rEwEND94BcQG9WokLSg/Vwz86PYpMrDzXg7ZFNLTyLBX8N6lsIqZuJ5dgLSPzhW1GCcY3H8UQzomjmIv9GlmagsYa8mfMpd+azxMFUVEXPmid3qwJwq9EMbuxrYX5AiK+MNUb3H3UVZUJkBeywt01suA=='
+
+user:
+  register:
+    enabled: true
+  password:
+    random-password-length: 6
+    reset-code:
+      validity: 86400
+      length: 32
+      header: FORGOT PASSWORD
+      template: USER_PASSWORD_RETRIEVE_TEMPLATE
+    update:
+      mail:
+        enabled: true
+        header: PASSWORD UPDATE
+        template: USER_PASSWORD_MAIL_TEMPLATE
+      sms:
+        enabled: false
+        template: USER_PASSWORD_SMS_TEMPLATE
+    reset:
+      mail:
+        enabled: true
+        header: PASSWORD UPDATE
+        template: USER_PASSWORD_MAIL_TEMPLATE
+      sms:
+        enabled: false
+        template: USER_PASSWORD_SMS_TEMPLATE
+  exception:
+    empty-password: Password should not be empty when mail activation is disabled
+  activation:
+    mail:
+      enabled: true
+      token-length: 32
+      header: EMAIL ACTIVATION
+      template: ACTIVATION_MAIL_TEMPLATE
+    sms:
+      enabled: false
+      token-length: 4
+      template: ACTIVATION_SMS_TEMPLATE

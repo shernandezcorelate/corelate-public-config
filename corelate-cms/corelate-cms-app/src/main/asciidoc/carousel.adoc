@@ -1,0 +1,37 @@
+[[resources-carousel-get]]
+=== Get carousel
+
+A `GET` request is used to retrieve the carousel.
+
+==== Example request
+
+include::{snippets}/carouselResource/get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/carouselResource/get/response-fields.adoc[]
+
+[[resources-carousel-update]]
+=== Updating the carousel
+
+A `PUT` request is used to update the carousel.
+
+==== Example request
+
+include::{snippets}/carouselResource/update/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/carouselResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/carouselResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/carouselResource/update/response-fields.adoc[]

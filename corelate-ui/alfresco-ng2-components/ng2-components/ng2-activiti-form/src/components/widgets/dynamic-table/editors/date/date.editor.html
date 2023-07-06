@@ -1,0 +1,17 @@
+<div>
+    <md-input-container class="adf-date-editor">
+        <label [attr.for]="column.id">{{column.name}} (d-M-yyyy)</label>
+        <input mdInput
+            id="dateInput"
+            type="text"
+            [mdDatepicker]="datePicker"
+            [value]="value"
+            [id]="column.id"
+            [required]="column.required"
+            [disabled]="!column.editable"
+           (focusout)="onDateChanged($event.srcElement.value)">
+            <button mdSuffix *ngIf="column.editable"
+            [mdDatepickerToggle]="datePicker" class="adf-date-editor-button"></button>
+    </md-input-container>
+    <md-datepicker #datePicker (selectedChanged)="onDateChanged($event)" [touchUi]="true"></md-datepicker>
+</div>

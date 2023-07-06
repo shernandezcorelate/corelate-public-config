@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    	<title>Site Title Here</title>
+    	<link href="../dist/css/app2.css" rel="stylesheet">
+	</head>
+	<body>
+    	<div class="container-fluid">
+			<header>
+        <ul class="nav-stacked side-nav">
+          <li><span class="glyphicon glyphicon glyphicon-cog" aria-hidden="true"></span>  Configure </li>
+            <li>
+              <button class="btn btn-info btn-xs btn-block" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-move" aria-hidden="true"></span> Blocks</button>
+              <button class="btn btn-info btn-xs btn-block" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-tint" aria-hidden="true"></span> Styles</button>
+	  				</li>
+          </ul>
+				<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+					<div class="navbar-header">
+						<!-- LOGO AND TEXT -->
+						<div class="col-xs-10 col-sm-5 col-md-4 col-lg-3">
+							<!--EDIT LOGO BUTTON -->
+							<button class="btn btn-warning btn-xs edit-button" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+							<a class="row navbar-brand edit element" href="#">
+								<div class="navbar-logo col-xs-3 col-sm-4 col-md-3 col-lg-3">
+									<img class="img-responsive" alt="Brand" src="http://via.placeholder.com/100x100?text=LOGO">
+								</div>
+								<div class="navbar-site-name col-xs-9 col-sm-8 col-md-8 col-lg-8">
+									<p class="navbar-title">Site Title Here</p>
+									<p class="navbar-subtitle">Site Tag Line Here</p>
+								</div>
+							</a>
+						</div>
+						<!-- WHOLE IMAGE
+						<div class="col-xs-10 col-sm-4 col-md-3 col-lg-2">
+							<! EDIT LOGO BUTTON GOES HERE>
+							<button class="btn btn-warning btn-xs edit-button" data-toggle="modal" data-target="#edit-logo"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+
+							<a class="row navbar-brand" href="#">
+								<div class="navbar-logo col-xs-12">
+									<img class="img-responsive" alt="Brand" src="http://via.placeholder.com/350x100?text=LOGO">
+								</div>
+							</a>
+						</div> -->
+						<div class="col-xs-2 col-sm-7 col-md-8 col-lg-9 header-right">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	  							 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+	  						</button>
+							  <!--LOGGED OUT
+							<div class="login">
+	  							<a class="btn btn-primary btn-sm" href="#" role="button">Log In</a>
+								<a class="btn btn-inverse btn-sm" href="#" role="button">Sign Up</a>
+	  						</div> -->
+							  <!--LOGGED IN -->
+							<div class="logout">
+								<div class="dropdown">
+								  <button class="btn btn-inverse dropdown-toggle user-info" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								    <div class="user">
+										<h5>Hello, Site Admin!</h5>
+										<h6>Admin</h6>
+									</div>
+								    <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu user-dropdown" aria-labelledby="dropdownMenu1">
+								    <li><a href="#">Profile</a></li>
+									<li><a href="#">Password</a></li>
+									<li class="divider">
+									<li><a href="#">Catalog History</a></li>
+									<li class="divider">
+									<li><a href="#">Log Out</a></li>
+								  </ul>
+								</div>
+	  						<div>
+						</div>
+						</div>
+	  				</div>
+
+				  </div>
+	  				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	  					<ul class="nav navbar-nav">
+	  						<li class="active">
+	  							<a href="#">Home</a>
+	  						</li>
+	  						<li class="dropdown">
+	  							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catalogs<strong class="caret"></strong></a>
+	  							<ul class="dropdown-menu">
+	  								<li><a href="#">Tariff</a></li>
+									<li><a href="#">Commodity Codes</a></li>
+									<li><a href="#">CO Catalog</a></li>
+									<li><a href="#">Agency Accreditations</a></li>
+									<li class="divider">
+									<li><a href="#">Regulated Imports</a></li>
+									<li><a href="#">Regulated Exports</a></li>
+									<li class="divider">
+									<li><a href="#">Business Registry</a></li>
+									<li><a href="#">PSCCC Registry</a></li>
+									<li><a href="#">Vessel Registry</a></li>
+									<li><a href="#">UOM Registry</a></li>
+									<li class="divider">
+									<li><a href="#">ForEx Rates</a></li>
+									<li><a href="#">Government Agencies</a></li>
+									<li><a href="#">WCO Member Countries</a></li>
+	  							</ul>
+	  						</li>
+							  <!--LOGGED OUT
+							<li class="login-nav"><a href="#">Log In</a></li>
+							<li class="login-nav"><a href="#">Register</a></li>
+							-->
+							<!--LOGGED IN -->
+							<li class="dropdown logout-nav">
+	  							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account Settings<strong class="caret"></strong></a>
+	  							<ul class="dropdown-menu">
+	  								<li><a href="#">Profile</a></li>
+									<li><a href="#">Password</a></li>
+									<li class="divider">
+									<li><a href="#">Catalog History</a></li>
+									<li class="divider">
+									<li><a href="#">Log Out</a></li>
+	  							</ul>
+	  						</li>
+	  					</ul>
+						  <ul class="nav navbar-nav navbar-right">
+      					  <li class="language-select"><span>Language</span>
+							<select class="form-control">
+ 							 <option>English</option>
+ 							 <option>German</option>
+ 							 <option>Chinese</option>
+ 							 <option>Japanese</option>
+ 							 <option>Korean</option>
+							</select>
+							</li>
+      					</ul>
+	  				</div>
+				</nav>
+			</header>
+
+    	<main class="home-container">
+	  		<section class="row slider">
+				<div class="edit-button">
+				<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+				
+				<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+				</div>
+				<div class="carousel slide" id="carousel-648431">
+	  				<div class="carousel-inner">
+	  					<div class="item active">
+	  						<img alt="Carousel Bootstrap First" src="http://via.placeholder.com/1980x1080?text=SLIDE IMAGE" />
+	  						<div class="carousel-caption">
+	  							<h3>
+	  								Slide Title
+	  							</h3>
+	  							<p>
+	  								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+	  							</p>
+								  <a class="btn btn-primary" href="#">READ MORE</a>
+	  						</div>
+	  					</div>
+	  					<div class="item">
+	  						<img alt="Carousel Bootstrap Second" src="http://via.placeholder.com/1980x1080?text=SLIDE IMAGE" />
+	  						<div class="carousel-caption">
+	  							<a href="#">
+									<h2>
+	  									Slide Title 2
+	  								</h2>
+								</a>
+	  							<p>
+	  								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+	  							</p>
+	  						</div>
+	  					</div>
+	  					<div class="item">
+	  						<a href="#"><img alt="Carousel Bootstrap Third" src="http://via.placeholder.com/1980x1080?text=SLIDE IMAGE" /></a>
+	  					</div>
+	  				</div> <a class="left carousel-control" href="#carousel-648431" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-648431" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+	  			</div>
+	  		</section>
+			<section class="row content">
+				<div class="edit-button">
+				<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+				
+				<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+				</div>
+					<div class="text-block col-md-12 text-center">
+	  					<h2 class="text-uppercase text-serif">
+	  						Simple Text Block Layout
+	  					</h2>
+	  					<p>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  					</p>
+						<a class="btn btn-default" href="#">Read More &raquo;</a>
+					</div>
+			</section>
+			<hr />
+			<section class="row content">
+				<div class="edit-button">
+				<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+				
+				<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+				</div>
+					<div class="grid-block col-md-12 text-center">
+						<h2 class="text-uppercase text-serif">
+	  						Grid Layout
+	  					</h2>
+					</div>
+					<div class="grid-block col-xs-6 col-sm-4 col-md-3 text-center">
+						<img class="img-responsive center-block grid-image" alt="Brand" src="http://via.placeholder.com/120x120?text=IMAGE">
+	  					<h4 class="text-serif">
+	  						Fast
+	  					</h4>
+	  					<p><small>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  					</small></p>
+						<a class="btn btn-default btn-sm" href="#">Read More &raquo;</a>
+					</div>
+					<div class="grid-block col-xs-6 col-sm-4 col-md-3 text-center">
+						<img class="img-responsive center-block grid-image" alt="Brand" src="http://via.placeholder.com/120x120?text=IMAGE">
+	  					<h4 class="text-serif">
+	  						Easy
+	  					</h4>
+	  					<p><small>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  					</small></p>
+						<a class="btn btn-default btn-sm" href="#">Read More &raquo;</a>
+					</div>
+					<div class="grid-block col-xs-6 col-sm-4 col-md-3 text-center">
+						<img class="img-responsive center-block grid-image" alt="Brand" src="http://via.placeholder.com/120x120?text=IMAGE">
+	  					<h4 class="text-serif">
+	  						Convenient
+	  					</h4>
+	  					<p><small>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  					</small></p>
+						<a class="btn btn-default btn-sm" href="#">Read More &raquo;</a>
+					</div>
+					<div class="grid-block col-xs-6 col-sm-4 col-md-3 text-center">
+						<img class="img-responsive center-block grid-image" alt="Brand" src="http://via.placeholder.com/120x120?text=IMAGE">
+	  					<h4 class="text-serif">
+	  						Efficient
+	  					</h4>
+	  					<p><small>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  					</small></p>
+						<a class="btn btn-default btn-sm" href="#">Read More &raquo;</a>
+					</div>
+					<div class="grid-block col-xs-6 col-sm-4 col-md-3 text-center">
+						<img class="img-responsive center-block grid-image" alt="Brand" src="http://via.placeholder.com/120x120?text=IMAGE">
+	  					<h4 class="text-serif">
+	  						Fast
+	  					</h4>
+	  					<p><small>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  					</small></p>
+						<a class="btn btn-default btn-sm" href="#">Read More &raquo;</a>
+					</div>
+					<div class="grid-block col-xs-6 col-sm-4 col-md-3 text-center">
+						<img class="img-responsive center-block grid-image" alt="Brand" src="http://via.placeholder.com/120x120?text=IMAGE">
+	  					<h4 class="text-serif">
+	  						Easy
+	  					</h4>
+	  					<p><small>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  					</small></p>
+						<a class="btn btn-default btn-sm" href="#">Read More &raquo;</a>
+					</div>
+					<div class="grid-block col-xs-6 col-sm-4 col-md-3 text-center">
+						<img class="img-responsive center-block grid-image" alt="Brand" src="http://via.placeholder.com/120x120?text=IMAGE">
+	  					<h4 class="text-serif">
+	  						Convenient
+	  					</h4>
+	  					<p><small>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  					</small></p>
+						<a class="btn btn-default btn-sm" href="#">Read More &raquo;</a>
+					</div>
+					<div class="grid-block col-xs-6 col-sm-4 col-md-3 text-center">
+						<img class="img-responsive center-block grid-image" alt="Brand" src="http://via.placeholder.com/120x120?text=IMAGE">
+	  					<h4 class="text-serif">
+	  						Efficient
+	  					</h4>
+	  					<p><small>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  					</small></p>
+						<a class="btn btn-default btn-sm" href="#">Read More &raquo;</a>
+					</div>
+			</section>
+			<hr />
+			<section class="row content">
+					<div class="faq-block col-sm-6 col-md-6">
+						<div class="edit-button">
+						<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+						
+						<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+						</div>
+						<div class="text-left">
+	  					<h3 class="text-uppercase text-serif">
+	  						Frequently Asked Questions
+	  					</h3>
+	  					<p>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna.
+	  					</p>
+						<div class="faq-item">
+							<a href="#"><p>Question Item One</p></a>
+							<a href="#"><p>Question Item Two</p></a>
+							<a href="#"><p>Question Item Three</p></a>
+							<a href="#"><p>Question Item Four</p></a>
+							<a href="#"><p>Question Item Five</p></a>
+						</div>
+						</div>
+						<div class="text-right">
+						<a class="btn btn-primary btn-sm" href="#">See All Frequently Asked Questions &raquo;</a>
+						</div>
+					</div>
+					<div class="support-block col-sm-6 col-md-6">
+						<div class="edit-button">
+						<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+						
+						<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+						</div>
+						<div class="text-left">
+	  					<h3 class="text-uppercase text-serif">
+	  						Help Topics
+	  					</h3>
+	  					<p>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna.
+	  					</p>
+						<div class="support-item">
+							<a href="#"><p>Help Item One</p></a>
+							<a href="#"><p>Help Item Two</p></a>
+							<a href="#"><p>Help Item Three</p></a>
+							<a href="#"><p>Help Item Four</p></a>
+							<a href="#"><p>Help Item Five</p></a>
+						</div>
+						</div>
+						<div class="text-right">
+						<a class="btn btn-primary btn-sm" href="#">See All Help Topics &raquo;</a>
+						</div>
+					</div>
+			</section>
+      <hr />
+			<section class="row content">
+				<div class="edit-button">
+				<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+				
+				<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+				</div>
+					<div class="article-block col-md-12 text-center">
+            <h2 class="text-uppercase text-serif article-item">
+	  					  Latest News
+	  				</h2>
+						<div class="row article-item">
+							<div class="col-sm-offset-1 col-sm-4">
+                <a href="#" class="pull-right"><img class="img-responsive" alt="Article" src="http://via.placeholder.com/250x250?text=IMAGE"></a>
+              </div>
+              <div class="col-sm-7 text-left">
+                <a href="#">
+                  <h3 class="text-uppercase text-serif">
+	  					  	  Single Column Article Layout
+	  					    </h3>
+                </a>
+                <p>
+	  							Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  						</p>
+              </div>
+              
+						</div>
+            <div class="row text-center">
+						  <a class="btn btn-primary" href="#">View More News Articles &raquo;</a>
+						</div>
+					</div>
+			</section>
+			<hr />
+			<section class="row content">
+					<div class="faq-block col-sm-6 col-md-6">
+						<div class="edit-button">
+						<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+						
+						<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+						</div>
+						<div class="text-left">
+	  					<h3 class="text-uppercase text-serif">
+	  						News
+	  					</h3>
+						<div class="news-item">
+						<div class="media">
+	  						<a href="#" class="pull-left"><img class="img-responsive" alt="Article" src="http://via.placeholder.com/150x150?text=IMAGE"></a>
+	  						<div class="media-body">
+	  							<a href="#"><h4 class="media-heading text-serif">
+	  								Nested media heading
+	  							</h4></a>
+								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	  						</div>
+	  					</div>
+						<div class="media">
+	  						<a href="#" class="pull-left"><img class="img-responsive" alt="Article" src="http://via.placeholder.com/150x150?text=IMAGE"></a>
+	  						<div class="media-body">
+	  							<a href="#"><h4 class="media-heading text-serif">
+	  								Nested media heading
+	  							</h4></a>
+								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	  						</div>
+	  					</div>
+						</div>
+						</div>
+						<div class="text-right">
+						<a class="btn btn-primary btn-sm" href="#">View More News Articles &raquo;</a>
+						</div>
+					</div>
+					<div class="support-block col-sm-6 col-md-6">
+						<div class="edit-button">
+						<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+						
+						<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+						</div>
+						<div class="text-left">
+	  					<h3 class="text-uppercase text-serif">
+	  						Announcements
+	  					</h3>
+						<div class="announce-item">
+						<div class="media">
+	  						<a href="#" class="pull-left"><img class="img-responsive" alt="Article" src="http://via.placeholder.com/150x150?text=IMAGE"></a>
+	  						<div class="media-body">
+	  							<a href="#"><h4 class="media-heading text-serif">
+	  								Nested media heading
+	  							</h4></a>
+								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	  						</div>
+	  					</div>
+						<div class="media">
+	  						<a href="#" class="pull-left"><img class="img-responsive" alt="Article" src="http://via.placeholder.com/150x150?text=IMAGE"></a>
+	  						<div class="media-body">
+	  							<a href="#"><h4 class="media-heading text-serif">
+	  								Nested media heading
+	  							</h4></a>
+								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	  						</div>
+	  					</div>
+						</div>
+						</div>
+						<div class="text-right">
+						<a class="btn btn-primary btn-sm" href="#">View All Announcements &raquo;</a>
+						</div>
+					</div>
+			</section>
+			<hr />
+			<section class="row content">
+					<div class="faq-block col-sm-6 col-md-6">
+						<div class="edit-button">
+						<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+						
+						<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+						</div>
+						<div class="text-left">
+	  					<h3 class="text-uppercase text-serif">
+	  						Advocacies
+	  					</h3>
+						<div class="advocacy-item">
+						<div class="media">
+	  						<a href="#" class="pull-left"><img class="img-responsive" alt="Article" src="http://via.placeholder.com/150x150?text=IMAGE"></a>
+	  						<div class="media-body">
+	  							<a href="#"><h4 class="media-heading text-serif">
+	  								Nested media heading
+	  							</h4></a>
+								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	  						</div>
+	  					</div>
+						<div class="media">
+	  						<a href="#" class="pull-left"><img class="img-responsive" alt="Article" src="http://via.placeholder.com/150x150?text=IMAGE"></a>
+	  						<div class="media-body">
+	  							<a href="#"><h4 class="media-heading text-serif">
+	  								Nested media heading
+	  							</h4></a>
+								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	  						</div>
+	  					</div>
+						</div>
+						</div>
+						<div class="text-right">
+						<a class="btn btn-primary btn-sm" href="#">View All Advocacies &raquo;</a>
+						</div>
+					</div>
+					<div class="support-block col-sm-6 col-md-6">
+						<div class="edit-button">
+						<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+						
+						<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+						</div>
+						<div class="text-left">
+	  					<h3 class="text-uppercase text-serif">
+	  						Events
+	  					</h3>
+						<div class="events-item">
+						<div class="media">
+	  						<a href="#" class="pull-left"><img class="img-responsive" alt="Article" src="http://via.placeholder.com/150x150?text=IMAGE"></a>
+	  						<div class="media-body">
+	  							<a href="#"><h4 class="media-heading text-serif">
+	  								Nested media heading
+	  							</h4></a>
+								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	  						</div>
+	  					</div>
+						<div class="media">
+	  						<a href="#" class="pull-left"><img class="img-responsive" alt="Article" src="http://via.placeholder.com/150x150?text=IMAGE"></a>
+	  						<div class="media-body">
+	  							<a href="#"><h4 class="media-heading text-serif">
+	  								Nested media heading
+	  							</h4></a>
+								Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	  						</div>
+	  					</div>
+						</div>
+						</div>
+						<div class="text-right">
+						<a class="btn btn-primary btn-sm" href="#">View All Events &raquo;</a>
+						</div>
+					</div>
+			</section>
+			<hr />
+			<section class="row content">
+				<div class="contact-form col-md-6">
+					<div class="edit-button">
+				<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+				
+				<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+				</div>
+					<div class="contact-form-block">
+	  					<h3 class="text-uppercase text-serif">
+	  						Contact Us
+	  					</h3>
+	  					<p>
+	  						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  					</p>
+
+						  <form class="form-horizontal" role="form">
+	  						<div class="form-group">
+
+	  						<label class="col-sm-offset-2 col-sm-2 control-label">
+	  							Full Name
+	  						</label>
+	  						<div class="col-sm-6">
+	  							<input type="text" class="form-control" id="name" />
+	  						</div>
+	  					</div>
+	  					<div class="form-group">
+
+	  						<label class="col-sm-offset-2 col-sm-2 control-label">
+	  							Email
+	  						</label>
+	  						<div class="col-sm-6">
+	  							<input type="email" class="form-control" id="email" />
+	  						</div>
+	  					</div>
+						  <div class="form-group">
+
+	  						<label class="col-sm-offset-2 col-sm-2 control-label">
+	  							Concern
+	  						</label>
+	  						<div class="col-sm-6">
+								  <select class="form-control" id="concern">
+								    <option>Marketing</option>
+								    <option>Sales</option>
+								    <option>3</option>
+								    <option>4</option>
+								  </select>
+	  						</div>
+	  					</div>
+						  <div class="form-group">
+
+	  						<label class="col-sm-offset-2 col-sm-2 control-label">
+	  							Message
+	  						</label>
+	  						<div class="col-sm-6">
+	  							<textarea class="form-control" id="message" rows="6"></textarea>
+	  						</div>
+	  					</div>
+						  <div class="form-group">
+
+	  						<div class="col-sm-offset-2 col-sm-2 control-label">
+
+	  						</div>
+	  						<div class="col-sm-6 text-center">
+	  							<button type="submit" class="btn btn-primary">
+	  								Send
+	  							</button>
+	  						</div>
+	  					</div>
+	  				</form>
+					</div>
+				</div>
+				<div class="contact-info col-md-6">
+				    <div class="row">
+						<div class="contact-info-block col-md-12">
+
+				      	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7098.94326104394!2d78.0430654485247!3d27.172909818538997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1385710909804" width="100%" height="300" frameborder="0" style="border:0"></iframe>
+				    	<div class="row">
+							<div class="col-md-12">
+								<h3 class="text-uppercase text-serif">
+	  						Contact Information
+	  						</h3>
+							  </div>
+							  <div class="col-md-6">
+							<p>
+	  							Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  						</p>
+							  </div>
+							  <div class="col-md-6">
+							<p>
+	  							Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  						</p>
+							  </div>
+							  </div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+			<hr />
+			<section class="row content">
+				<div class="edit-button">
+				<button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+				
+				<button class="btn btn-danger btn-xs" data-toggle="modal"><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+				</div>
+					<div class="tab-block col-md-12 text-center">
+	  					<h2 class="text-uppercase text-serif">
+	  						Simple Tab Block Layout
+	  					</h2>
+						<div class="row">
+							<div class="col-sm-offset-2 col-sm-8">
+								<div class="tabbable" id="tabs-689088">
+	  								<ul class="nav nav-tabs">
+	  									<li class="active">
+	  										<a href="#panel-343088" data-toggle="tab">Tab One</a>
+	  									</li>
+	  									<li>
+	  										<a href="#panel-848225" data-toggle="tab">Tab Two</a>
+	  									</li>
+	  								</ul>
+	  								<div class="tab-content">
+	  									<div class="tab-pane active" id="panel-343088">
+	  										<div class="row">
+	  											<h3 class="text-serif">
+	  												Tab 1
+	  											</h3>
+	  											<p>
+	  												Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  											</p>
+												  </div>
+	  									</div>
+	  									<div class="tab-pane" id="panel-848225">
+	  										<div class="row">
+	  											<h3 class="text-serif">
+	  												Tab 2
+	  											</h3>
+	  											<p>
+	  												Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.<br /> Aliquam eget sapien sapien. <br />Curabitur in metus urna.
+	  											</p>
+											</div>
+	  									</div>
+	  								</div>
+	  							</div>
+							</div>
+						</div>
+
+					</div>
+			</section>
+    	</main>
+    	<div class="row">
+	  	<div class="col-md-12">
+
+	  		 <a id="modal-207855" href="#modal-container-207855" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+
+	  		<div class="modal fade" id="modal-container-207855" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  			<div class="modal-dialog">
+	  				<div class="modal-content">
+	  					<div class="modal-header">
+
+	  						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+	  							×
+	  						</button>
+	  						<h4 class="modal-title" id="myModalLabel">
+	  							Modal title
+	  						</h4>
+	  					</div>
+	  					<div class="modal-body">
+	  						...
+	  					</div>
+	  					<div class="modal-footer">
+
+	  						<button type="button" class="btn btn-default" data-dismiss="modal">
+	  							Close
+	  						</button>
+	  						<button type="button" class="btn btn-primary">
+	  							Save changes
+	  						</button>
+	  					</div>
+	  				</div>
+
+	  			</div>
+
+	  		</div>
+	  	</div>
+    	</div>
+    </div>
+
+	<!-- EDIT MODAL -->
+	<div class="modal fade bs-example-modal-lg" id="edit" tabindex="-1" role="dialog" aria-labelledby="editLogoLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="js-title-step"></h4>
+	      </div>
+	      <div class="modal-body">
+		      <div class="row" data-step="1" data-title="Edit Site Logo">
+				  <h5>Pick a style:</h5>
+		          <div class="jumbotron">
+
+					  <button type="button" class="btn btn-warning js-btn-step" data-orientation="next" data-step="2">Logo Image</button>
+					  <button type="button" class="btn btn-warning js-btn-step" data-orientation="next" data-step="3">Logo and Text</button>
+				  </div>
+		      </div>
+		      <div class="row hide" data-step="2" data-title="Logo Image">
+				  <h5>Logo Image</h5>
+		          <div class="jumbotron">As you can see, this is the second and last step!</div>
+		      </div>
+			  <div class="row hide" data-step="3" data-title="Logo and Text">
+				  <h5>Logo and Text</h5>
+		          <div class="jumbotron">As you can see, this is the second and last step!</div>
+		      </div>
+		  </div>
+	      <!-- <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div> -->
+		  <div class="modal-footer">
+		      <button type="button" class="btn btn-default js-btn-step pull-left" data-orientation="cancel" data-dismiss="modal">Cancel</button>
+		      <button type="button" class="btn btn-warning js-btn-step" data-orientation="previous" data-step="0" disabled="disabled">Previous</button>
+		      <button type="button" class="btn btn-success js-btn-step" data-orientation="next">Next</button>
+			  <button type="button" class="btn btn-warning js-btn-step" data-orientation="previous" data-step="0" disabled="disabled"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
+		  </div>
+	    </div>
+	  </div>
+	</div>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="../dist/js/jquery-bootstrap-modal-steps.js"></script>
+	<script type="text/javascript">
+        $('#edit').modalSteps({
+            btnCancelHtml: '<span class="glyphicon glyphicon-remove"></span> Quit',
+            btnPreviousHtml: '<span class="glyphicon glyphicon-chevron-left"></span> Back',
+            btnNextHtml: '<span class="glyphicon glyphicon-chevron-right"></span> Go',
+            btnLastStepHtml: '<span class="glyphicon glyphicon-fire"></span> Finish'
+        });
+	</script>
+  </body>
+</html>

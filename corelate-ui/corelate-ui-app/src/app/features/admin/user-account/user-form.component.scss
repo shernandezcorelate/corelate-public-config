@@ -1,0 +1,28 @@
+.isv-admin-user-new__title h3,
+.isv-admin-user-new__title h4 {
+  font-weight: 300 !important;
+}
+.isv-admin-user-new__input {
+
+  .form-control[readonly] {
+    border-bottom: 0 !important;
+  }
+
+}
+
+table {
+  td {
+    word-break: break-word;
+
+    &:first-child {
+      min-width: 10em;
+
+      p {
+        font-size: 1.3rem;
+      }
+    }
+    &:nth-child(2) {
+      min-width: 20em;
+    }
+  }
+}

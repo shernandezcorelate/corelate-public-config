@@ -1,0 +1,182 @@
+<header>
+  <ul id="slide-out" class="isv-sidenav blue darken-4 side-nav fixed custom-scrollbar">
+    <li>
+      <div class="isv-brand logo-wrapper d-inline-flex pt-4">
+        <!--Logo Image Text -->
+        <!--
+        <div class="isv-brand row d-inline-flex align-self-center py-3">
+          <div *ngIf="header.showImage" class="isv-brand__img col-4 col-sm-4 col-xl-3 align-self-center">
+            <img src="{{imageSourceUrl}}/{{header.file}}" class="img-fluid" alt="Site Name">
+          </div>
+          <div *ngIf="header.showLabel" class="isv-brand__label col-8 col-sm-8 col-xl-9 d-inline-flex justify-content-start pl-0">
+            <div class="isv-brand__site-title align-self-center">
+              <h4 [ngStyle]="{'color': header.labelColor}" class="h4-responsive mb-0"><strong>{{ header.label }}csacasc</strong></h4>
+              <p class="mb-0"><small>{{ header.subLabel }}ascascasc</small></p>
+            </div>
+          </div>
+        </div>
+        -->
+        <!--Logo Image-->
+        <img src="assets/images/logo-corelate.png" class="isv-brand img-fluid align-self-center" alt="Corelate">
+      </div>
+    </li>
+      <hr class="clearfix mx-3">
+      <li class="text-center">
+        <button routerLink="/" class="btn btn-md light-green darken-2 waves-light" mdbRippleRadius><i class="fa fa-home pr-1"></i> Go to Website </button>
+      </li>
+      <li class="text-center">
+        <button routerLink="/dashboard" class="btn btn-md pink darken-2 waves-light" mdbRippleRadius><i class="fa fa-dashboard pr-1"></i> Go to Dashboard </button>
+      </li>
+      <hr class="clearfix mx-3">
+    <li>
+      <ul class="collapsible collapsible-accordion">
+        <mdb-squeezebox [multiple]="false" aria-multiselectable="false">
+          <!-- Inbox -->
+          <mdb-item class="no-collase" *isAuthorized="['INBOX_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/inbox"><i class="fa fa-envelope"></i> Inbox</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <!--CMS -->
+          <ng-container *isAuthorized="['CAROUSEL_VIEW','GENERAL_CONTENTS_VIEW','FAQ_VIEW','HELP_TOPICS_VIEW','CONTACT_INFO_VIEW','CUSTOM_CONTENT_VIEW','GRID_VIEW','SITE_HEAD_VIEW','HEADER_VIEW','FOOTER_VIEW']">
+            <hr class="clearfix mx-3">
+            <p class="isv-sidenav__header grey-text"><i class="fa fa-list-alt"></i> Manage Content</p>
+          </ng-container>
+          <mdb-item class="no-collase" *isAuthorized="['CMS_ADMIN','CAROUSEL_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/carousel">Carousel</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['CMS_ADMIN','GENERAL_CONTENTS_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/general-content">General Contents</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['CMS_ADMIN','FAQ_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/faq">FAQs</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['CMS_ADMIN','HELP_TOPICS_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/online-help">Help Topics</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['CONTACT_INFO_EDIT']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/contact-info">Contact Info</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['CUSTOM_CONTENT_EDIT']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/custom-content">Custom Content</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['GRID_EDIT']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/grid">Grid</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['SITE_HEAD_EDIT']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/site-head">Site Head</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['HEADER_EDIT']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/header">Header</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['FOOTER_EDIT']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/footer">Footer</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <!--Manage Catalog -->
+          <ng-container *isAuthorized="['CATALOG_ADMIN','CATALOG_VIEW']">
+            <hr class="clearfix mx-3">
+            <p class="isv-sidenav__header grey-text"><i class="fa fa-th-large"></i> Manage Catalog</p>
+          </ng-container>
+          <mdb-item class="no-collase" *isAuthorized="['CATALOG_ADMIN','CATALOG_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/catalog">Catalog</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <!--Manage Design -->
+          <ng-container *isAuthorized="['COLOR_CONFIGURATION_EDIT']">
+            <hr class="clearfix mx-3">
+            <p class="isv-sidenav__header grey-text"><i class="fa fa-th-large"></i> Manage Design</p>
+          </ng-container>
+          <mdb-item class="no-collase" *isAuthorized="['COLOR_CONFIGURATION_EDIT']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/color-config">Color Configuration</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <!--Site Settings -->
+          <hr class="clearfix mx-3">
+          <p class="isv-sidenav__header grey-text"><i class="fa fa-cogs"></i> Site Settings</p>
+          <mdb-item class="no-collase" *isAuthorized="['USER_ADMIN','USER_MANAGEMENT_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/user">Users</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['PERMISSIONS_ADMIN','PERMISSION_MANAGEMENT_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/permission">Permissions</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['PERMISSIONS_ADMIN','USER_GROUPS_MANAGEMENT_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/group">Groups</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['RULES_ADMIN','RULES_ENGINE_MANAGEMENT_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/rules-engine">Rules Engine</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <mdb-item class="no-collase" *isAuthorized="['CMS_ADMIN','EMAIL_TEMPLATES_MANAGEMENT_VIEW']">
+            <mdb-item-head mdbRippleRadius routerLink="/admin/text-template">Email Templates</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <!--TEMPORARY-->
+          <!--<hr class="clearfix mx-3">-->
+          <!--<p class="isv-sidenav__header grey-text"><i class="fa fa-cogs"></i> Activiti</p>-->
+          <!--<mdb-item class="no-collase">-->
+            <!--<mdb-item-head mdbRippleRadius routerLink="/admin/task-form/1">Task Forms</mdb-item-head>-->
+            <!--<mdb-item-body></mdb-item-body>-->
+          <!--</mdb-item>-->
+          <!--<mdb-item class="no-collase">-->
+            <!--<mdb-item-head mdbRippleRadius routerLink="/activiti">Activiti Demo</mdb-item-head>-->
+            <!--<mdb-item-body></mdb-item-body>-->
+          <!--</mdb-item>-->
+
+          <!-- Shopping Cart -->
+          <ng-container *isAuthorized="['CONSUMER','WORKFLOW_DESIGNER','SHOPPING_CART_VIEW']">
+            <hr class="clearfix mx-3">
+            <mdb-item class="no-collase">
+              <mdb-item-head mdbRippleRadius routerLink="/admin/shopping-cart"><i class="fa fa-shopping-cart"></i> Shopping Cart</mdb-item-head>
+              <mdb-item-body></mdb-item-body>
+            </mdb-item>
+          </ng-container>
+
+          <!--API -->
+          <hr class="clearfix mx-3">
+          <mdb-item>
+            <mdb-item-head mdbRippleRadius><i class="fa fa-file-text-o"></i> API Documentation</mdb-item-head>
+            <mdb-item-body>
+              <ul>
+                <li><a [routerLink]="['/api/docs', 'catalog']" class="dropdown-item waves-light" mdbRippleRadius>Catalog</a></li>
+                <li><a [routerLink]="['/api/docs', 'cms']" class="dropdown-item waves-light" mdbRippleRadius>CMS</a></li>
+                <li><a [routerLink]="['/api/docs', 'rules']" class="dropdown-item waves-light" mdbRippleRadius>Rules</a></li>
+                <li><a [routerLink]="['/api/docs', 'shopping-cart']" class="dropdown-item waves-light" mdbRippleRadius>Shopping Cart</a></li>
+                <li><a [routerLink]="['/api/docs', 'user']" class="dropdown-item waves-light" mdbRippleRadius href="#">User</a></li>
+              </ul>
+            </mdb-item-body>
+          </mdb-item>
+          <!--Account Settings -->
+          <hr class="clearfix mx-3">
+          <p class="isv-sidenav__header grey-text"><i class="fa fa-user-o"></i> Account Settings</p>
+          <mdb-item class="no-collase">
+            <mdb-item-head mdbRippleRadius routerLink="/my-profile">Profile</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <!-- System Info -->
+          <hr class="clearfix mx-3">
+          <mdb-item class="no-collase">
+              <mdb-item-head mdbRippleRadius routerLink="/admin/system/info"><i class="fa fa-info"></i> System Info</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+          <hr class="clearfix mx-3">
+          <mdb-item class="no-collase">
+            <mdb-item-head (click)="logout()" mdbRippleRadius><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</mdb-item-head>
+            <mdb-item-body></mdb-item-body>
+          </mdb-item>
+        </mdb-squeezebox>
+      </ul>
+    </li>
+  </ul>
+</header>

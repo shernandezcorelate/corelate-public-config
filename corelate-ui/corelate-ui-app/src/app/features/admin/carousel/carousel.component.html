@@ -1,0 +1,120 @@
+<div class="isv-admin-carousel">
+  <ng-container *ngIf="(modal && !showForm) || !modal">
+    <div class="row pt-1">
+      <div class="isv-admin-carousel__title col-12">
+        <h3 class="h3-responsive w-75 float-left pt-0">
+          Carousel Management
+        </h3>
+        <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </div>
+    <hr class="mb-4 mt-3"/>
+  </ng-container>
+
+  <ng-container *ngIf="!showForm">
+    <ng-container *ngIf="carousel">
+      <form (ngSubmit)="onSave(carouselForm)" #carouselForm="ngForm">
+        <div class="row">
+          <div class="isv-admin-carousel__new col-12 text-right">
+            <button *isAuthorized="['CAROUSEL_ADD']" (click)="editSlide()" class="btn btn-md blue darken-1 waves-effect waves-light" type="button"><i class="fa fa-plus pr-1" aria-hidden="true"></i> {{ 'CAROUSEL.MANAGEMENT.ADD_NEW' | translate }}</button>
+          </div>
+        </div>
+        <div class="row p-4">
+          <div class="col-12 px-0">
+            <ngx-datatable
+                          class="custom"
+                          [rows]="carouselSlides"
+                          [columnMode]="'force'"
+                          [footerHeight]="'auto'"
+                          [rowHeight]="'auto'"
+                          [externalPaging]="true"
+                          [count]="params.totalElements"
+                          [offset]="params.page"
+                          [limit]="params.size"
+                          (page)='setPage($event)'>
+              <ngx-datatable-column name="header">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <strong>{{ 'CAROUSEL.TABLE.COLUMN.HEADER' | translate }}</strong>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <h4 class="title h4-responsive blue-text py-2 mb-0 pl-2 mr-3">
+                    <a *isAuthorized="['CAROUSEL_EDIT']" (click)="editSlide(row.id)" class="clickable blue-text">{{ row.header }}</a>
+                    <span *isNotAuthorized="['CAROUSEL_EDIT']">{{ row.header }}</span>
+                  </h4>
+                  <p class="content grey-text mb-0 pl-2"><small>{{ value }}</small></p>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="published">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <strong>{{ 'CAROUSEL.TABLE.COLUMN.PUBLISHED' | translate }}</strong>
+                </ng-template>
+                <ng-template let-value="value" ngx-datatable-cell-template class="text-center">
+                  <div class="text-center py-3">
+                    <h3 class="green-text m-0 p-0"><i *ngIf="value" class="fa fa-check"></i>
+                    <span class="red-text"><i *ngIf="!value" class="fa fa-times"></i></span></h3>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column>
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <strong>Actions</strong>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <div class="text-center py-3">
+                    <button *isAuthorized="['CAROUSEL_DELETE']" (click)="deleteSlide(row)" type="button" class="btn btn-sm isv-btn-carousel-list btn-red waves-light my-0" mdbRippleRadius mdbTooltip="Delete" placement="top">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+
+                    <ng-container *isAuthorized="['CAROUSEL_PUBLISH']">
+                      <button *ngIf="row.published" (click)="unPublishSlide(row.id)" type="button" class="btn btn-sm isv-btn-carousel-list btn-deep-purple waves-light my-0" mdbTooltip="Unpublish" mdbRippleRadius>
+                        <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                      </button>
+
+                      <button *ngIf="!row.published" (click)="publishSlide(row.id)" type="button" class="btn btn-sm isv-btn-carousel-list btn-deep-purple waves-light my-0" mdbTooltip="Publish" mdbRippleRadius>
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                      </button>
+                    </ng-container>
+
+                    <button *isAuthorized="['CAROUSEL_EDIT']" (click)="editSlide(row.id)" type="button" class="btn btn-sm isv-btn-carousel-list btn-amber waves-light my-0" mdbRippleRadius mdbTooltip="Edit" placement="top">
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+        <hr />
+        <div class="row p-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div *isAuthorized="['CAROUSEL_EDIT']" [ngClass]="{ 'field-error': !interval.valid && (!interval.pristine || carouselForm.submitted) }" class="md-form input-group pl-0 mb-0">
+                <input mdbActive [(ngModel)]="carousel.interval" #interval="ngModel" type="number" min="1" id="interval" class="form-control pt-1" name="interval" required mdbInputValidate>
+                <label for="interval" class="active">Slide {{ 'CAROUSEL.FORM.INTERVAL' | translate }} (seconds) <span class="text-danger">*</span></label>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn light-green darken-2 waves-effect waves-light mb-0" [disabled]="interval.invalid">{{ 'GENERIC_FORM.BTN.UPDATE_INTERVAL' | translate }}</button>
+                </span>
+            </div>
+            <div *isNotAuthorized="['CAROUSEL_EDIT']">
+              <span>Slide {{ 'CAROUSEL.FORM.INTERVAL' | translate }} : {{ carousel.interval }} seconds</span>
+            </div>
+          </div>
+          <div class="col"></div>
+        </div>
+      </form>
+    </ng-container>
+    <ng-container *ngIf="!carousel">
+      <div class="row p-4">
+        <div class="col-12 text-center m-4 p-4">
+          <mdb-spinner spinnerType="small" spinnerColor="blue"></mdb-spinner>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+<ng-container *ngIf="showForm">
+  <corelate-ui-carousel-slide-form [id]="selectedId" [modal]="modal" (onModalSave)="saveModal()" (onModalCancel)="cancelModal()"></corelate-ui-carousel-slide-form>
+</ng-container>
+
+<div [ngBusy]="carouselSaveSubs"></div>

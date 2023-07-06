@@ -1,0 +1,12 @@
+{
+  "name": "corelate-dw-connector",
+  "config": {
+    "topics": "workflow_data",
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "connection.url": "jdbc:postgresql://corelate_bpmn_db/isv_corelate_dw",
+    "connection.user": "postgres",
+    "connection.password": "postgres",
+    "auto.create": true,
+    "auto.evolve": true
+  }
+}

@@ -1,0 +1,37 @@
+[[resources-color-config-get]]
+=== Get color configuration
+
+A `GET` request is used to retrieve the color configuration.
+
+==== Example request
+
+include::{snippets}/colorConfigResource/get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/colorConfigResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/colorConfigResource/get/response-fields.adoc[]
+
+[[resources-color-config-update]]
+=== Updating color configuration
+
+A `PUT` request is used to update the color configuration.
+
+==== Example request
+
+include::{snippets}/colorConfigResource/update/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/colorConfigResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/colorConfigResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/colorConfigResource/update/response-fields.adoc[]

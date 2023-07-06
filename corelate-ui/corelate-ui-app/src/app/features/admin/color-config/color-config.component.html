@@ -1,0 +1,203 @@
+<div class="isv-admin-color-config">
+  <div class="row pt-1">
+    <div class="isv-admin-header__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Color Configuration
+      </h3>
+      <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+  <form *ngIf="colorConfigForm" [formGroup]="colorConfigForm" novalidate (ngSubmit)="onSave(colorConfigForm.value, colorConfigForm.valid)">
+    <div class="row">
+      <div class="col-12 col-lg-6 p-4" formGroupName="header">
+        <div class="card">
+          <div class="card-header indigo white-text">
+            Header
+          </div>
+          <div class="card-body">
+            <div class="md-form">
+              <i [ngStyle]="{'color':colorConfigForm.value.header.backgroundColor}" class="fa fa-circle prefix"></i>
+              <input
+                [(colorPicker)]="colorConfigForm.value.header.backgroundColor"
+                (colorPickerChange)="onChangeColor($event, 'header.backgroundColor')"
+                [cpPosition]="'bottom'"
+                mdbActive
+                type="text"
+                id="header-backgroundColor"
+                formControlName="backgroundColor"
+                class="form-control"
+                mdbInputValidate>
+              <label for="header-backgroundColor">Header Background Color</label>
+            </div>
+            <div class="md-form">
+              <i [ngStyle]="{'color':colorConfigForm.value.header.textColor}" class="fa fa-circle prefix"></i>
+              <input
+                [(colorPicker)]="colorConfigForm.value.header.textColor"
+                (colorPickerChange)="onChangeColor($event, 'header.textColor')"
+                [cpPosition]="'bottom'"
+                mdbActive
+                type="text"
+                id="header-textColor"
+                formControlName="textColor"
+                class="form-control"
+                mdbInputValidate>
+              <label for="header-textColor">Header Text Color</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 p-4" formGroupName="navigation">
+        <div class="card">
+          <div class="card-header indigo white-text">
+            Navigation/Menu
+          </div>
+          <div class="card-body">
+            <div class="md-form">
+              <i [ngStyle]="{'color':colorConfigForm.value.navigation.backgroundColor}" class="fa fa-circle prefix"></i>
+              <input
+                [(colorPicker)]="colorConfigForm.value.navigation.backgroundColor"
+                (colorPickerChange)="onChangeColor($event, 'navigation.backgroundColor')"
+                [cpPosition]="'bottom'"
+                mdbActive
+                type="text"
+                id="navigation-backgroundColor"
+                formControlName="backgroundColor"
+                class="form-control"
+                mdbInputValidate>
+              <label for="navigation-backgroundColor">Navigation/Menu Background Color</label>
+            </div>
+            <div class="md-form">
+              <i [ngStyle]="{'color':colorConfigForm.value.navigation.textColor}" class="fa fa-circle prefix"></i>
+              <input
+                [(colorPicker)]="colorConfigForm.value.navigation.textColor"
+                (colorPickerChange)="onChangeColor($event, 'navigation.textColor')"
+                [cpPosition]="'bottom'"
+                mdbActive
+                type="text"
+                id="navigation-textColor"
+                formControlName="textColor"
+                class="form-control"
+                mdbInputValidate>
+              <label for="navigation-textColor">Navigation/Menu Text Color</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 p-4" formGroupName="footer">
+        <div class="card">
+          <div class="card-header indigo white-text">
+            Footer
+          </div>
+          <div class="card-body">
+            <div class="md-form">
+              <i [ngStyle]="{'color':colorConfigForm.value.footer.backgroundColor}" class="fa fa-circle prefix"></i>
+              <input
+                [(colorPicker)]="colorConfigForm.value.footer.backgroundColor"
+                (colorPickerChange)="onChangeColor($event, 'footer.backgroundColor')"
+                [cpPosition]="'bottom'"
+                mdbActive
+                type="text"
+                id="footer-backgroundColor"
+                formControlName="backgroundColor"
+                class="form-control"
+                mdbInputValidate>
+              <label for="footer-backgroundColor">Footer Background Color</label>
+            </div>
+            <div class="md-form">
+              <i [ngStyle]="{'color':colorConfigForm.value.footer.textColor}" class="fa fa-circle prefix"></i>
+              <input
+                [(colorPicker)]="colorConfigForm.value.footer.textColor"
+                (colorPickerChange)="onChangeColor($event, 'footer.textColor')"
+                [cpPosition]="'bottom'"
+                mdbActive
+                type="text"
+                id="footer-textColor"
+                formControlName="textColor"
+                class="form-control"
+                mdbInputValidate>
+              <label for="footer-textColor">Footer Text Color</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 p-4" formGroupName="buttons">
+        <div class="card">
+          <div class="card-header indigo white-text">
+            Buttons
+          </div>
+          <div class="card-body">
+            <div class="md-form">
+              <i [ngStyle]="{'color':colorConfigForm.value.buttons.primaryColor}" class="fa fa-circle prefix"></i>
+              <input
+                [(colorPicker)]="colorConfigForm.value.buttons.primaryColor"
+                (colorPickerChange)="onChangeColor($event, 'buttons.primaryColor')"
+                [cpPosition]="'bottom'"
+                mdbActive
+                type="text"
+                id="buttons-primaryColor"
+                formControlName="primaryColor"
+                class="form-control"
+                mdbInputValidate>
+              <label for="buttons-primaryColor">Primary Button Color</label>
+            </div>
+            <div class="md-form">
+              <i [ngStyle]="{'color':colorConfigForm.value.buttons.primaryTextColor}" class="fa fa-circle prefix"></i>
+              <input
+                [(colorPicker)]="colorConfigForm.value.buttons.primaryTextColor"
+                (colorPickerChange)="onChangeColor($event, 'buttons.primaryTextColor')"
+                [cpPosition]="'bottom'"
+                mdbActive
+                type="text"
+                id="buttons-primaryTextColor"
+                formControlName="primaryTextColor"
+                class="form-control"
+                mdbInputValidate>
+              <label for="buttons-primaryTextColor">Primary Button Text Color</label>
+            </div>
+            <div class="md-form">
+              <i [ngStyle]="{'color':colorConfigForm.value.buttons.secondaryColor}" class="fa fa-circle prefix"></i>
+              <input
+                [(colorPicker)]="colorConfigForm.value.buttons.secondaryColor"
+                (colorPickerChange)="onChangeColor($event, 'buttons.secondaryColor')"
+                [cpPosition]="'bottom'"
+                mdbActive
+                type="text"
+                id="buttons-secondaryColor"
+                formControlName="secondaryColor"
+                class="form-control"
+                mdbInputValidate>
+              <label for="buttons-secondaryColor">Secondary Button Color</label>
+            </div>
+            <div class="md-form">
+              <i [ngStyle]="{'color':colorConfigForm.value.buttons.secondaryTextColor}" class="fa fa-circle prefix"></i>
+              <input
+                [(colorPicker)]="colorConfigForm.value.buttons.secondaryTextColor"
+                (colorPickerChange)="onChangeColor($event, 'buttons.secondaryTextColor')"
+                [cpPosition]="'bottom'"
+                mdbActive
+                type="text"
+                id="buttons-secondaryTextColor"
+                formControlName="secondaryTextColor"
+                class="form-control"
+                mdbInputValidate>
+              <label for="buttons-secondarytextColor">Secondary Button Text Color</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="isv-admin-color-config__actions row mt-4 d-flex">
+      <div class="col-6 align-self-center">
+        <button *ngIf="modal" (click)="modal.hide()" class="btn btn-outline-blue-grey" type="button">Cancel</button>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button type="submit" [disabled]="colorConfigForm.invalid" class="btn light-green darken-2 waves-effect waves-light">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div [ngBusy]="colorConfigGetSubs"></div>
+<div [ngBusy]="colorConfigSaveSubs"></div>

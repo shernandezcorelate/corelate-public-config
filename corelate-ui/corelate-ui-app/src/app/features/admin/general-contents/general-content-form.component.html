@@ -1,0 +1,94 @@
+<div class="isv-admin-article-new">
+  <div class="row pt-1">
+    <div class="isv-admin-article-new__title col-12">
+      <h3 *ngIf="!id && !paramId" class="h3-responsive w-75 float-left pt-0">
+        Add A New Article
+      </h3>
+      <h3 *ngIf="id || paramId" class="h3-responsive w-75 float-left pt-0">
+        Edit Article
+      </h3>
+      <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+  <form *ngIf="contentForm" [formGroup]="contentForm" novalidate (ngSubmit)="onSave(contentForm.value, contentForm.valid)" class="p-4">
+    <div class="isv-admin-article-new__body row px-2">
+      <div class="col-12 col-md-3">
+        <mdb-ng-select formControlName="category" [options]="categories" placeholder="Choose Category" class="mt-1" mdbInputValidate></mdb-ng-select>
+        <label>Select Category <span class="text-danger">*</span></label>
+      </div>
+      <div class="col-12 col-md-9">
+        <div class="row">
+          <div class="col-12">
+            <div class="md-form">
+              <input mdbActive type="text" id="title" formControlName="title" class="form-control" mdbInputValidate>
+              <label for="title">Article Title <span class="text-danger">*</span></label>
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <div class="md-form">
+              <textarea type="text" id="excerpt" class="md-textarea" formControlName="excerpt" length="200" mdbCharCounter mdbActive mdbInputValidate></textarea>
+              <label for="excerpt">Excerpt <span class="text-danger">*</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="isv-admin-article-new__upload row mt-4">
+          <div class="col-12">
+              <div class="md-form pb-4">
+                <label>Featured Article Image</label>
+              </div>
+              <div *ngIf="file.name || contentForm.value.file" class="text-center pb-2">
+                <ng-container *ngIf="file.name">
+                  <img [src]="url" class="isv-admin-general-content-image__preview">
+                </ng-container>
+                <ng-container *ngIf="!file.name">
+                  <img src="{{imageSourceUrl}}/{{contentForm.value.file}}" class="isv-admin-general-content-image__preview">
+                </ng-container>
+              </div>
+              <input (change)="fileChange($event)" id="contentImage" type="file" [ngStyle]="{'visibility':'hidden', 'width':0}" accept=".png,.jpg"/>
+              <button type="button" class="btn btn-indigo waves-effect waves-light ml-0" (click)="document.getElementById('contentImage').click()">
+                Browse
+              </button>
+              <ng-container *ngIf="file">{{ file.name }}</ng-container>
+              <ng-container *ngIf="!file.name">{{ contentForm.value.file}}</ng-container>
+              <p class="grey-text pl-2"><small>Recommended image dimension is 800px x 640px. Image file size should be within 2MB.</small></p>
+          </div>
+        </div>
+
+        <div class="row my-4">
+          <div class="col-12">
+            <label>Content <span class="text-danger">*</span></label>
+            <ckeditor debounce="500" id="content" formControlName="content"></ckeditor>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="isv-admin-article-new__options row px-3">
+      <div class="col-12 text-right">
+        <div class="md-form">
+          <input type="checkbox" class="filled-in" id="published" formControlName="published">
+          <label for="published">Publish</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="isv-admin-article-new__actions row d-flex">
+      <div class="col-6 align-self-center">
+        <button (click)="cancel()" class="btn btn-md btn-outline-blue-grey" type="button">Cancel</button>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button class="btn light-green darken-2 waves-effect waves-light" type="submit" [disabled]="contentForm.invalid">
+          <span *ngIf="!id && !paramId">Add</span>
+          <span *ngIf="id || paramId">Save</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div [ngBusy]="contentGetSubs"></div>
+<div [ngBusy]="contentSaveSubs"></div>
+<div [ngBusy]="contentSaveImageSubs"></div>

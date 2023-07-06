@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Trade</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic,700|Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
+    <link href="../dist/css/app.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="../dist/img/logo.png" alt=""></a>
+        </div>
+        <ul class="navbar-right navbar-account">
+          <li><a class="btn btn-default btn-lg" href="login.html">Log In</a></li>
+          <li><a class="btn btn-primary btn-lg" href="signup.html">Sign Up</a></li>
+        </ul>
+      </div>
+      
+      <!--MAIN NAV-->
+      <div id="main-navigation">
+        <div class="container">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="main-nav-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+        <form class="navbar-form navbar-right" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control form-global-search" placeholder="Search" ng-model="searchItem">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="button" ui-sref="inquiry({searchItem:searchItem})"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </form>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div>
+      <!--END MAIN NAV-->
+    </nav>
+
+    <div class="main-content">
+      <div class="page-header">
+        <div class="container">
+          <h1>Shipment Code: Q2D1KFRRC</h1>
+        </div>
+      </div>
+      
+      <div class="container">
+        <div class="mod-top-bar clearfix">
+          <div class="module mod-actions pull-right">
+            <!-- Single button -->
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actions <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="label">PAD</li>
+                <li><a href="#">Download PDF</a></li>
+                <li><a href="#">Download XML</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="label">B/L</li>
+                <li><a href="#">Download PDF</a></li>
+                <li><a href="#">Download XML</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="panel panel-pad">
+              <div class="panel-heading">
+                Shipment Actors
+              </div>
+              <div class="panel-body">
+                <h5>Shipper/Exporter</h5>
+                <address>
+                  <strong>Sulpicio Lines</strong><br>
+                  Manggahan Duryanan AO 14344<br>
+                  <abbr title="Telephone">Tel</abbr>: 930 9300
+                </address>
+
+                <h5>Consignee/Importer</h5>
+                <address>
+                  <strong>Sulpicio Lines</strong><br>
+                  Manggahan Duryanan AO 14344<br>
+                  <abbr title="Telephone">Tel</abbr>: 930 9300
+                </address>
+
+                <h5>Notify Party</h5>
+                <p>Same as Consignee</p>
+
+                <h5>Broker</h5>
+                <address>
+                  <strong>Maria Cecillia B. Jardin</strong><br>
+                  577 Number 30 Humility St., Multi
+                  National Village
+                  Paranaque City, 1701
+                </address>
+              </div>
+            </div><!-- end of panel -->
+
+            <div class="panel panel-pad">
+              <div class="panel-heading">
+                Transportation
+              </div>
+              <div class="panel-body">
+                <h5>Pre-Carriage By (vessel or aircraft)</h5>
+                <p>Cape Mugnos 001N</p>
+
+                <h5>Port of Destination</h5>
+                <p>AIP-SEZ</p>
+
+                <h5>Vessel Registry</h5>
+                <p>MOL0053-15</p>
+
+                <h5>Transhipment Port</h5>
+                <p>N/A</p>
+
+                <h5>location of goods</h5>
+                <p>N/A</p>
+
+              </div>
+            </div><!-- end of panel -->
+
+            <div class="panel panel-pad">
+              <div class="panel-heading">
+                Import Permit
+              </div>
+              <div class="panel-body">
+                <h5><a href="#">TRADE-BAI-DS3742</a></h5>
+                <p>
+                  Meat
+                  Bureau of Animal Industry
+                  Issued March 1, 2016
+                </p>
+              </div>
+            </div> <!-- end of panel -->
+
+            <div class="panel panel-pad">
+              <div class="panel-heading">
+                Other Documents
+              </div>
+              <div class="panel-body">
+                <h5>Invoice</h5>
+                <p>
+                  <a href="#">TRADE-INV-DD34dff2
+                    <small>(2/14/2015)</small></a>
+                </p>
+
+                <h5>Photos and Brochures</h5>
+                <p>
+                  <a href="#">TRADE-PHO-DD34dff2
+                    <small>(2/14/2015)</small></a>
+                </p>
+
+                <h5>Certificate of Origin</h5>
+                <p>
+                  <a href="#">TRADE-COO-DD34dff2
+                    <small>(2/14/2015)</small></a>
+                </p>
+              </div>
+            </div>
+          </div><!-- end column -->
+
+          <div class="col-sm-6">
+            <div class="panel panel-pad">
+              <div class="panel-heading">
+                General Information
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <h5>Commodity Type</h5>
+                          <p>1</p>
+                        </div>
+                        <div class="col-sm-6">
+                          <h5>Package</h5>
+                          <p>15</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <h5>Expected Date of Shipment Arrival</h5>
+                    <p>September 1, 2015</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h5>Shipment Declaration Creation</h5>
+                    <p>
+                      Ermita, Manila, Philippines<br>
+                      August 31, 2015
+                    </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <h5>Vessel Registry Number</h5>
+                    MOL0053-3
+                  </div>
+                </div><!--end row-->
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h5>Country of Export (CE)</h5>
+                    <p>Spain</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h5>CE Code</h5>
+                        <p>ES</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <h5>CD Code</h5>
+                        <p>PH</p>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- end row -->
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h5>Country of Origin (CO)</h5>
+                    <p>Spain</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <h5>Country of Destination (CD)</h5>
+                    <p>Spain</p>
+                  </div>
+                </div><!-- end row -->
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h5>Terms of Delivery/Freight &amp; Charges</h5>
+                    <p>Freight Prepaid (FOB)</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <h5>Total F/I/Q</h5>
+                    <p><strong>2,078.96</strong></p>
+                  </div>
+                </div><!-- end row -->
+              </div>
+            </div><!-- end panel -->
+            <div class="panel panel-pad">
+              <div class="panel-heading">
+                Financial
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h5>Foreign Currency</h5>
+                    <p>USD</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <h5>DUTIABLE VALUE IN F. CURRENCY</h5>
+                    <p>88,576.84</p>
+                  </div>
+                </div><!-- end row-->
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h5>Exchange Rate</h5>
+                    <p>
+                      46.05
+                    </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <h5>TOTAL COST OF PRODUCT IN F. CURRENCY</h5>
+                    <p>86,497.88</p>
+                  </div>
+                </div><!-- end row -->
+              </div>
+            </div><!-- end panel -->
+
+            <div class="panel panel-pad">
+              <div class="panel-heading">
+                Packages &amp; Description of Goods
+              </div>
+              <div class="panel-body">
+                <p>Number of Commodity Type: 1</p>
+                <ul class="goods">
+                  <li>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h5>MARKS &amp; NOS. CONTAINER NO(s)</h5>
+                        <p>TCLU72137809/628838H</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <h5>HS/ATN Code</h5>
+                        <p>31928833</p>
+                      </div>
+                    </div><!-- end row -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h5>Item Count &amp; UOM</h5>
+                        <p>45</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <h5>CO Code</h5>
+                        <p>ES</p>
+                      </div>
+                    </div><!-- row -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h5>UOM</h5>
+                        <p>Packages</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <h5>AW/BL No.</h5>
+                        <p>PSGN/MNL10352</p>
+                      </div>
+                    </div><!-- row -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h5>Item Description</h5>
+                        <p>01x120DC Container(s) STC:<br>General Leather</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <h5>Gross Weight(kg)</h5>
+                        <p>300</p>
+                      </div>
+                    </div><!-- row -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h5>Net Weight(kg)</h5>
+                        <p>300</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <h5>Tar. Spec</h5>
+                        <p>5%</p>
+                      </div>
+                    </div><!-- row -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h5>Preferential Tax Rate</h5>
+                        <p>None</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <h5>Dutiable Value in F. Curr</h5>
+                        <p>88, 576.88</p>
+                      </div>
+                    </div><!-- row -->
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h5>Cost of Product in F. Curr</h5>
+                        <p>86, 497.00</p>
+                      </div>
+                    </div><!-- row -->
+                  </li>
+                </ul>
+              </div>
+            </div><!-- end panel-->
+
+            <div class="panel panel-pad">
+              <div class="panel-heading">
+                Creation &amp; Authorization
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h5>Initiator</h5>
+                    <p>SUPERPL Philippines</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <h5>Last Updated By</h5>
+                    <p>Maria Cecilia B. Jardin (Broker)</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h5>Certification Issued By</h5>
+                    <p>Maria Cecilia B. Jardin (Broker)</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- end panel -->
+          </div><!-- end column-->
+
+          <div class="col-sm-3">
+            <div data-spy="affix" data-offset-top="430" data-offset-bottom="364" class="calculation-box">
+              <div class="panel panel-pad">
+                <div class="panel-heading">
+                  Calculation of Duties and Taxes
+                </div>
+                <div class="panel-body em">
+                  <h5 class="text-right">CUD</h5>
+                  <table class="calculations-table">
+                    <tbody>
+                      <tr>
+                        <th>
+                          Tax Base
+                        </th>
+                        <td>
+                          4,137,028.00
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          Rate
+                        </th>
+                        <td>
+                          5%
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          Amount
+                        </th>
+                        <td>
+                          206,851.00
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h5 class="text-right">VAT</h5>
+                  <table class="calculations-table">
+                    <tbody>
+                      <tr>
+                        <th>Tax Base</th>
+                        <td>4,137,028.00</td>
+                      </tr>
+                      <tr>
+                        <th>Rate</th>
+                        <td>12%</td>
+                      </tr>
+                      <tr>
+                        <th>Amount</th>
+                        <td>206,851.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr>
+                  <table class="calculations-table sm">
+                    <tbody>
+                      <tr>
+                        <th>Dutiable Value</th>
+                        <td>Php 4,137,028.00</td>
+                      </tr>
+                      <tr>
+                        <th>Customs Duty</th>
+                        <td>206,851.00</td>
+                      </tr>
+                      <tr>
+                        <th>Total Landed Cost(TLC)</th>
+                        <td>Php 4,359,608.00</td>
+                      </tr>
+                      <tr>
+                        <th>VAT</th>
+                        <td>523,153.00</td>
+                      </tr>
+                      <tr>
+                        <th>Bank Charges</th>
+                        <td>0.00</td>
+                      </tr>
+                      <tr>
+                        <th>Brokerage Fee</th>
+                        <td>0.00</td>
+                      </tr>
+                      <tr>
+                        <th>Wharfage</th>
+                        <td>519.00</td>
+                      </tr>
+                      <tr>
+                        <th>Documentary Stamp</th>
+                        <td>265.00</td>
+                      </tr>
+                      <tr>
+                        <th>Import Processing Fee</th>
+                        <td>265.00</td>
+                      </tr>
+                      <tr>
+                        <th>Total Duties &amp; Tax</th>
+                        <td>Php 731,019.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr>
+                  <h1 class="text-right total">
+                    730,000.00<br>
+                    <small>Total Items Taxes</small>
+                  </h1>
+                  <p class="text-right">
+                    <a href="#" class="more">See detailed calculation <i class="material-icons">keyboard_arrow_right</i></a>
+                  </p>
+                </div>
+              </div><!-- end panel -->
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Actions <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li class="label">PAD</li>
+                  <li><a href="#">Download PDF</a></li>
+                  <li><a href="#">Download XML</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="label">B/L</li>
+                  <li><a href="#">Download PDF</a></li>
+                  <li><a href="#">Download XML</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!-- end row -->
+      </div>
+      
+    </div>
+
+    
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4 class="hd">
+              Trade is a joint effort by the Department of Trade and Industry, Department of Science &amp; Technology and Bureau of Customs.
+            </h4>
+            <p class="footer-logo">
+              <img src="../dist/img/footer-logo.png" alt="" />
+            </p>
+          </div>
+          <div class="col-sm-8">
+            <div class="row">
+              
+              <div class="col-sm-3">
+                
+                <div class="menu-group">
+                  <h3 class="hd">Quick Links</h3>
+                  <ul>
+                    <li>
+                      <a href="#">About Trade.ph</a>
+                    </li>
+                    <li>
+                      <a href="#">Import Transactions</a>
+                    </li>
+                    <li>
+                      <a href="#">Export Transactions</a>
+                    </li>
+                    <li>
+                      <a href="#">Airport Operations</a>
+                    </li>
+                  </ul>
+                </div>    
+
+              </div>
+
+              <div class="col-sm-3">
+
+                <div class="menu-group">
+                  <h3 class="hd">Other Services</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Trade Repository</a>
+                    </li>
+                    <li>
+                      <a href="#">Unde Omnis Iste</a>
+                    </li>
+                    <li>
+                      <a href="#">Error sit Volupten</a>
+                    </li>
+                    <li>
+                      <a href="#">Unde Omnis Iste</a>
+                    </li>
+                    <li>
+                      <a href="#">Error sit Volupten</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <div class="col-sm-4">
+
+                <div class="menu-group">
+                  <h3 class="hd">Issuances</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Customs Memorandum Circular</a>
+                    </li>
+                    <li>
+                      <a href="#">Customs Memorandum Order</a>
+                    </li>
+                    <li>
+                      <a href="#">Customs Administrative Order</a>
+                    </li>
+                    <li>
+                      <a href="#">Memorandum Circular</a>
+                    </li>
+                    <li>
+                      <a href="#">Memorandum Order</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <div class="col-sm-2">
+            
+                <div class="menu-group">
+                  <h3 class="hd">Community</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Facebook</a>
+                    </li>
+                    <li>
+                      <a href="#">Twitter</a>
+                    </li>
+                    <li>
+                      <a href="#">Google+</a>
+                    </li>
+                    <li>
+                      <a href="#">Youtube</a>
+                    </li>
+                    <li>
+                      <a href="#">RSS Feed</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          
+          <div class="col-sm-12">
+            <hr>
+            <p class="copyright text-center">&copy; 2016&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Trade</a>&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Privacy</a>&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Terms</a></p>
+          </div>
+          
+        </div>
+
+      </div>
+    </footer>
+    
+    <script src="../dist/js/scripts.js"></script>
+  </body>
+</html>

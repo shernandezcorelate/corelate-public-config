@@ -1,0 +1,197 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table table-condensed table-striped table-hover" style="width:100%">
+
+            <thead>
+            <tr>
+                <th style="width:16px;"></th>
+
+                <th>{{'IDM.TENANT-MGMT.DATE' | translate}}</th>
+
+                <th>{{'IDM.TENANT-MGMT.EVENT-USER' | translate}}</th>
+
+                <th>{{'IDM.TENANT-MGMT.EVENT-DESCRIPTION' | translate}}</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="event in model.tenantEvents" ng-switch on="event.eventType">
+
+                <td ng-switch-when="tenantCreated">
+                    <span class="glyphicon glyphicon-time"></span>
+                </td>
+
+                <td ng-switch-when="tenantNameChanged">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </td>
+
+                <td ng-switch-when="tenantActivated">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </td>
+
+                <td ng-switch-when="tenantDeactivated">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </td>
+
+                <td ng-switch-when="userAdded">
+                    <span class="glyphicon glyphicon-user"></span>
+                </td>
+
+                <td ng-switch-when="userRemoved">
+                    <span class="glyphicon glyphicon-user"></span>
+                </td>
+
+                <td ng-switch-when="userStatusChanged">
+                    <span class="glyphicon glyphicon-wrench"></span>
+                </td>
+
+                <td ng-switch-when="userAccountTypeChanged">
+                    <span class="glyphicon glyphicon-wrench"></span>
+                </td>
+
+                <td ng-switch-when="userEmailChanged">
+                    <span class="glyphicon glyphicon-wrench"></span>
+                </td>
+
+                <td ng-switch-when="userFirstNameChanged">
+                    <span class="glyphicon glyphicon-wrench"></span>
+                </td>
+
+                <td ng-switch-when="userLastNameChanged">
+                    <span class="glyphicon glyphicon-wrench"></span>
+                </td>
+
+                <td ng-switch-when="systemGroupAdded">
+                    <span class="glyphicon glyphicon-folder-close"></span>
+                </td>
+
+                <td ng-switch-when="systemGroupNameChanged">
+                    <span class="glyphicon glyphicon-wrench"></span>
+                </td>
+
+                <td ng-switch-when="systemGroupDeleted">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </td>
+
+                <td ng-switch-when="functionalGroupAdded">
+                    <span class="glyphicon glyphicon-folder-close"></span>
+                </td>
+
+                <td ng-switch-when="functionalroupNameChanged">
+                    <span class="glyphicon glyphicon-wrench"></span>
+                </td>
+
+                <td ng-switch-when="functionalGroupDeleted">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </td>
+
+                <td ng-switch-when="functionalGroupDeactivated">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </td>
+
+                <td ng-switch-when="functionalGroupActivated">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </td>
+
+                <td ng-switch-when="userAddedToGroup">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                </td>
+
+                <td ng-switch-when="userRemovedFromGroup">
+                    <span class="glyphicon glyphicon-minus-sign"></span>
+                </td>
+
+
+                <td>
+                    <span>{{event.eventTime | dateformat}}</span>
+                </td>
+
+                <td>
+                    {{event.userName}}
+                </td>
+
+                <td ng-switch-when="tenantCreated">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.CREATED' | translate}}</span>
+                </td>
+
+                <td ng-switch-when="tenantNameChanged">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.NAME-CHANGED' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="tenantActivated">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.ACTIVATED' | translate}}</span>
+                </td>
+
+                <td ng-switch-when="tenantDeactivated">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.DEACTIVATED' | translate}}</span>
+                </td>
+
+                <td ng-switch-when="userAdded">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.USER-ADDED' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="userRemoved">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.USER-REMOVED' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="userStatusChanged">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.STATUS-CHANGE' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="userAccountTypeChanged">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.TYPE-CHANGE' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="userEmailChanged">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.EMAIL-CHANGE' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="userFirstNameChanged">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.FIRST-NAME-CHANGE' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="userLastNameChanged">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.LAST-NAME-CHANGE' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="systemGroupAdded">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.SYSTEM-GROUP-ADDED' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="functionalGroupAdded">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.FUNCTIONAL-GROUP-ADDED' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="functionalGroupDeleted">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.FUNCTIONAL-GROUP-DELETED' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="functionalGroupActivated">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.FUNCTIONAL-GROUP-ACTIVATED' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="functionalGroupDeactivated">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.FUNCTIONAL-GROUP-DEACTIVATED' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="systemGroupNameChanged">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.SYSTEM-GROUP-NAME-CHANGE' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="systemGroupDeleted">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.SYSTEM-GROUP-DELETED' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="userAddedToGroup">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.USER-ADDED-TO-GROUP' | translate:event.extraInfo}}</span>
+                </td>
+
+                <td ng-switch-when="userRemovedFromGroup">
+                    <span>{{'IDM.TENANT-MGMT.EVENT.USER-REMOVED-FROM-GROUP' | translate:event.extraInfo}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

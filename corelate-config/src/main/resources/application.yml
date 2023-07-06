@@ -1,0 +1,27 @@
+server:
+  port: ${config.server.port}
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/corelate/config
+          searchPaths: '{profile}'
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: ${config.server.username}
+    password: ${config.server.password}
+
+
+---
+
+spring:
+  profiles: dev
+
+eureka:
+  client:
+    enabled: false

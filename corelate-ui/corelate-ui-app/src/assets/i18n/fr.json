@@ -1,0 +1,99 @@
+{
+  "HOME": {
+    "HELLO": "Bonjour"
+  },
+  "GENERIC_FORM": {
+    "BTN": {
+      "SAVE": "Sauvegarder",
+      "SUBMIT": "Soumettre",
+      "CANCEL": "Annuler",
+      "UPLOAD": "Télécharger",
+      "CREATE_NEW": "Créer un nouveau",
+      "SEARCH": "Chercher"
+    },
+    "VALIDATION": {
+      "REQUIRED": "Champs obligatoires"
+    }
+  },
+  "GENERIC_TABLE": {
+    "NO_RECORD_FOUND": "Aucun enregistrement trouvé"
+  },
+  "FAQ": {
+    "LABEL": "Questions fréquemment posées",
+    "SEE_ALL": "Voir toutes les questions fréquemment posées",
+    "SHARE_ARTICLE": "Partagez cet article",
+    "FORM": {
+      "NEW": "Créer une nouvelle FAQ",
+      "UPDATE": "Mettre à jour les FAQ existantes",
+      "QUESTION": "Question",
+      "ANSWER": "Répondre",
+      "PUBLISH": "Publier"
+    },
+    "MANAGEMENT": {
+      "CREATE_NEW": "Créer un nouveau"
+    },
+    "TABLE": {
+      "COLUMN": {
+        "QUESTION": "Question",
+        "ANSWER": "Répondre",
+        "PUBLISHED": "Publier"
+      }
+    }
+  },
+  "CONTACT_US": {
+    "FORM": {
+      "LABEL": "Contactez nous",
+      "NAME": "Prénom",
+      "EMAIL": "Email",
+      "PHONE_NUMBER": "Telephone Nombre",
+      "DESCRIPTION": "La description"
+    }
+  },
+  "CAROUSEL": {
+    "MODAL": {
+      "HEADER": "Mise à jour du carrousel"
+    },
+    "FORM": {
+      "INTERVAL": "Intervalle",
+      "LINK_TRIGGER": "Link Trigger",
+      "LINK_TRIGGER_VALUES": {
+        "IMAGE": "Image",
+        "BUTTON": "bouton"
+      }
+    },
+    "MANAGEMENT": {
+      "HEADER": "FAQ Management",
+      "CREATE_NEW": "Créer une nouvelle diapositive"
+    },
+    "TABLE": {
+      "COLUMN": {
+        "HEADER": "Publié",
+        "SUB_HEADER": "Sous-titre",
+        "PUBLISHED": "Publié"
+      }
+    },
+    "SLIDE": {
+      "FORM": {
+        "CREATE": "Créer une nouvelle diapositive",
+        "UPDATE": "Mise à jour de la diapositive",
+        "IMAGE_URL": "URL de l'image",
+        "HEADER": "Entête",
+        "SUB_HEADER": "Sous-titre",
+        "LINK": "Lien",
+        "PUBLISHED": "Publié",
+        "BUTTON_LABEL": "Étiquette de boutons"
+      }
+    }
+  },
+  "CATALOG": {
+    "UPLOAD": "Catalogue de téléchargement",
+    "BATCH_SAVE": "Catalog Batch Save",
+    "CATALOG": "Catalog",
+    "FORM": {
+      "KEY": "Clé",
+      "LABEL": "Étiquette",
+      "FILE": "Fichier",
+      "ADD_ROW": "Ajouter une rangée"
+    }
+  }
+}

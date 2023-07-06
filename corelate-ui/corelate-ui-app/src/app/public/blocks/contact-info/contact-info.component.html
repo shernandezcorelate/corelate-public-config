@@ -1,0 +1,136 @@
+<div class="corelate-ui-contact-info edit">
+  <ng-container *ngIf="layout === BlockTemplate.ONE_COLUMN">
+    <div class="container p-4">
+      <div class="row px-4">
+        <div class="col">
+        </div>
+        <div class="col-12 col-md-10">
+          <ng-container *isAuthorized="['CMS_ADMIN','CONTACT_INFO_EDIT']">
+            <button *ngIf="isLoggedIn" (click)="contactInfoModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+          </ng-container>
+          <div class="isv-block-name row">
+            <div class="col-12 text-center pb-4">
+              <h4 class="h4-responsive grey-text text-uppercase"><strong>Contact Information</strong></h4>
+            </div>
+          </div>
+          <ng-container *ngIf="contactInfo">
+            <div class="isv-block-contact-info row d-flex">
+              <div class="isv-block-contact-info__map col-12 col-lg-7 align-self-center">
+                <!--MDB GOOGLEMAP -->
+                <agm-map [latitude]="contactInfo.latitude" [longitude]="contactInfo.longitude" [scrollwheel]="false">
+                  <agm-marker [latitude]="contactInfo.latitude" [longitude]="contactInfo.longitude"></agm-marker>
+                </agm-map>
+              </div>
+
+              <div class="isv-block-contact-info__text col-12 col-lg-5 pt-3 d-flex flex-column align-self-center pt-4">
+                <!--
+                <div class="row">
+                  <div class="isv-block-contact-info__lead col-12">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna.</p>
+                  </div>
+                </div>
+                -->
+                <dl class="row align-self-center w-100">
+                  <dt class="col-12 col-sm-4 col-lg-12 col-xl-4">Address</dt>
+                  <dd class="col-12 col-sm-8 col-lg-12 col-xl-8">{{ contactInfo.address }}</dd>
+                  <!--<dt class="col-4"></dt>-->
+                  <!--<dd class="col-8">Donec id elit non mi porta gravida at eget metus.</dd>-->
+                </dl>
+                <dl class="row align-self-center w-100" *ngFor="let detail of contactInfo.contactDetails">
+                  <dt class="col-12 col-sm-4 col-lg-12 col-xl-4">{{ detail.contactType }}</dt>
+                  <dd class="col-12 col-sm-8 col-lg-12 col-xl-8">{{ detail.contactDetails }}</dd>
+                </dl>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="loading">
+            <div class="d-flex justify-content-center my-4 w-100">
+              <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+            </div>
+          </ng-container>
+          <div class="isv-article-list__list col-12" *ngIf="!loading && !contactInfo">
+            <div class="isv-article-list__no-posts row p-3">
+              <div class="col-12 text-center p-4">
+                <h3 class="h3-responsive grey-text"><em>No Posts Yet.</em></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+  <ng-container *ngIf="layout === BlockTemplate.TWO_COLUMNS">
+    <div class="corelate-ui-contact-info edit">
+      <button *ngIf="isLoggedIn" (click)="contactInfoModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+    </div>
+    <div class="isv-block-name row">
+      <div class="col-12 pb-4">
+        <h4 class="h4-responsive grey-text text-uppercase"><strong>Contact Information</strong></h4>
+      </div>
+    </div>
+    <div class="isv-block-body row d-flex flex-grow">
+      <ng-container *ngIf="contactInfo" class="isv-block-contact-info">
+        <div class="isv-block-contact-info__map col-12 pb-3">
+          <!--MDB GOOGLEMAP -->
+          <agm-map [latitude]="+contactInfo.latitude" [longitude]="+contactInfo.longitude" [scrollwheel]="false">
+            <agm-marker [latitude]="+contactInfo.latitude" [longitude]="+contactInfo.longitude"></agm-marker>
+          </agm-map>
+        </div>
+        <!--
+        <div class="isv-block-contact-info__lead col-12 pb-3">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna.</p>
+        </div>
+        -->
+        <div class="isv-block-contact-info__text col-12 pt-4">
+          <dl class="row">
+            <dt class="col-12 col-lg-4">Address</dt>
+            <dd class="col-12 col-lg-8">{{ contactInfo.address }}</dd>
+            <!--<dt class="col-4"></dt>-->
+            <!--<dd class="col-8">Donec id elit non mi porta gravida at eget metus.</dd>-->
+          </dl>
+          <dl class="row" *ngFor="let detail of contactInfo.contactDetails">
+            <dt class="col-12 col-lg-4">{{ detail.contactType }}</dt>
+            <dd class="col-12 col-lg-8">{{ detail.contactDetails }}</dd>
+          </dl>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="loading">
+        <div class="d-flex justify-content-center my-4 w-100">
+          <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+        </div>
+      </ng-container>
+      <div class="isv-article-list__list col-12" *ngIf="!loading && !contactInfo">
+        <div class="isv-article-list__no-posts row p-3">
+          <div class="col-12 text-center p-4">
+            <h3 class="h3-responsive grey-text"><em>No Posts Yet.</em></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  (onShow)="onShowModal()"
+  (onHide)="onHideModal()"
+  #contactInfoModal="mdb-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="contactInfoModal"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="card">
+      <div class="card-body">
+        <corelate-ui-admin-contact-info [modal]="contactInfoModal"></corelate-ui-admin-contact-info>
+      </div>
+    </div>
+  </div>
+</div>

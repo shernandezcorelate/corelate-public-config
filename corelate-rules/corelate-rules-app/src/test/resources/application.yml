@@ -1,0 +1,28 @@
+security:
+  ignored: /suggestions/** #TODO: Delete this
+  oauth2:
+    resource:
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeznNUY0XI6TxHGaswWf
+          AQB1WaLTg2zFSN+AWFDadGHLF24PLANxCz6XMl7CeRzYaCGt1PIuMLRkC8eBc2Dn
+          r89ZIq4Y9flcLblnXl1Ddt94yi5cI9X8ea1J5uGenCCiPYbC3t2lWeBjHa7KF9Oo
+          VuZCgVRC3PSBRMz3Te5zYfwluTLR1POpK96YkNHPe3pcGgmV+LZwd9Fgdm0+OVu4
+          DJexuvD0I5MTn6jHifrZnFxXK3gdaHB3DpaWJH4Rk4Zr0ip1/hr6/JDZ6rYSLiJI
+          KLzKJn8LtBH0I59R+jT0C6eik8apl+L24g2rfFj40q8/bVRUIwgZ17bvv5utUSQR
+          cQIDAQAB
+          -----END PUBLIC KEY-----
+isv:
+  storage:
+    client-type: local
+
+file:
+  storage:
+    domain: ""
+    accessKey: ""
+    secretKey: ""
+    enabled: false
+eureka:
+  client:
+    enabled: false

@@ -1,0 +1,6 @@
+{
+    "bpmHost": "https://isv.corelate.net/corelate-bpmn-basic",
+    "application": {
+        "name": "Exist ISV QA"
+    }
+}

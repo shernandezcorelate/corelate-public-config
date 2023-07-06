@@ -1,0 +1,25 @@
+.isv-admin-grid-new__title h3 {
+  font-weight: 300;
+}
+
+textarea.md-textarea {
+  min-height: 10em !important;
+}
+
+.isv-admin-grid-image__preview {
+  background: #dddddd;
+}
+
+.tab-title {
+  display: block;
+
+  @media (min-width: 768px) {
+    display: inline-flex;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow:0 0 0 50px #424242 inset;
+  -webkit-text-fill-color: #fff;
+}

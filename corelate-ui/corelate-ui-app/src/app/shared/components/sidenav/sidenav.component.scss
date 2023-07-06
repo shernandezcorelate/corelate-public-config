@@ -1,0 +1,28 @@
+header {
+  padding-left: 0;
+
+  @media (min-width: 872px) {
+    padding-left: 240px;
+  }
+}
+
+.isv-sidenav {
+  .logo-wrapper img {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media (min-width: 872px) {
+    width: 240px;
+  }
+}
+
+.isv-sidenav__header {
+  padding-left: 19px;
+  font-weight: bold;
+
+  .fa {
+    margin-right: 12px;
+    padding: 0;
+  }
+}

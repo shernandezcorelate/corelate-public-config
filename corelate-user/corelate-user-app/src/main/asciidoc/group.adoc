@@ -1,0 +1,195 @@
+[[resources-group-list]]
+=== Listing groups
+
+A `GET` request will list all of the groups.
+
+==== Example request
+
+include::{snippets}/groupResource/list/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/groupResource/list/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/groupResource/list/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/groupResource/list/response-fields.adoc[]
+
+[[resources-group-create]]
+=== Creating a group
+
+A `POST` request is used to insert a group.
+
+==== Example request
+
+include::{snippets}/groupResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/groupResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/groupResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/groupResource/create/response-fields.adoc[]
+
+[[resources-group-get]]
+=== Get a group
+
+A `GET` request is used to get a group.
+
+==== Example request
+
+include::{snippets}/groupResource/get/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/groupResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/groupResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/groupResource/get/response-fields.adoc[]
+
+[[resources-group-update]]
+=== Update a group
+
+A `PUT` request is used to update a group.
+
+==== Example request
+
+include::{snippets}/groupResource/update/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/groupResource/update/path-parameters.adoc[]
+
+
+==== Request structure
+
+include::{snippets}/groupResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/groupResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/groupResource/update/response-fields.adoc[]
+
+[[resources-group-delete]]
+=== Delete a group
+
+A `DELETE` request is used to delete a group.
+
+==== Example request
+
+include::{snippets}/groupResource/delete/curl-request.adoc[]
+
+==== Path Parameter
+
+include::{snippets}/groupResource/delete/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/groupResource/delete/http-response.adoc[]
+
+[[resources-group-permission]]
+=== Group Permission
+
+[[resources-group-permission-add-single]]
+==== Add Single Permission to Group
+
+A `POST` request is used to add a single permission to a group.
+
+===== Example request
+
+include::{snippets}/groupResource/addPermission/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/groupResource/addPermission/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/groupResource/addPermission/http-response.adoc[]
+
+===== Response structure
+
+include::{snippets}/groupResource/addPermission/response-fields.adoc[]
+
+
+[[resources-group-permission-add-multiple]]
+==== Add Multiple Permission to Group
+
+A `POST` request is used to add multiple permissions to a group.
+
+===== Example request
+
+include::{snippets}/groupResource/addPermissions/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/groupResource/addPermissions/path-parameters.adoc[]
+
+==== Request structure
+
+include::{snippets}/groupResource/addPermissions/request-fields.adoc[]
+
+===== Example response
+
+include::{snippets}/groupResource/addPermissions/http-response.adoc[]
+
+===== Response structure
+
+include::{snippets}/groupResource/addPermissions/response-fields.adoc[]
+
+
+[[resources-group-permission-delete-single]]
+==== Delete Single Permission to Group
+
+A `DELETE` request is used to remove a single permissions to a group.
+
+===== Example request
+
+include::{snippets}/groupResource/removePermission/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/groupResource/removePermission/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/groupResource/removePermission/http-response.adoc[]
+
+
+[[resources-group-permission-delete-multiple]]
+==== Delete Multiple Permission to Group
+
+A `DELETE` request is used to remove multiple permissions to a group.
+
+===== Example request
+
+include::{snippets}/groupResource/removePermissions/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/groupResource/removePermissions/path-parameters.adoc[]
+
+===== Request structure
+
+include::{snippets}/groupResource/removePermissions/request-fields.adoc[]
+
+===== Example response
+
+include::{snippets}/groupResource/removePermissions/http-response.adoc[]

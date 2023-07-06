@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Trade</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic,700|Playfair+Display:400,700,900' rel='stylesheet' type='text/css'> -->
+    <link href="../dist/css/app.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="../dist/img/logo.png" alt=""></a>
+        </div>
+        <ul class="navbar-right navbar-account">
+          <li><a class="btn btn-default btn-lg" href="login.html">Log In</a></li>
+          <li><a class="btn btn-primary btn-lg" href="signup.html">Sign Up</a></li>
+        </ul>
+      </div>
+      
+      <!--MAIN NAV-->
+      <div id="main-navigation">
+        <div class="container">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="main-nav-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default btn-link">Search</button>
+            </form>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div>
+      <!--END MAIN NAV-->
+    </nav>
+    <div class="main-content">
+      <section class="block banner-block">
+        
+        <div id="carousel-main" class="carousel slide" data-ride="carousel">
+
+          <div class="large-search">
+            <div class="container">
+              
+              <form class="form-inline">
+                <div class="form-group">
+                  <label class="sr-only" for="commodity-search">Commodity Search</label>
+                  <input type="text" class="form-control input-lg" id="commodity-search" placeholder="commodity search (example: rice)" />
+                </div><button type="submit" class="btn btn-primary btn-lg">Search</button>
+              </form>
+
+            </div>
+          </div>
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-main" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-main" data-slide-to="1"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            
+            <div class="item active">
+              <div class="overlay"></div>
+              <div class="glow"></div>
+              <img src="../dist/img/banner1.jpg" alt="" class="cover-img" />
+              <div class="carousel-caption">
+                <h1 class="hd text-center">Duties and taxes for progress</h1>
+                <h2 class="sub-hd">Get the right Philippine import and export calculations.</h2>
+                <p class="text-center"><a href="#" class="btn btn-lg btn-default">Our Advocacies</a></p>
+              </div>
+            </div>
+            
+            <div class="item">
+              <div class="overlay"></div>
+              <div class="glow"></div>
+              <img src="../dist/img/banner2.jpg" alt="" class="cover-img" />
+              <div class="carousel-caption">
+                <h1 class="hd text-center">Another slide item</h1>
+                <p class="text-center"><a href="#" class="btn btn-lg btn-primary">Another Button Link</a></p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-main" role="button" data-slide="prev">
+            <i class="material-icons previous-icon" aria-hidden="true">keyboard_arrow_left</i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-main" role="button" data-slide="next">
+            <i class="material-icons next-icon" aria-hidden="true">keyboard_arrow_right</i>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </section>
+
+
+      <div class="block steps-block">
+        <h1 class="text-center block-hd">How it works</h1>
+
+        <div class="container">
+          <div>
+          
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#import" aria-controls="import" role="tab" data-toggle="tab">
+                  <i class="material-icons">call_received</i><br>
+                  Import Permit Applications
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#export" aria-controls="export" role="tab" data-toggle="tab">
+                  <i class="material-icons">call_made</i><br>
+                  Export Permit Applications
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#shipments" aria-controls="shipments" role="tab" data-toggle="tab">
+                  <i class="material-icons">directions_boat</i><br><br>
+                  Manage Shipments
+                </a>
+              </li>
+            </ul>
+          
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="import">
+                <p class="text-center"><img src="../dist/img/sample-img.jpg" alt=""></p>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="export">...</div>
+              <div role="tabpanel" class="tab-pane" id="shipments">...</div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+      
+      <section class="block calculator-block">
+        <div class="container">
+          <hgroup>
+            <h1 class="text-center">Calculate your Duties &amp; Taxes</h1>
+          </hgroup>
+          <div class="text-center">
+            <a href="#" class="btn btn-lg btn-primary">
+              Get Started
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="block help-block">
+        <div class="container">
+          <div class="module mod-faq">
+            <h2 class="mod-hd text-center">
+              Frequently Asked Questions
+            </h2>
+            <ul class="faq-list">
+              <li>
+                <a href="#">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti?</a>
+              </li>
+              <li>
+                <a href="#">Et harum quidem rerum facilis est et expedita distinctio?</a>
+              </li>
+              <li>
+                <a href="#">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti?</a>
+              </li>
+              <li>
+                <a href="#">Et harum quidem rerum facilis est et expedita distinctio?</a>
+              </li>
+              <li>
+                <a href="#">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti?</a>
+              </li>
+            </ul>
+            <h4 class="text-right more">
+              <a class="btn btn-link" href="#">See All Frequently Asked Questions <i class="material-icons">keyboard_arrow_right</i></a>
+            </h4>
+          </div>
+          
+          <div class="module mod-help">
+            <h2 class="mod-hd text-center">Help Topics</h2>
+            
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Enim ipsam voluptatem
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <ul>
+                      <li><a href="#">Quis autem</a></li>
+                      <li><a href="#">Lam Corp</a></li>
+                      <li><a href="#">Fenim irk</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Cus modiinc
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+                    <ul>
+                      <li><a href="#">Quis autem</a></li>
+                      <li><a href="#">Lam Corp</a></li>
+                      <li><a href="#">Fenim irk</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Cus modiincidunt ut 
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="panel-body">
+                    <ul>
+                      <li><a href="#">Quis autem</a></li>
+                      <li><a href="#">Lam Corp</a></li>
+                      <li><a href="#">Fenim irk</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFour">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      Quis autem vel eum iure
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                  <div class="panel-body">
+                    <ul>
+                      <li><a href="#">Quis autem</a></li>
+                      <li><a href="#">Lam Corp</a></li>
+                      <li><a href="#">Fenim irk</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFive">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      Lam corporis suscipit 
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                  <div class="panel-body">
+                    <ul>
+                      <li><a href="#">Quis autem</a></li>
+                      <li><a href="#">Lam Corp</a></li>
+                      <li><a href="#">Fenim irk</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section class="block news-block">
+        <div class="container">
+          
+          <h1 class="block-hd">News</h1>
+          <div class="row">
+            <div class="col-sm-8">
+              
+              <ul class="news-list row">
+                <li class="col-sm-6 news">
+                  <div class="box box-img">
+                    <a href="#">
+                      <img src="../dist/img/news-img-wide.jpg" alt="" class="box-img">
+                    </a>
+                  </div>
+                  <div class="details">
+                    <a href="#">
+                      <p class="date">February 10, 2016</p>
+                      <h2 class="hd">118 Million Worth of Illegaly Imported Thai Rice Seized</h2>
+                      <p class="snippet">Neque porro quisquam est, qui dolorem ipsum quia dolor sit incidunt</p>
+                    </a>
+                    <p class="share">
+                      <a href="#"><i class="material-icons">share</i> Share</a>
+                    </p>
+                  </div>
+                </li>
+                <li class="col-sm-6 news">
+                  <div class="box box-img">
+                    <a href="#">
+                      <img src="../dist/img/news-img-regular.jpg" alt="" class="box-img">
+                    </a>
+                  </div>
+                  <div class="details">
+                    <a href="#">
+                      <p class="date">February 10, 2016</p>
+                      <h2 class="hd">118 Million Worth of Illegaly Imported Thai Rice Seized</h2>
+                      <p class="snippet">Neque porro quisquam est, qui dolorem ipsum quia dolor sit incidunt</p>
+                    </a>
+                    <p class="share">
+                      <a href="#"><i class="material-icons">share</i> Share</a>
+                    </p>
+                  </div>
+                </li>
+                <li class="col-sm-6 news">
+                  <div class="box box-img">
+                    <a href="#">
+                      <img src="../dist/img/news-img-regular.jpg" alt="" class="box-img">
+                    </a>
+                  </div>
+                  <div class="details">
+                    <a href="#">
+                      <p class="date">February 10, 2016</p>
+                      <h2 class="hd">118 Million Worth of Illegaly Imported Thai Rice Seized</h2>
+                      <p class="snippet">Neque porro quisquam est, qui dolorem ipsum quia dolor sit incidunt</p>
+                    </a>
+                    <p class="share">
+                      <a href="#"><i class="material-icons">share</i> Share</a>
+                    </p>
+                  </div>
+                </li>
+                <li class="col-sm-6 news">
+                  <div class="box box-img">
+                    <a href="#">
+                      <img src="../dist/img/news-img-regular.jpg" alt="" class="box-img">
+                    </a>
+                  </div>
+                  <div class="details">
+                    <a href="#">
+                      <p class="date">February 10, 2016</p>
+                      <h2 class="hd">118 Million Worth of Illegaly Imported Thai Rice Seized</h2>
+                      <p class="snippet">Neque porro quisquam est, qui dolorem ipsum quia dolor sit incidunt</p>
+                    </a>
+                    <p class="share">
+                      <a href="#"><i class="material-icons">share</i> Share</a>
+                    </p>
+                  </div>
+                </li>
+              </ul>
+
+            </div>
+            <div class="col-sm-4">
+              
+              <div class="module mod-advocacies">
+                <h2 class="mod-hd">Advocacies</h2>
+                <div class="box box-img">
+                  <img src="../dist/img/advocacies.jpg" alt="" class="box-img">
+                </div>
+                <div class="details">
+                  <a href="#">
+                    <p class="date">February 10, 2016</p>
+                    <h2 class="hd">118 Million Worth of Illegaly Imported Thai Rice Seized</h2>
+                    <p class="snippet">Neque porro quisquam est, qui dolorem ipsum quia dolor sit incidunt</p>
+                  </a>
+                  <p class="share">
+                    <a href="#"><i class="material-icons">share</i> Share</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="module mod-announcements">
+                <h2 class="mod-hd">Circulars</h2>
+                <div class="bd">
+                  
+                  <ul class="announcements">
+                    
+                    <li class="announcement">
+                      <a href="#">
+                        <h4 class="date">February 12, 2016</h4>
+                        <h2 class="title">Notice to All Appointees to Rank and File Positions in the Bureau of Customs(BOC) as of February 11, 2016</h2>
+                      </a>
+                    </li>
+
+                    <li class="announcement">
+                      <a href="#">
+                        <h4 class="date">February 12, 2016</h4>
+                        <h2 class="title">Notice to All Appointees To Rank and File Positions in the Bureau of Customs (BOC) as of January 21, 2016</h2>
+                      </a>
+                    </li>
+
+                    <li class="announcement">
+                      <a href="#">
+                        <h4 class="date">February 12, 2016</h4>
+                        <h2 class="title">GOOD NEWS! All BOC Pending Appointments for Completion</h2>
+                      </a>
+                    </li>
+
+                    
+
+                  </ul>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        
+        </div>
+
+        <a href="#" class="news-expand text-center">
+          <span class="rounded-icon">
+            <i class="material-icons">navigation</i>
+          </span>
+          <br>
+          Expand
+        </a>
+      </section>
+
+      <section class="block subscribe-block">
+        <div class="container">
+          <h1 class="mod-hd text-center">Trade Newsletter</h1>
+          <h2 class="sub-hd text-center">Subscribe to our email newsletter for valuable resources, sent out every week.</h2>
+          
+          <form class="form-inline text-center">
+            <div class="form-group">
+              <label class="sr-only" for="email">Email Address</label>
+              <input type="text" class="form-control" id="email" placeholder="email address" />
+            </div><button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+
+        </div>
+
+      </section>
+
+
+
+
+
+      
+    </div>
+
+    
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4 class="hd">
+              Trade is a joint effort by Department of Trade and Industry, Department of Science &amp; Technology and Bureau of Customs.
+            </h4>
+            <p class="footer-logo">
+              <img src="../dist/img/footer-logo.png" alt="" />
+            </p>
+          </div>
+          <div class="col-sm-8">
+            <div class="row">
+              
+              <div class="col-sm-3">
+                
+                <div class="menu-group">
+                  <h3 class="hd">Quick Links</h3>
+                  <ul>
+                    <li>
+                      <a href="#">About Trade.ph</a>
+                    </li>
+                    <li>
+                      <a href="#">Import Transactions</a>
+                    </li>
+                    <li>
+                      <a href="#">Export Transactions</a>
+                    </li>
+                    <li>
+                      <a href="#">Airport Operations</a>
+                    </li>
+                  </ul>
+                </div>    
+
+              </div>
+
+              <div class="col-sm-3">
+                
+                <div class="menu-group">
+                  <h3 class="hd">Other Services</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Trade Repository</a>
+                    </li>
+                    <li>
+                      <a href="#">Unde Omnis Iste</a>
+                    </li>
+                    <li>
+                      <a href="#">Error sit Volupten</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <div class="col-sm-3">
+                
+                <div class="menu-group">
+                  <h3 class="hd">Issuances</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Memoranda</a>
+                    </li>
+                    <li>
+                      <a href="#">Customs Memorandum Circular</a>
+                    </li>
+                    <li>
+                      <a href="#">Customs Memorandum Order</a>
+                    </li>
+                    <li>
+                      <a href="#">Customs Administrative Order</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <div class="col-sm-3">
+                
+                <div class="menu-group">
+                  <h3 class="hd">Community</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Facebook</a>
+                    </li>
+                    <li>
+                      <a href="#">Twitter</a>
+                    </li>
+                    <li>
+                      <a href="#">Google+</a>
+                    </li>
+                    <li>
+                      <a href="#">Youtube</a>
+                    </li>
+                    <li>
+                      <a href="#">RSS Feed</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          
+          <div class="col-sm-12">
+            <hr>
+            <p class="copyright text-center">&copy; 2016&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Trade</a>&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Privacy</a>&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Terms</a></p>
+          </div>
+          
+        </div>
+
+      </div>
+    </footer>
+    <script src="../dist/js/scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<div class="isv-admin-carousel-slide">
+  <div class="row pt-1">
+    <div class="isv-admin-carousel-slide__title col-12">
+      <h3 *ngIf="!id && !paramId" class="h3-responsive w-75 float-left pt-0">
+        Add A New Carousel Slide
+      </h3>
+      <h3 *ngIf="id || paramId" class="h3-responsive w-75 float-left pt-0">
+        Edit Carousel Slide
+      </h3>
+      <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+  <form *ngIf="carouselSlideForm" [formGroup]="carouselSlideForm" novalidate (ngSubmit)="onSave(carouselSlideForm.value, carouselSlideForm.valid)" class="p-4">
+    <div class="isv-admin-carousel-slide__input row px-2">
+      <div class="col-12 col-sm-8">
+        <div class="md-form">
+          <input mdbActive type="text" id="header" formControlName="header" class="form-control" mdbInputValidate>
+          <label class="active" for="header">Header <span class="text-danger">*</span></label>
+        </div>
+        <div class="md-form my-3">
+          <input mdbActive type="text" id="subHeader" formControlName="subHeader" class="form-control" mdbInputValidate>
+          <label for="subHeader">Sub Header</label>
+        </div>
+
+        <div class="isv-admin-carousel-slide__upload row mt-4">
+          <div class="col-12">
+            <div class="md-form pb-4">
+              <label>Carousel Slide Image <span class="text-danger">*</span></label>
+            </div>
+            <div *ngIf="file.name || carouselSlideForm.value.file" class="carousel-item pb-2">
+              <div class="view hm-black-light">
+                <ng-container *ngIf="file.name">
+                  <img [src]="url" class="isv-admin-carousel__img-preview d-block w-100">
+                </ng-container>
+                <ng-container *ngIf="!file.name">
+                  <img src="{{imageSourceUrl}}/{{carouselSlideForm.value.file}}" class="isv-admin-carousel__img-preview d-block w-100">
+                </ng-container>
+                <div class="mask"></div>
+              </div>
+            </div>
+            <input (change)="fileChange($event)" id="headerImage" type="file" [ngStyle]="{'visibility':'hidden', 'width':0}" accept=".png,.jpg"/>
+            <button type="button" class="btn btn-indigo waves-effect waves-light ml-0" (click)="document.getElementById('headerImage').click()">
+              Browse
+            </button>
+            <ng-container *ngIf="file">{{ file.name }}</ng-container>
+            <ng-container *ngIf="!file.name">{{ carouselSlideForm.value.file }}</ng-container>
+            <p class="grey-text pl-2"><small>Image should be 1200px X 350px.</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4">
+        <mdb-ng-select class="pt-1" formControlName="linkTrigger" [options]="linkTriggers" id="linkTrigger" name="linkTrigger" placeholder="Choose Trigger" (selected)="changeLinkTrigger()" mdbInputValidate></mdb-ng-select>
+        <label class="grey-text">Link Trigger <span class="text-danger">*</span></label>
+
+        <div class="md-form mt-4" *ngIf="carouselSlideForm.get('linkTrigger').value !== 'NONE'">
+          <input mdbActive type="text" id="link" formControlName="link" class="form-control" mdbInputValidate>
+          <label for="link">URL/Link <span class="text-danger">*</span></label>
+        </div>
+        <div class="md-form" *ngIf="buttonTrigger">
+          <input mdbActive type="text" id="buttonLabel" formControlName="buttonLabel" class="form-control mb-0" mdbInputValidate>
+          <label for="buttonLabel">Button Label <span class="text-danger">*</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="isv-admin-carousel-slide__options row p-4">
+      <div class="col-12 px-2 text-right">
+        <div class="md-form">
+          <input type="checkbox" id="published" formControlName="published" class="form-control"  class="filled-in">
+          <label for="published">Publish</label>
+        </div>
+      </div>
+    </div>
+    <div class="isv-admin-carousel-slide__actions row d-flex">
+      <div class="col-6 align-self-center">
+        <button (click)="cancel()" class="btn btn-md btn-outline-blue-grey">Cancel</button>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button type="submit" [disabled]="carouselSlideForm.invalid || !withFile()" class="btn light-green darken-2 waves-effect waves-light">
+          <span *ngIf="!id && !paramId">Add</span>
+          <span *ngIf="id || paramId">Save</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div [ngBusy]="carouselSaveSubs"></div>
+<div [ngBusy]="carouselGetSubs"></div>
+<div [ngBusy]="carouselUploadImageSubs"></div>

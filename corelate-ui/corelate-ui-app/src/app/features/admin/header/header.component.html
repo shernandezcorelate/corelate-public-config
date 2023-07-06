@@ -1,0 +1,165 @@
+<div class="isv-admin-header">
+  <div class="row pt-1">
+    <div class="isv-admin-header__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+          Header Management
+      </h3>
+      <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+  <form *ngIf="headerForm" [formGroup]="headerForm" novalidate (ngSubmit)="onSave(headerForm.value, headerForm.valid)" class="p-2">
+    <div class="row px-4">
+      <div class="col-12">
+        <div class="isv-admin-header__input row">
+          <div class="col-12 col-md-6">
+            <div class="md-form pb-4">
+              <label>Site Info <span class="text-danger">*</span></label>
+            </div>
+            <div class="clearfix my-3"></div>
+            <div class="md-form">
+              <input mdbActive type="text" id="label" formControlName="label" class="form-control" mdbInputValidate>
+              <label for="label">Site Title <span class="text-danger">*</span></label> <!--SITE TITLE SHOULD REFLECT title in head -->
+            </div>
+            <div class="md-form mt-3">
+              <input mdbActive type="text" id="subLabel" formControlName="subLabel" class="form-control" mdbInputValidate>
+              <label for="subLabel">Site Sub Title</label>
+            </div>
+          </div>
+          <div class="isv-admin-header__upload col-12 col-md-6">
+            <!--<div class="md-form pb-4">
+              <label>Favicon</label>
+            </div>
+            <div class="md-form">
+              <input mdbActive type="text" id="title" formControlName="label" class="form-control" mdbInputValidate>
+              <label for="label">Site Title <span class="text-danger">*</span></label>
+            </div>-->
+              <!--<div *ngIf="file.name || headerForm.value.file" class="text-center pb-2">
+
+                <ng-container *ngIf="file.name">
+                  <img
+                    [src]="url"
+                    [ngClass]="{
+                      'isv-admin-header-image__preview--logo-text': headerForm.value.showImage && headerForm.value.showLabel,
+                      'isv-admin-header-image__preview--logo': headerForm.value.showImage && !headerForm.value.showLabel
+                    }"
+                    class="isv-admin-header-image__preview">
+                </ng-container>
+                <ng-container *ngIf="!file.name">
+                  <img
+                    src="{{imageSourceUrl}}/{{headerForm.value.file}}"
+                    [ngClass]="{
+                      'isv-admin-header-image__preview--logo-text': headerForm.value.showImage && headerForm.value.showLabel,
+                      'isv-admin-header-image__preview--logo': headerForm.value.showImage && !headerForm.value.showLabel
+                    }"
+                    class="isv-admin-header-image__preview">
+                </ng-container>
+              </div>
+              <input (change)="fileChange($event)" id="headerImage" type="file" [ngStyle]="{'visibility':'hidden', 'width':0}" accept=".png,.jpg"/>
+              <button type="button" class="btn btn-indigo waves-effect waves-light" (click)="document.getElementById('headerImage').click()">
+                Browse
+              </button>
+              <ng-container *ngIf="file">{{ file.name }}</ng-container>
+              <ng-container *ngIf="!file.name">{{ headerForm.value.file}}</ng-container>
+              <p class="grey-text pl-3"><small>File should be in .ico format</small></p>
+            -->
+          </div>
+
+        </div>
+        <div class="isv-admin-header__input row">
+          <div class="col-12">
+            <div class="md-form pb-4">
+              <label>Logo Image <span class="text-danger">*</span></label>
+            </div>
+            <div *ngIf="file.name || headerForm.value.file" class="text-center pb-2">
+
+              <ng-container *ngIf="file.name">
+                <img
+                  [src]="url"
+                  [ngClass]="{
+                    'isv-admin-header-image__preview--logo-text': headerForm.value.showImage && headerForm.value.showLabel,
+                    'isv-admin-header-image__preview--logo': headerForm.value.showImage && !headerForm.value.showLabel
+                  }"
+                  class="isv-admin-header-image__preview">
+              </ng-container>
+              <ng-container *ngIf="!file.name">
+                <img
+                  src="{{imageSourceUrl}}/{{headerForm.value.file}}"
+                  [ngClass]="{
+                    'isv-admin-header-image__preview--logo-text': headerForm.value.showImage && headerForm.value.showLabel,
+                    'isv-admin-header-image__preview--logo': headerForm.value.showImage && !headerForm.value.showLabel
+                  }"
+                  class="isv-admin-header-image__preview">
+              </ng-container>
+            </div>
+            <input (change)="fileChange($event)" id="headerImage" type="file" [ngStyle]="{'visibility':'hidden', 'width':0}" accept=".png,.jpg"/>
+            <button type="button" class="btn btn-indigo waves-effect waves-light" (click)="document.getElementById('headerImage').click()">
+              Browse
+            </button>
+            <ng-container *ngIf="file">{{ file.name }}</ng-container>
+            <ng-container *ngIf="!file.name">{{ headerForm.value.file}}</ng-container>
+            <p class="grey-text pl-3"><small>Recommended image size 150px X 150px (if this layout) or 400px X 150px.</small></p>
+
+          </div>
+          <div class="col-12">
+              <div class="md-form pb-4">
+                <label>Logo Layout</label>
+              </div>
+          </div>
+        </div>
+        <div class="isv-admin-header__choice row p-4 mb-4">
+            <div
+              (click)="selectTemplate('LOGO_AND_TEXT')"
+              [ngClass]="{'choice--selected': headerForm.value.showImage && headerForm.value.showLabel}"
+              class="col-6 text-center choice rounded p-4">
+              <h4 class="h4-responsive">Logo and Text</h4>
+              <div class="col-12 ml-4">
+                <div class="row">
+                  <div class="col-4 py-4 border-spacer text-center">
+                    <img src="http://via.placeholder.com/150x150?text=IMAGE+150x150" class="img-fluid" />
+                  </div>
+                  <div class="col-8 py-4 text-left">
+                    <p>{{headerForm.value.label}}<br />
+                      <small>{{headerForm.value.subLabel}}</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              (click)="selectTemplate('LOGO')"
+              [ngClass]="{'choice--selected': headerForm.value.showImage && !headerForm.value.showLabel}"
+              class="col-6 text-center choice rounded p-4">
+              <h4 class="h4-responsive">Logo Image</h4>
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12 p-4 text-center">
+                    <img src="http://via.placeholder.com/300x100?text=IMAGE+400x150" class="img-fluid" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        <div *ngIf="currentTemplateChanged" class="row">
+            <div class="col-12 text-center">
+              <h5 class="badge badge-danger p-2">Layout changed, please re-upload image.</h5>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="isv-admin-header__actions row mt-4 d-flex">
+      <div class="col-6 align-self-center">
+        <button *ngIf="modal" (click)="modal.hide()" class="btn btn-outline-blue-grey" type="button">Cancel</button>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button type="submit" [disabled]="headerForm.invalid || !withFile()" class="btn light-green darken-2 waves-effect waves-light">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div [ngBusy]="headerGetSubs"></div>
+<div [ngBusy]="headerSaveSubs"></div>

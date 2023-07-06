@@ -1,0 +1,31 @@
+.isv-admin-user-profile__title h3,
+.isv-admin-user-profile__title h4 {
+  font-weight: 300 !important;
+}
+
+main, footer {
+  padding-left: 0;
+
+  @media (min-width: 872px) {
+    padding-left: 240px;
+  }
+}
+
+.isv-admin {
+  position: relative;
+  overflow: auto;
+  min-height: 100vh;
+}
+
+.isv-admin-user-profile__data {
+
+  .form-control[readonly],
+  .form-control[disabled] {
+    border-bottom: 0 !important;
+    color: rgba(0, 0, 0, 1);
+  }
+  .form-control[disabled] + label {
+    color: rgba(0, 0, 0, .8);
+  }
+
+}

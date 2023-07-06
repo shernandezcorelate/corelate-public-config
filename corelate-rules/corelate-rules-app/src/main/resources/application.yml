@@ -1,0 +1,10 @@
+#TODO: Delete this
+security:
+  ignored: /suggestions/**
+isv:
+  storage:
+    client-type: remote
+    remote:
+      url: http://localhost:9000
+      access-key: VV2V7IK1NOEY636AGLKO
+      secret-key: iUlGKax02hsgClCLPCpy50DpD6ltW1kOV4pYcT2A

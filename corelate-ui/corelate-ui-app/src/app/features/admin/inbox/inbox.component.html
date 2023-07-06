@@ -1,0 +1,68 @@
+<div class="isv-admin-inbox">
+  <div class="row pt-1">
+    <div class="isv-admin-inbox__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        {{ 'INBOX.HEADER' | translate }}
+      </h3>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+  <ng-container>
+    <ng-container>
+      <form>
+
+        <div class="row p-4">
+          <div class="col-12 px-0">
+            <ngx-datatable
+              class="custom"
+              [rows]="messages"
+              [columnMode]="'force'"
+              [footerHeight]="'auto'"
+              [rowHeight]="'auto'"
+              [externalPaging]="true"
+              [count]="params.totalElements"
+              [offset]="params.page"
+              [limit]="params.size"
+              (page)='setPage($event)'>
+
+              <ngx-datatable-column name="name">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <strong>{{ 'INBOX.TABLE.COLUMN.FROM' | translate }}</strong>
+                </ng-template>
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    <h5 class="h5-responsive py-2 mb-0 pl-4"><strong>{{ value }}</strong></h5>
+                    <p class="mb-0 pl-4"><small>{{ row.email }}</small></p>
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="subject">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <div class="text-center">
+                    <strong>{{ 'INBOX.TABLE.COLUMN.MESSAGE' | translate }}</strong>
+                  </div>
+                </ng-template>
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  <h5 class="h4-responsive py-2 mb-0 pl-4"><strong>{{ value }}</strong></h5>
+                  <p class="mb-0 pl-4"><small>{{ row.message }}</small></p>
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="updatedDate">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <strong>{{ 'INBOX.TABLE.COLUMN.DATE' | translate }}</strong>
+                </ng-template>
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <div class="text-center my-4 py-4">
+                    <h5 class="h5-responsive py-1 mb-0">{{ value | date : 'mediumDate' }}</h5>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+
+      </form>
+    </ng-container>
+  </ng-container>
+</div>

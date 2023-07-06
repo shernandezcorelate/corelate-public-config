@@ -1,0 +1,64 @@
+<div class="isv-admin-group">
+  <div class="row">
+    <div class="isv-admin-group__title col-12">
+      <h3 class="h3-responsive">User Groups Management</h3>
+    </div>
+  </div>
+
+  <hr />
+
+  <ng-container>
+    <div class="row">
+      <div class="isv-admin-group__new col-12 text-right">
+        <button *isAuthorized="['USER_GROUPS_MANAGEMENT_ADD']" type="button" class="btn btn-md blue darken-1 waves-effect waves-light" routerLink="add" mdbRippleRadius><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add A New User Group</button>
+      </div>
+    </div>
+
+    <div class="row p-4">
+      <div class="col-12 px-0">
+        <ngx-datatable #datatable
+                       class="custom"
+                       [rows]="groups"
+                       [loadingIndicator]="loading"
+                       [columnMode]="'force'"
+                       [footerHeight]="'auto'"
+                       [rowHeight]="'auto'"
+                       [externalPaging]="true"
+                       [count]="params.totalElements"
+                       [offset]="params.page"
+                       [limit]="params.size"
+                       (page)='setPage($event)'>
+
+          <ngx-datatable-column name="name">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <strong>Group / Role</strong>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <h4 class="title h4-responsive blue-text py-2 mb-0 pl-2 mr-3">
+                <a *isAuthorized="['USER_GROUPS_MANAGEMENT_EDIT']" [routerLink]="['edit', row.id]" class="clickable blue-text">{{ row.name }}</a>
+                <span *isNotAuthorized="['USER_GROUPS_MANAGEMENT_EDIT']">{{ row.name }}</span>
+              </h4>
+              <p class="content grey-text mb-0 pl-2"><small>{{row.description}}</small></p>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column *isAuthorized="['USER_GROUPS_MANAGEMENT_DELETE','USER_GROUPS_MANAGEMENT_EDIT']">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <strong>Actions</strong>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+            <div class="text-center py-3">
+              <button *isAuthorized="['USER_GROUPS_MANAGEMENT_DELETE']" (click)="delete(row)" type="button" class="btn btn-sm isv-btn-group-list btn-red waves-light my-0" mdbRippleRadius mdbTooltip="Delete" placement="top">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+              <button *isAuthorized="['USER_GROUPS_MANAGEMENT_EDIT']" (click)="edit(row.id)" type="button" class="btn btn-sm isv-btn-group-list btn-amber waves-light my-0" mdbRippleRadius mdbTooltip="Edit" placement="top">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+            </div>
+          </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

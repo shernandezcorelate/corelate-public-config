@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:9.5-alpine
+    volumes:
+      - /mnt/isv/db/data:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_PASSWORD=postgres"
+    ports:
+      - "5432:5432"
+  minio-server:
+    image: minio/minio
+    environment:
+      - "MINIO_ACCESS_KEY=YOUR_ACCESS_KEY"
+      - "MINIO_SECRET_KEY=YOUR_SECRET_KEY"
+    volumes:
+      - /mnt/isv/minio/export:/export
+      - /mnt/isv/minio/config:/root/.minio
+    ports:
+      - "9000:9000"
+    command: server /export
+
+
+

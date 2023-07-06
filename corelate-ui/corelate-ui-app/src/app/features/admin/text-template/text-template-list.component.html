@@ -1,0 +1,102 @@
+<div class="isv-admin-text-template">
+
+  <div class="row pt-1">
+    <div class="isv-admin-text-template__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Email Templates Management
+      </h3>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+  <ng-container>
+    <!--<div class="row">
+      <div class="isv-admin-text-template__new col-12 text-right">
+        <button routerLink="add" class="btn btn-md blue darken-1 waves-effect waves-light" mdbRippleRadius><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add A New Email Template</button>
+      </div>
+    </div>-->
+
+    <div class="row p-4">
+      <div class="col-12 px-0">
+        <ngx-datatable #datatable
+                       class="custom"
+                       [rows]="textTemplates"
+                       [loadingIndicator]="loading"
+                       [columnMode]="'force'"
+                       [footerHeight]="'auto'"
+                       [rowHeight]="'auto'"
+                       [externalPaging]="true"
+                       [count]="params.totalElements"
+                       [offset]="params.page"
+                       [limit]="params.size"
+                       (page)='setPage($event)'>
+
+          <ngx-datatable-column name="key">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <strong>Template Name</strong>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <h4 class="title h4-responsive blue-text py-2 mb-0 pl-2 mr-3">
+                <a *isAuthorized="['EMAIL_TEMPLATES_MANAGEMENT_EDIT']" [routerLink]="['edit', row.id]" class="blue-text">{{ templateMap.get(row.key) }}</a>
+                <span *isNotAuthorized="['EMAIL_TEMPLATES_MANAGEMENT_EDIT']">{{ templateMap.get(row.key) }}</span>
+              </h4>
+            </ng-template>
+          </ngx-datatable-column>
+          <!--<ngx-datatable-column name="template">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <strong>Template Content</strong>
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <p class="grey-text mb-0"><small>{{value}}</small></p>
+            </ng-template>
+          </ngx-datatable-column>-->
+          <ngx-datatable-column>
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <strong>Actions</strong>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <div class="text-center py-3">
+                <button *isAuthorized="['EMAIL_TEMPLATES_MANAGEMENT_DELETE']" (click)="delete(row.id)" type="button" class="btn btn-sm isv-btn-text-template-list btn-red waves-light my-0" mdbRippleRadius mdbTooltip="Delete" placement="top">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+                <button (click)="previewModal.show(); preview(row.template);" type="button" class="btn btn-sm isv-btn-text-template-list btn-blue waves-light my-0" mdbRippleRadius mdbTooltip="Preview" placement="top">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </button>
+
+                <button *isAuthorized="['EMAIL_TEMPLATES_MANAGEMENT_EDIT']" (click)="edit(row.id)" type="button" class="btn btn-sm isv-btn-text-template-list btn-amber waves-light my-0" mdbRippleRadius mdbTooltip="Edit" placement="top">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+
+
+
+
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+
+        </ngx-datatable>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div mdbModal
+     [config]="{backdrop: true, ignoreBackdropClick: true}"
+     #previewModal="mdb-modal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="PreviewModalLabel"
+     aria-hidden="true">
+
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <!--Body-->
+      <div class="modal-body" [innerHtml]="templatePreview | safeHtml"></div>
+      <!--Footer-->
+      <div class="modal-footer">
+        <button type="button" class="btn blue-grey darken-2" (click)="previewModal.hide()">Close Preview</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,209 @@
+
+<div class="main-content-wrapper">
+
+    <span loading="model.loading"></span>
+
+    <div class="main-content" ng-if="!model.loading">
+
+        <div class="header" style="margin-bottom:10px">
+            
+            <div class="media">
+              <!--<div class="media-left" style="width: 60px;">-->
+                <!--<img ng-src="{{restRootUrl()}}/app/rest/admin/profile-picture?{{model.profile.lastUpdate}}"-->
+                 <!--style="width:60px; height: 60px;"-->
+                 <!--class="img-thumbnail clickable media-object"-->
+                 <!--ng-click="showUploadPictureModal()">-->
+              <!--</div>-->
+
+              <div class="media-body">
+                
+                <h2>{{model.profile.firstName}} {{model.profile.lastName}}</h2>
+
+                <div class="detail">
+
+                    <span class="label" ng-show="model.profile.created">{{'IDM.PROFILE-MGMT.CREATED' | translate}}: </span>
+                    <span ng-show="model.profile.created">{{model.profile.created | dateformat}} </span>
+
+                    <!--<span class="label" ng-show="model.profile.tenantName != null && model.profile.tenantName != undefined">{{'IDM.PROFILE-MGMT.TENANT' | translate}}: </span>-->
+                    <!--<span ng-show="model.profile.tenantName != null && model.profile.tenantName != undefined">{{model.profile.tenantName}} </span>-->
+
+                    <!--<div class="" ng-if="model.showChangePasswordButton != null && model.showChangePasswordButton != undefined && model.showChangePasswordButton == true">-->
+                        <!--<button class="btn btn-clean" ng-click="showChangePasswordModal()">-->
+                            <!--<span>{{'IDM.PROFILE-MGMT.CHANGE-PASSWORD' | translate}}</span>-->
+                        <!--</button>-->
+                    <!--</div>-->
+
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+
+        <div class="content" auto-height offset="6">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    
+                    <div style="margin-left:15px;" class="section-header">
+                        <h2><span>{{'IDM.PROFILE-MGMT.DETAILS' | translate}}</span></h2>
+                        <!--<h5>{{'IDM.PROFILE-MGMT.DETAILS-DESCRIPTION' | translate}}</h5>-->
+                    </div>
+
+                    <div class="row section">
+
+                        <div class="col-xs-6">
+
+                            <div>
+
+                                <h4 class="control-label">{{'IDM.PROFILE-MGMT.FIRST-NAME' | translate}}</h4>
+
+                                <div ng-if="!model.editingFirstName" class="profile-detail">
+                                    <span ng-if="model.profile.firstName != null  && model.profile.firstName !== undefined">{{model.profile.firstName}}</span>
+                                    <span ng-if="model.profile.firstName == null || model.profile.firstName == undefined || model.profile.firstName == ''" class="nothing-to-see">{{'IDM.PROFILE-MGMT.NOTHING-SET' | translate}}</span>
+                                </div>
+                                <div class="form-group" ng-if="model.editingFirstName">
+                                    <input type="text" class="form-control" auto-focus ng-model="model.profile.firstName"
+                                           ng-blur="firstNameChanged()"
+                                           custom-keys enter-pressed="firstNameChanged()">
+                                </div>
+
+                                <h4 class="control-label">{{'IDM.PROFILE-MGMT.LAST-NAME' | translate}}</h4>
+
+                                <div ng-if="!model.editingLastName" class="profile-detail"
+                                     >
+                                    <span ng-if="model.profile.lastName != null && model.profile.lastName !== undefined">{{model.profile.lastName}}</span>
+                                    <span ng-if="model.profile.lastName == null || model.profile.lastName == undefined || model.profile.lastName == ''" class="nothing-to-see">{{'IDM.PROFILE-MGMT.NOTHING-SET' | translate}}</span>
+                                </div>
+                                <div class="form-group" ng-if="model.editingLastName">
+                                    <input type="text" class="form-control" auto-focus ng-model="model.profile.lastName"
+                                           ng-blur="lastNameChanged()"
+                                           custom-keys enter-pressed="lastNameChanged()">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6 hide">
+
+                            <div>
+
+                                <h4 class="control-label">
+                                    <span>{{'IDM.PROFILE-MGMT.EMAIL' | translate}}</span>
+                                    <span ng-if="model.profile.emailErrorMessage" style="color:red; font-size: 12px">{{model.profile.emailErrorMessage | translate}}</span>
+                                </h4>
+
+                                <div ng-if="!model.editingEmail" class="profile-detail">
+                                    <span ng-if="model.profile.email != null && model.profile.email != undefined">{{model.profile.email}}</span>
+                                    <span ng-if="model.profile.email == null || model.profile.email == undefined" class="nothing-to-see">{{'IDM.PROFILE-MGMT.NOTHING-SET' | translate}}</span>
+                                    {{model.profile.emailErrorMessage | translate}}
+                                </div>
+                                <div class="form-group" ng-if="model.editingEmail">
+                                    <input type="text" class="form-control" auto-focus ng-model="model.profile.email"
+                                           ng-blur="emailChanged()"
+                                           custom-keys enter-pressed="emailChanged()">
+                                </div>
+
+                              <!--
+                                <h4 class="control-label">{{'IDM.PROFILE-MGMT.COMPANY' | translate}}</h4>
+
+                                <div ng-if="!model.editingCompany" class="profile-detail"
+                                     ng-click="model.editingCompany = true">
+                                    <span ng-if="model.profile.company != null && model.profile.company != undefined">{{model.profile.company}}</span>
+                                    <span ng-if="model.profile.company == null || model.profile.company == undefined || model.profile.company == ''" class="nothing-to-see">{{'IDM.PROFILE-MGMT.NOTHING-SET' | translate}}</span>
+                                </div>
+                                <div class="form-group" ng-if="model.editingCompany">
+                                    <input type="text" class="form-control" auto-focus ng-model="model.profile.company"
+                                           ng-blur="companyChanged()"
+                                           custom-keys enter-pressed="companyChanged()">
+                                </div>
+                              -->
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-6 hide">
+                    
+                    <div class="col-xs-12" ng-if="model.profile.groups && model.profile.groups.length > 0">
+
+                        <div class="section-header">
+                            <h2><span>{{'IDM.PROFILE-MGMT.GROUPS' | translate}}</span></h2>
+                        </div>
+                        <ul class="simple-list">
+                            <li ng-repeat="group in model.profile.groups">
+                                <i class="material-icons">folder</i>
+                                <span>{{group.name}}</span>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+
+            
+
+            
+
+            <div class="col-xs-6 hide" ng-if="account.capabilities && account.capabilities.length > 0">
+
+                <div class="section-header">
+                    <h2><span>{{'IDM.PROFILE-MGMT.CAPABILITES' | translate}}</span></h2>
+                </div>
+                <ul class="simple-list">
+                    <li ng-repeat="capability in account.capabilities">
+                        <span style="margin-right: 5px;" class="glyphicon glyphicon-ok-circle"></span>
+                        <span> {{'IDM.SYSTEM-GROUP-MGMT.CAPABILITIES.' +  capability  | translate}}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-xs-12 hide" ng-if="alfrescoRepositories && alfrescoRepositories.size > 0">
+
+                <h2>{{'IDM.PROFILE-MGMT.ALFRESCO-REPOSITORIES' | translate}}</h2>
+                <ul class="simple-list selectable">
+                    <li ng-repeat="repo in alfrescoRepositories.data" ng-click="configureAlfrescoRepository(repo)">
+                        <i class="glyphicon" ng-class="{'glyphicon-ok-circle': repo.accountUsername, 'glyphicon-remove-circle': !repo.accountUsername}"></i>
+                        {{repo.name}}<br>
+                        <span class="subtle" ng-if="repo.accountUsername">
+                            {{'IDM.PROFILE-MGMT.ALFRESCO-REPOSITORY-CONFIGURED' | translate:repo}}
+                        </span>
+                        <span class="subtle"ng-if="!repo.accountUsername">
+                            {{'IDM.PROFILE-MGMT.ALFRESCO-REPOSITORY-NOT-CONFIGURED' | translate}}
+                        </span>
+
+                        <div class="actions" ng-show="repo.accountUsername">
+                            <a><i class="glyphicon glyphicon-trash" ng-click="$event.stopPropagation(); removeAlfrescoRepository(repo)"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-xs-12 hide" ng-if="boxRepositoryIsEnabled">
+
+                <h2>{{'IDM.PROFILE-MGMT.BOX-REPOSITORY' | translate}}</h2>
+                <ul class="simple-list selectable">
+                    <li  ng-click="configureBoxRepository()">
+                        <i class="glyphicon" ng-class="{'glyphicon-ok-circle': repo.ownerEmail, 'glyphicon-remove-circle': !boxRepository.ownerEmail}"></i>
+                        {{boxRepository.name}}<br>
+                        <span class="subtle" ng-if="boxRepository.ownerEmail">
+                            {{'IDM.PROFILE-MGMT.BOX-REPOSITORY-CONFIGURED' | translate:boxRepository}}
+                        </span>
+                        <span class="subtle"ng-if="!boxRepository.ownerEmail">
+                            {{'IDM.PROFILE-MGMT.BOX-REPOSITORY-NOT-CONFIGURED' | translate}}
+                        </span>
+                        <div class="actions" ng-show="boxRepository.ownerEmail">
+                            <a><i class="glyphicon glyphicon-trash" ng-click="$event.stopPropagation(); removeBoxRepository()"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

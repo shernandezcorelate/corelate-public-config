@@ -1,0 +1,24 @@
+<div class="adf-multiline-text-widget {{field.className}}"
+     [class.adf-invalid]="!field.isValid" [class.adf-readonly]="field.readOnly">
+    <md-input-container floatPlaceholder="never">
+        <label class="adf-label" [attr.for]="field.id">{{field.name}}<span *ngIf="isRequired()">*</span></label>
+        <textarea mdInput class="adf-input"
+                  md-autosize
+                  type="text"
+                  rows="3"
+                  [maxlength]="field.maxLength"
+                  [id]="field.id"
+                  [required]="isRequired()"
+                  [(ngModel)]="field.value"
+                  (ngModelChange)="checkVisibility(field)"
+                  [disabled]="field.readOnly || readOnly"
+                  placeholder="{{field.placeholder}}">
+        </textarea>
+    </md-input-container>
+    <div *ngIf="field.maxLength > 0" class="adf-multiline-word-counter">
+        <span>{{field?.value?.length || 0}}/{{field.maxLength}}</span>
+    </div>
+    <error-widget [error]="field.validationSummary"></error-widget>
+    <error-widget class="adf-multiline-required-message" *ngIf="isInvalidFieldRequired()" required="{{ 'FORM.FIELD.REQUIRED' | translate }}"></error-widget>
+</div>
+

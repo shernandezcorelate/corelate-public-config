@@ -1,0 +1,37 @@
+[[resources-grid-layout-get]]
+=== Get a grid layout
+
+A `GET` request is used to get a grid layout.
+
+==== Example request
+
+include::{snippets}/gridLayoutResource/get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/gridLayoutResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/gridLayoutResource/get/response-fields.adoc[]
+
+[[resources-grid-layout-update]]
+=== Update a grid layout
+
+A `PUT` request is used to update a grid layout.
+
+==== Example request
+
+include::{snippets}/gridLayoutResource/update/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/gridLayoutResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/gridLayoutResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/gridLayoutResource/update/response-fields.adoc[]

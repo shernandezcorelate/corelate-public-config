@@ -1,0 +1,76 @@
+[[resources-rule-create]]
+=== Creating a rule
+
+A `POST` request is used to create a rule.
+
+==== Example request
+
+include::{snippets}/rulesResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/rulesResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/rulesResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/rulesResource/create/response-fields.adoc[]
+
+
+[[resources-rules-list]]
+=== Get rules list
+
+A `GET` request will list all of the rules record.
+
+==== Example request
+
+include::{snippets}/rulesResource/list/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/rulesResource/list/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/rulesResource/list/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/rulesResource/list/response-fields.adoc[]
+
+[[resources-rules-upload]]
+=== Uploading the rule
+
+A `POST` request is used to upload a rule file.
+
+==== Example request
+
+include::{snippets}/rulesResource/uploadRule/curl-request.adoc[]
+
+==== Request parts
+
+include::{snippets}/rulesResource/uploadRule/request-parts.adoc[]
+
+==== Example response
+
+include::{snippets}/rulesResource/uploadRule/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/rulesResource/uploadRule/response-fields.adoc[]
+
+[[resources-rules-download]]
+=== Download the rule file
+
+A `GET` request is used to download a rule file.
+
+==== Example request
+
+include::{snippets}/rulesResource/downloadRule/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/rulesResource/downloadRule/path-parameters.adoc[]

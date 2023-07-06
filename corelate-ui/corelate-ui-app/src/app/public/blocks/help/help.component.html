@@ -1,0 +1,143 @@
+<div class="corelate-ui-help edit">
+  <ng-container *ngIf="layout === BlockTemplate.ONE_COLUMN">
+    <div class="container p-4">
+      <div class="row px-4">
+        <div class="col">
+        </div>
+        <div class="col-12 col-md-10">
+          <ng-container *isAuthorized="['CMS_ADMIN','HELP_TOPICS_EDIT']">
+            <button *ngIf="isLoggedIn" (click)="helpModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+          </ng-container>
+          <div class="isv-block-name row">
+            <div class="col-12 text-center pb-4">
+              <h4 class="h4-responsive grey-text text-uppercase"><strong>Help Topics</strong></h4>
+            </div>
+          </div>
+          <!--
+          <div class="isv-block-lead row">
+            <div class="col-12 text-center pb-4">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna.</p>
+            </div>
+          </div>
+          -->
+          <div class="isv-block-help row">
+            <div class="col"></div>
+            <div class="col-12 col-lg-10">
+              <mdb-squeezebox [multiple]="false" aria-multiselectable="true" class="isv-help__item">
+                <mdb-item  *ngFor="let helpTopic of helpTopics">
+                  <mdb-item-head> {{ helpTopic.topic }} </mdb-item-head>
+                  <mdb-item-body>
+                    <div *ngFor="let subtopic of helpTopic.subTopics" class="card border-bottom-0">
+                      <div class="card-header px-2">
+                        {{ subtopic.title }}
+                      </div>
+                      <div class="card-body px-2">
+                        <pre class="pre-content">{{ subtopic.content }}</pre>
+                      </div>
+                    </div>
+                  </mdb-item-body>
+                </mdb-item>
+              </mdb-squeezebox>
+            </div>
+            <div class="col"></div>
+          </div>
+          <ng-container *ngIf="loading">
+            <div class="d-flex justify-content-center my-4 w-100">
+              <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+            </div>
+          </ng-container>
+          <div class="isv-article-list__list col-12" *ngIf="!loading && helpTopics.length === 0">
+            <div class="isv-article-list__no-posts row p-3">
+              <div class="col-12 text-center p-4">
+                <h3 class="h3-responsive grey-text"><em>No Entries Yet.</em></h3>
+              </div>
+            </div>
+          </div>
+          <div class="isv-block-more row py-4">
+            <div class="col-12 text-center">
+              <button type="button" routerLink="/help" class="btn btn-lg btn-outline-primary waves-light" mdbRippleRadius>View More Help</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-container *ngIf="layout === BlockTemplate.TWO_COLUMNS">
+    <div class="corelate-ui-help edit">
+      <button *ngIf="isLoggedIn" (click)="helpModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+    </div>
+
+    <div class="isv-block-name row">
+      <div class="col-12 pb-4">
+        <h4 class="h4-responsive grey-text text-uppercase"><strong>Help Topics</strong></h4>
+      </div>
+    </div>
+  <div class="isv-block-body row d-flex flex-grow">
+    <!--
+    <div class="isv-block-lead col-12 pb-4">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna.</p>
+    </div>
+    -->
+    <ng-container *ngIf="helpTopics.length !== 0">
+        <div class="isv-block-help col-12">
+            <mdb-squeezebox [multiple]="false" aria-multiselectable="true" class="isv-help__item">
+              <mdb-item  *ngFor="let helpTopic of helpTopics">
+                <mdb-item-head> {{ helpTopic.topic }} </mdb-item-head>
+                <mdb-item-body>
+                  <div *ngFor="let subtopic of helpTopic.subTopics" class="card border-bottom-0">
+                    <div class="card-header px-2">
+                      {{ subtopic.title }}
+                    </div>
+                    <div class="card-body px-2">
+                      <pre class="pre-content">{{ subtopic.content }}</pre>
+                    </div>
+                  </div>
+                </mdb-item-body>
+              </mdb-item>
+            </mdb-squeezebox>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="loading">
+      <div class="d-flex justify-content-center my-4 w-100">
+        <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+      </div>
+    </ng-container>
+    <div class="isv-article-list__list col-12" *ngIf="!loading && helpTopics.length === 0">
+      <div class="isv-article-list__no-posts row p-3">
+        <div class="col-12 text-center p-4">
+          <h3 class="h3-responsive grey-text"><em>No Entries Yet.</em></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="isv-block-more row py-4">
+      <div class="col-12 text-center">
+        <button type="button" routerLink="/help" class="btn btn-md btn-outline-primary waves-light" mdbRippleRadius>View More Help</button>
+      </div>
+    </div>
+  </ng-container>
+
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  (onShown)="onShowModal()"
+  (onHidden)="onHideModal()"
+  #helpModal="mdb-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="helpModal"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="card">
+      <div class="card-body">
+        <corelate-ui-help-list [modal]="helpModal"></corelate-ui-help-list>
+      </div>
+    </div>
+  </div>
+</div>

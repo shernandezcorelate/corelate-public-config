@@ -1,0 +1,27 @@
+
+<div class="login-container">
+    <header>
+        <h1><img src="images/logo-2x.png" alt="Corelate"></h1>
+    </header>
+    <div class="content">
+        <h1 style="text-align: center;">
+            <strong>Workflow</strong> Designer
+        </h1>
+        <form class="form clearfix login-form" role="form">
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" placeholder="{{'LOGIN.USERNAME-PLACEHOLDER' | translate}}" ng-model="username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" placeholder="{{'LOGIN.PASSWORD-PLACEHOLDER' | translate}}" ng-model="password" >
+            </div>
+            <div class="btn-group pull-right">
+                <button id="login" type="submit" class="btn btn-default" ng-click="login()" ng-disabled="model.loading">
+                    {{'LOGIN.ACTION.CONFIRM' | translate}}
+                </button>
+            </div>
+            <p ng-if="invalidCredentials" class="login-error" translate="LOGIN.INVALID-CREDENTIALS"></p>
+            <p ng-if="!config.onPremise" class="subtle"><a href="#/signup" translate="LOGIN.NO-ACCOUNT"></a></p>
+            <p ng-if="!config.onPremise" class="subtle"><a href="#/reset-password" translate="LOGIN.FORGOT-PASSWORD"></a></p>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<header id="top-section" class="w-100">
+  <corelate-ui-header></corelate-ui-header>
+</header>
+
+<main>
+  <!--BACK TO TOP -->
+  <button class="isv-back-to-top btn btn-floating btn-large red waves-light" mdbPageScroll href="#top-section" mdbTooltip="Back to Top" placement="left" mdbRippleRadius [pageScrollDuration]="750">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <div class="isv-help-list container p-4">
+    <div class="row p-4">
+      <div class="col">
+      </div>
+      <div class="col-12 col-md-10 pt-4">
+        <div class="isv-help-list__title row edit pt-4">
+          <div class="col-12 text-center pb-4">
+            <h1 class="h1-responsive"><strong>Help Center</strong></h1>
+            <div class="isv-help-list__lead row">
+              <div class="col-12 text-center grey-text pb-4">
+                <p>Browse our Help topics to learn more about us.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="isv-help-list__list row mb-3">
+          <div class="col-12 p-2">
+            <mdb-squeezebox [multiple]="true" aria-multiselectable="true" class="isv-help__item">
+              <mdb-item  *ngFor="let helpTopic of helpTopics">
+                <mdb-item-head> {{ helpTopic.topic }} </mdb-item-head>
+                <mdb-item-body>
+                  <div *ngFor="let subtopic of helpTopic.subTopics" class="card border-bottom-0">
+                    <div class="card-header px-2">
+                      {{ subtopic.title }}
+                    </div>
+                    <div class="card-body px-2">
+                      <pre class="pre-content">{{ subtopic.content }}</pre>
+                    </div>
+                  </div>
+                </mdb-item-body>
+              </mdb-item>
+            </mdb-squeezebox>
+          </div>
+        </div>
+
+        <ng-container *ngIf="loading">
+          <div class="d-flex justify-content-center my-4 w-100">
+            <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+          </div>
+        </ng-container>
+        <div class="isv-faq-list__list col-12" *ngIf="!loading && helpTopics.length === 0">
+          <div class="isv-faq-list__no-posts row p-3">
+            <div class="col-12 text-center p-4">
+              <h3 class="h3-responsive grey-text"><em>No Entries Yet.</em></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="mt-auto w-100">
+  <corelate-ui-footer></corelate-ui-footer>
+</footer>

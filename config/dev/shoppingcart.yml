@@ -1,0 +1,10 @@
+server:
+  port: 8086
+
+spring:
+  datasource:
+    url: '{cipher}AQBfPBpHkaVhX7jgHYywVcHSkEMScnHoTOlEseIeE2lxrE1rtoMiPPcvGE834VKIQAAIyY0pNCddL2LvogVkzOMcXd/OpMZFp1VB6+sYDsWPEjIl7rZ5/v/44XTf+oDaeXZ4mNHV3KfTQaXJzYtvl3TZU6ar5TMzcu0fMzYNIUkH0k2SmKDaUFlaXj8Xe4jD6YTBYeVObXOHcMoyv4btKKpN0FjfcFbH+jlVw6e9EqAmoqkMVuH9NDpUrPKrmpPmMGz+fj8P7uZCxabvaARqgq7BjoMNU/SbjNx76WFnnX5oFcqltuuB0kKED8npvun+WJMcENU0CC7Y/eufV57Az16LW0kenUXyMxHc75YYKhh/cOHRHP1RhN8d5LyBF1Cs3qPBxLSBJcZEWB37UNg7J6jN5WOKs3eLDA/VrAP0O5WzqjWqRrZhUf86977E18tO6eM='
+
+bpmn:
+  ribbon:
+    listOfServers: http://localhost:9999

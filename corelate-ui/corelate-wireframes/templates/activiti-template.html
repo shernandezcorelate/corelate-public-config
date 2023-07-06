@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Trade</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic,700|Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
+    <link href="../dist/css/app.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="../dist/img/logo.png" alt=""></a>
+        </div>
+        <ul class="navbar-right navbar-account">
+          <li><a class="btn btn-default btn-lg" href="login.html">Log In</a></li>
+          <li><a class="btn btn-primary btn-lg" href="signup.html">Sign Up</a></li>
+        </ul>
+      </div>
+      
+      <!--MAIN NAV-->
+      <div id="main-navigation">
+        <div class="container">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="main-nav-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu" style="margin-left:-80px;">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+        <form class="navbar-form navbar-right" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control form-global-search" placeholder="Search" ng-model="searchItem">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="button" ui-sref="inquiry({searchItem:searchItem})"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </form>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div>
+      <!--END MAIN NAV-->
+    </nav>
+
+    <div class="main-content">
+        <div class="activiti-wrapper">
+          <div class="row column-page">
+            <div class="col-xs-1 column-page-aside column-page-aside-narrow">
+              <div class="column-full-height">
+                <ul id="tasks-sidebar" class="column-list column-list--icons ng-scope ng-isolate-scope column-container-scroll">
+                    <li class="column-list-item">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                        <div class="column-list-item-title">Involved Tasks</div>
+                    </li>
+                    <li class="column-list-item">
+                        <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+                        <div class="column-list-item-title">My Tasks</div>
+                    </li>
+                    <li class="column-list-item">
+                        <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+                        <div class="column-list-item-title">Queued Tasks</div>
+                    </li>
+                    <li class="column-list-item">
+                        <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                        <div class="column-list-item-title">Completed Tasks</div>
+                    </li>
+                    <li class="column-list-item">
+                      <a href="#">
+                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                        <div class="column-list-item-title">Shipment List</div>
+                      </a>
+                    </li>
+                    <li class="column-list-item noselect">
+                      <a href="#">
+                        <span class="glyphicon glyphicon-import" aria-hidden="true"></span>
+                        <div class="column-list-item-title">Declared Shipments</div>
+                      </a>
+                    </li>
+                    <li class="column-list-item noselect">
+                      <a href="#">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                        <div class="column-list-item-title">Shopping Cart</div>
+                      </a>
+                    </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xs-11 column-page-body column-page-body-wide">
+              <div class="row">
+                <div class="col-xs-3 column-page-body-column">
+                  
+                  <div class="column-header">
+                    <div>
+                      <span class="workflow-tasks-search">
+                          <span style="position: relative;">
+                              <span class="glyphicon glyphicon-search"></span>
+                              <input type="text" placeholder="Search" class="form-control workflow-tasks-search-input">
+                          </span>
+                      </span>
+                      <a class="column-header-action workflow-tasks-create-task">
+                          <span class="glyphicon glyphicon-plus"></span>
+                          <span>Create task</span>
+                      </a>
+                    </div>
+                    
+                    <div>
+                      <a data-toggle="dropdown" class="column-sub-header-action ng-binding" ng-click="">Newest first <span class="glyphicon glyphicon-sort-by-attributes-alt"></span></a>
+                      <ul class="dropdown-menu pull-center">
+                          <li>
+                            <a>Newest first</a>
+                          </li>
+                          <li>
+                            <a>Oldest first</a>
+                          </li>
+                          <li>
+                            <a>Due last</a>
+                          </li>
+                          <li>
+                            <a>Due first</a>
+                          </li>
+                      </ul>
+                    </div>
+
+                </div>
+
+                </div>
+                <div class="col-xs-9 column-page-body-column-large">
+                  
+                  <div class="column-full-height">
+                    <div class="activiti-right-container">
+                      <div class="content">
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        </p>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        </p>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        </p>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        </p>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        </p>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        </p>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        </p>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        </p>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        </p>
+                        <p>
+                          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                        </p>
+                      </div>  
+                    </div>
+                    <!-- <div style="height: 434px;" class="help-container">
+                      
+                      <div>
+                          <div class="help-dude-pointing"></div>
+                      </div>
+
+                      <div>
+                          <div class="help-text wide">
+                            <div class="description">Nothing found in "My Tasks", you could try another list. To get going with something new you can:</div>
+                              <div class="help-entry toggle-create-task">
+                                  <span class="glyphicon glyphicon-plus-sign"></span>
+                                  <span>Create a task for yourself or assign it to someone else</span>
+                              </div>
+                              <div class="help-entry">
+                                  <span class="glyphicon glyphicon-plus-sign"></span>
+                                  <span>Start a new process and then track its progress</span>
+                              </div>
+                          </div>
+                      </div>
+                      
+                    </div> -->
+
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      
+    </div>
+
+    
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4 class="hd">
+              Trade is a joint effort by the Department of Trade and Industry, Department of Science &amp; Technology and Bureau of Customs.
+            </h4>
+            <p class="footer-logo">
+              <img src="../dist/img/footer-logo.png" alt="" />
+            </p>
+          </div>
+          <div class="col-sm-8">
+            <div class="row">
+              
+              <div class="col-sm-3">
+                
+                <div class="menu-group">
+                  <h3 class="hd">Quick Links</h3>
+                  <ul>
+                    <li>
+                      <a href="#">About Trade.ph</a>
+                    </li>
+                    <li>
+                      <a href="#">Import Transactions</a>
+                    </li>
+                    <li>
+                      <a href="#">Export Transactions</a>
+                    </li>
+                    <li>
+                      <a href="#">Airport Operations</a>
+                    </li>
+                  </ul>
+                </div>    
+
+              </div>
+
+              <div class="col-sm-3">
+
+                <div class="menu-group">
+                  <h3 class="hd">Other Services</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Trade Repository</a>
+                    </li>
+                    <li>
+                      <a href="#">Unde Omnis Iste</a>
+                    </li>
+                    <li>
+                      <a href="#">Error sit Volupten</a>
+                    </li>
+                    <li>
+                      <a href="#">Unde Omnis Iste</a>
+                    </li>
+                    <li>
+                      <a href="#">Error sit Volupten</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <div class="col-sm-4">
+
+                <div class="menu-group">
+                  <h3 class="hd">Issuances</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Customs Memorandum Circular</a>
+                    </li>
+                    <li>
+                      <a href="#">Customs Memorandum Order</a>
+                    </li>
+                    <li>
+                      <a href="#">Customs Administrative Order</a>
+                    </li>
+                    <li>
+                      <a href="#">Memorandum Circular</a>
+                    </li>
+                    <li>
+                      <a href="#">Memorandum Order</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <div class="col-sm-2">
+            
+                <div class="menu-group">
+                  <h3 class="hd">Community</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Facebook</a>
+                    </li>
+                    <li>
+                      <a href="#">Twitter</a>
+                    </li>
+                    <li>
+                      <a href="#">Google+</a>
+                    </li>
+                    <li>
+                      <a href="#">Youtube</a>
+                    </li>
+                    <li>
+                      <a href="#">RSS Feed</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+              
+            </div><!--END row-->
+          </div>
+          
+          <div class="col-sm-12">
+            <hr>
+            <p class="copyright text-center">&copy; 2016&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Trade</a>&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Privacy</a>&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Terms</a></p>
+          </div>
+          
+        </div>
+
+      </div>
+    </footer>
+
+    <script src="../dist/js/scripts.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var windowHeight = $(window).height(),
+            navbarHeight = $('.navbar').height(),
+            footerHeight = $('.sticky-footer').height();
+        $('.activiti-wrapper, .activiti-right-container').height(windowHeight - navbarHeight + 'px');
+      });
+    </script>
+  </body>
+</html>

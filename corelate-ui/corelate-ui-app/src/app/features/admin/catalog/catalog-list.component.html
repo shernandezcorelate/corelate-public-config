@@ -1,0 +1,164 @@
+<div class="isv-admin-catalog">
+  <div class="isv-admin-catalog__options row no-gutters">
+    <div class="isv-admin-catalog__search col-12 col-xl-3 px-2">
+      <h5 *ngIf="isAdmin" class="h5-responsive grey darken-3 white-text mb-0 p-3">Search Catalogs</h5>
+      <h5 *ngIf="!isAdmin" class="h5-responsive mb-0 p-3">Search Catalogs</h5>
+      <div class="row p-3">
+        <div class="isv-admin-catalog__select col-12 col-sm-6 col-md-3 col-xl-12 mt-4">
+          <mdb-ng-select #keyDropdown [options]="keys" (selected)="selectKey($event)" placeholder="Choose Catalog" class="mt-1"></mdb-ng-select>
+          <label>Select Catalog</label>
+        </div>
+        <!--<div class="isv-admin-catalog__select col-12 col-sm-6 col-md-3 col-xl-12 mt-4">-->
+          <!--<mdb-ng-select #keyDropdown [options]="availableColumns" placeholder="Choose Column" class="mt-1"></mdb-ng-select>-->
+          <!--<label>Select Catalog Column</label>-->
+        <!--</div>-->
+        <div class="isv-admin-catalog__input col-12 col-sm-6 col-md-3 col-xl-12 mt-4">
+          <div class="md-form">
+            <input mdbActive [(ngModel)]="fieldName" type="text" class="form-control" id="name">
+            <label for="name">Catalog Column</label>
+          </div>
+        </div>
+        <div class="isv-admin-catalog__input col-12 col-sm-6 col-md-3 col-xl-12 mt-4">
+          <div class="md-form">
+            <input mdbActive [(ngModel)]="value" type="text" class="form-control" id="value">
+            <label for="value">Catalog Item/Entry</label>
+          </div>
+        </div>
+        <div class="isv-admin-catalog__button col-12 col-sm-6 col-md-3 col-xl-12 text-center mt-4">
+          <button *ngIf="isAdmin" (click)="resetPage(); searchCatalog();" type="button" class="btn btn-lg green darken-2 waves-effect waves-light">{{ 'GENERIC_FORM.BTN.SEARCH' | translate }}</button>
+          <button *ngIf="!isAdmin" (click)="resetPage(); searchCatalog();" type="button" class="btn btn-lg blue darken-1 waves-effect waves-light">{{ 'GENERIC_FORM.BTN.SEARCH' | translate }}</button>
+        </div>
+      </div>
+    </div>
+    <div class="isv-admin-catalog__result col-12 col-xl-9 px-2">
+      <div class="row" *ngIf="isAdmin">
+        <div class="col-12">
+          <div class="row d-flex grey darken-3 white-text no-gutters p-3">
+            <div class="col-12 col-md-6 align-self-center">
+              <h2 class="h2-responsive mb-0 p-2">{{ catalogName }}</h2>
+            </div>
+            <div *isAuthorized="['CATALOG_DELETE']" class="col-12 col-md-6 align-self-center text-right">
+              <button *ngIf="catalogName" (click)="deleteCatalog()" class="btn btn-md btn-red darken-1 waves-effect waves-light" type="button">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                Delete Catalog
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="!isAdmin">
+        <div class="col-12">
+          <div class="row d-flex p-3">
+            <div class="col-12">
+              <h2 class="h2-responsive mb-0 p-2">{{ catalogName }}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div *ngIf="searching" class="row p-4">
+            <div class="col-12 text-center m-4 p-4">
+              <mdb-spinner spinnerType="small" spinnerColor="blue"></mdb-spinner>
+            </div>
+          </div>
+          <span *ngIf="!searching && rows.length === 0">{{ 'GENERIC_TABLE.NO_RECORD_FOUND' | translate }}</span>
+          <ng-container *ngIf="!searching && rows.length !== 0">
+            <ngx-datatable #datatable
+              *ngIf="isAdmin"
+              class="custom"
+              [rows]="rows"
+              [loadingIndicator]="loading"
+              [columnMode]="'force'"
+              [footerHeight]="'auto'"
+              [rowHeight]="'auto'"
+              [externalPaging]="true"
+              [count]="params.totalElements"
+              [offset]="params.page"
+              [limit]="params.size"
+              (page)='setPage($event)'
+              [scrollbarH]="true">
+              <ng-container *ngFor="let col of columns">
+                <ngx-datatable-column [name]="col.name">
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                    <strong>{{ col.name }}</strong>
+                  </ng-template>
+                  <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                    <div class="text-center py-3">
+                      {{ row[col.name] }}
+                    </div>
+                  </ng-template>
+                </ngx-datatable-column>
+              </ng-container>
+              <ngx-datatable-column  [width]="100">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <div class="text-center">
+                    <strong>Actions</strong>
+                  </div>
+                </ng-template>
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <div class="text-center py-3">
+                    <button *isAuthorized="['CATALOG_DELETE']" (click)="deleteEntry(row)" type="button" class="btn btn-sm isv-btn-catalog-list btn-red waves-light my-0" mdbRippleRadius mdbTooltip="Delete Entry" placement="top">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                    <button *isAuthorized="['CATALOG_EDIT']" (click)="editCatalogEntry(row.id); " type="button" class="btn btn-sm isv-btn-catalog-list btn-amber waves-light my-0" mdbRippleRadius mdbTooltip="Edit Entry" placement="top"> <!--[routerLink]="['edit', row.id]"-->
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+            <ngx-datatable
+              *ngIf="!isAdmin"
+              class="public"
+              [rows]="rows"
+              [loadingIndicator]="loading"
+              [columnMode]="'force'"
+              [footerHeight]="'auto'"
+              [rowHeight]="'auto'"
+              [externalPaging]="true"
+              [count]="params.totalElements"
+              [offset]="params.page"
+              [limit]="params.size"
+              (page)='setPage($event)'
+              [scrollbarH]="true">
+              <ng-container *ngFor="let col of columns">
+                <ngx-datatable-column [name]="col.name">
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                    <strong>{{ col.name }}</strong>
+                  </ng-template>
+                  <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                    <div class="text-center py-3">
+                      {{ row[col.name] }}
+                    </div>
+                  </ng-template>
+                </ngx-datatable-column>
+              </ng-container>
+            </ngx-datatable>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  (onHide)="onHideCatalogModal()"
+  #catalogModal="mdb-modal"
+  class="modal fade right"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="catalogModal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="card">
+      <div class="card-body">
+        <corelate-ui-catalog-form *ngIf="showForm" [id]="selectedId" [modal]="catalogModal" (onModalSave)="saveModal()" (onModalCancel)="cancelModal()"></corelate-ui-catalog-form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+{
+    "bpmHost": "http://isv.corelate.prod.net:9999",
+    "application": {
+        "name": "Exist ISV Prod"
+    }
+}

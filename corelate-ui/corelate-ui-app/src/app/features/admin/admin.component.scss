@@ -1,0 +1,14 @@
+main, footer {
+  padding-left: 0;
+
+  @media (min-width: 872px) {
+    padding-left: 240px;
+  }
+}
+
+.isv-admin {
+  position: relative;
+  overflow: auto;
+  min-height: 100vh;
+}
+

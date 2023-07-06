@@ -1,0 +1,77 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="$hide()">&times;</button>
+                <h4 class="modal-title" ng-if="model.editedRepo.id == null || model.editedRepo.id == undefined">
+                    {{'IDM.TENANT-MGMT.POPUP.CREATE-REPO-TITLE' | translate}}
+                </h4>
+                <h4 class="modal-title" ng-if="model.editedRepo.id != null && model.editedRepo.id != undefined">
+                    {{'IDM.TENANT-MGMT.POPUP.EDIT-REPO-TITLE' | translate}}
+                </h4>
+            </div>
+
+            <div class="modal-body" ng-form="repoForm">
+
+                <div class="form-group" ng-class="{'has-error': repoForm.repoNameField.$invalid}">
+                    <label for="repoNameField" class="control-label">{{'IDM.TENANT-MGMT.ALFRESCO-REPO-NAME' | translate}}</label>
+                    <input type="text" id="repoNameField" name="repoNameField" class="form-control" ng-model="editAlfrescoRepository.name" autofocus required="true">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'IDM.TENANT-MGMT.ALFRESCO-REPO-TENANT' | translate}}</label>
+                    <input type="text" class="form-control" ng-model="editAlfrescoRepository.alfrescoTenantId">
+                    <span class="subtle" translate="IDM.TENANT-MGMT.ALFRESCO-REPO-TENANT-HELP"></span>
+                </div>
+                <div class="form-group" ng-class="{'has-error': repoForm.repoUrlField.$invalid}">
+                    <label for="repoUrlField" class="control-label">{{'IDM.TENANT-MGMT.ALFRESCO-REPO-URL' | translate}}</label>
+                    <input type="text" id="repoUrlField" name="repoUrlField" class="form-control" ng-model="editAlfrescoRepository.repositoryUrl" required="true">
+                    <span class="subtle" translate="IDM.TENANT-MGMT.ALFRESCO-REPO-URL-HELP"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'IDM.TENANT-MGMT.ALFRESCO-REPO-SHARE-URL' | translate}}</label>
+                    <input type="text" class="form-control" ng-model="editAlfrescoRepository.shareUrl">
+                    <span class="subtle" translate="IDM.TENANT-MGMT.ALFRESCO-REPO-SHARE-URL-HELP"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'IDM.TENANT-MGMT.ALFRESCO-VERSION' | translate}}</label>
+                    <select class="form-control" ng-options="version.id as version.label for version in versions"
+                            ng-model="editAlfrescoRepository.version"></select>
+
+                    <span class="subtle" translate="IDM.TENANT-MGMT.ALFRESCO-VERSION-HELP"></span>
+                    <br/>
+                    <div ng-if="editAlfrescoRepository.version == '4.0' || editAlfrescoRepository.version == '4.1'" class="well subtle">
+                        <span translate="IDM.TENANT-MGMT.ALFRESCO-VERSION-HELP-40"></span>
+                        <span ng-if="editAlfrescoRepository.shareUrl | regex: '^http[s]?:\/\/'">
+                            <span translate="IDM.TENANT-MGMT.ALFRESCO-VERSION-HELP-40-ADMIN-CONSOLE-LINK"></span><br/>
+                            <a ng-href="{{editAlfrescoRepository.shareUrl}}/page/console/admin-console/repository-server" target="_blank">{{editAlfrescoRepository.shareUrl}}/page/console/admin-console/repository-server</a>
+                        </span>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="form-group">
+                    <h4>
+                        <input type="checkbox" ng-model="editAlfrescoRepository.useShareConnector">
+                        {{'IDM.TENANT-MGMT.ALFRESCO-REPO-SHARE-CONNECTOR' | translate}}
+                    </h4>
+                    <label class="subtle" translate="IDM.TENANT-MGMT.ALFRESCO-REPO-SHARE-CONNECTOR-HELP"></label>
+                </div>
+                <div class="form-group" ng-show="editAlfrescoRepository.useShareConnector">
+                    <label class="control-label">{{'IDM.TENANT-MGMT.ALFRESCO-REPO-SECRET' | translate}}</label>
+                    <input type="text" class="form-control" ng-model="editAlfrescoRepository.secret" placeholder="{{shareConnectorSecretPlaceholder | translate}}">
+                    <span class="subtle" translate="IDM.TENANT-MGMT.ALFRESCO-REPO-SECRET-HELP"></span>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="$hide()">{{'IDM.GENERAL.ACTION.CANCEL' | translate}}</button>
+                <button type="button" class="btn btn-primary" ng-disabled="repoForm.$invalid || readOnly"
+                        ng-click="createOrUpdateAlfrescoRepository(editAlfrescoRepository); $hide()">{{'IDM.GENERAL.ACTION.SAVE' | translate}}
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

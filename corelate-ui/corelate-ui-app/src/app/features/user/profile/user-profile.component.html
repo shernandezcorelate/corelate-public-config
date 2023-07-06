@@ -1,0 +1,125 @@
+<corelate-ui-sidenav></corelate-ui-sidenav>
+<main>
+  <div class="isv-admin container-fluid grey darken-4 pb-4 d-flex flex-column justify-content-end">
+    <div class="isv-admin__body container pb-4">
+      <div class="card my-4">
+        <div class="card-body pt-4">
+          <div class="isv-admin-user-profile">
+            <div class="row pt-1">
+              <div class="isv-admin-user-profile__title col-12">
+                <h3 class="h3-responsive w-75 float-left pt-0">
+                  My Profile
+                </h3>
+              </div>
+            </div>
+            <hr class="mb-4 mt-3"/>
+
+            <div class="row">
+              <div class="isv-admin-user-profile__edit col-12 text-right">
+                <button type="button" (click)="edit()" [disabled]="editable" class="btn btn-md btn-amber waves-effect waves-light" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</button>
+              </div>
+            </div>
+            <form *ngIf="userProfileForm" [formGroup]="userProfileForm" novalidate (ngSubmit)="onSave(userProfileForm.value, userProfileForm.valid)" class="px-4">
+
+              <div class="isv-admin-user-profile__data row px-2">
+                <div class="isv-admin-user-profile__title col-12 col-sm-3">
+                  <h4 class="h4-responsive grey-text">Account Information</h4>
+                </div>
+                <div class="col-12 col-sm-9 py-4">
+                  <div class="md-form">
+                    <input mdbActive type="email" id="username" formControlName="username" class="form-control" readonly>
+                    <label for="username" class="">Username <span class="text-danger">*</span></label>
+                  </div>
+                  <div class="md-form">
+                    <input mdbActive type="text" [attr.disabled]="!editable?'':null" id="mobileNumber" formControlName="mobileNumber" class="form-control">
+                    <label for="mobileNumber" class="">Mobile Number</label>
+                  </div>
+                </div>
+              </div>
+              <div class="isv-admin-user-profile__data row px-2">
+                <div class="isv-admin-user-profile__title col-12 col-sm-3">
+                  <h4 class="h4-responsive grey-text">Personal Information</h4>
+                </div>
+                <div class="col-12 col-sm-9 py-4" formGroupName="name">
+                  <div class="md-form">
+                    <input mdbActive type="text" [attr.disabled]="!editable?'':null" id="givenName" formControlName="givenName" class="form-control">
+                    <label for="givenName" class="">First Name <span class="text-danger">*</span></label>
+                  </div>
+                  <div class="md-form">
+                    <input mdbActive type="text" [attr.disabled]="!editable?'':null" id="middleName" formControlName="middleName" class="form-control">
+                    <label for="middleName" class="">Middle Name</label>
+                  </div>
+                  <div class="md-form">
+                    <input mdbActive type="text" [attr.disabled]="!editable?'':null" id="familyName" formControlName="familyName" class="form-control">
+                    <label for="familyName" class="">Last Name <span class="text-danger">*</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="isv-admin-user-profile__data row px-2">
+                  <div class="isv-admin-user-profile__title col-12 col-sm-3">
+                      <h4 class="h4-responsive grey-text">Contact Information</h4>
+                    </div>
+
+                    <div class="col-12 col-sm-9 py-4" formGroupName="address">
+
+                      <div class="md-form">
+                        <input mdbActive type="text" [attr.disabled]="!editable?'':null" id="address" formControlName="address" class="form-control">
+                        <label for="address" class="">Address 1 <span class="text-danger">*</span></label>
+                      </div>
+
+                      <div class="md-form">
+                        <input mdbActive type="text" [attr.disabled]="!editable?'':null" id="address2" formControlName="address2" class="form-control">
+                        <label for="address" class="">Address 2</label>
+                      </div>
+
+                      <div class="md-form">
+                        <input mdbActive type="text" [attr.disabled]="!editable?'':null" id="province" formControlName="province" class="form-control">
+                        <label for="province" class="">Province <span class="text-danger">*</span></label>
+                      </div>
+
+                      <div class="md-form">
+                        <input mdbActive type="text" [attr.disabled]="!editable?'':null" id="city" formControlName="city" class="form-control">
+                        <label for="city" class="">City <span class="text-danger">*</span></label>
+                      </div>
+
+                      <div class="md-form">
+                        <input mdbActive type="text" [attr.disabled]="!editable?'':null" id="country" formControlName="country" class="form-control">
+                        <label for="country" class="">Country <span class="text-danger">*</span></label>
+                      </div>
+
+                      <div class="md-form">
+                        <input mdbActive type="text" [attr.disabled]="!editable?'':null" [disabled]="!editable" id="zipCode" formControlName="zipCode" class="form-control">
+                        <label for="zipCode" class="">Zip Code</label>
+                      </div>
+
+                    </div>
+
+              </div>
+
+              <!-- ONLY SHOW IN EDIT MODE -->
+              <div class="isv-admin-user-profile__actions row mt-2 d-flex" *ngIf="editable">
+                <div class="col-6 align-self-center">
+                  <button class="btn btn-outline-blue-grey" type="button" (click)="cancel()">Cancel</button>
+                </div>
+                <div class="col-6 text-right align-self-center">
+                  <button [disabled]="userProfileForm.invalid" class="btn light-green darken-2 waves-effect waves-light" type="submit">Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="isv-admin__footer container mt-auto">
+      <div class="row no-gutters d-flex">
+        <div class="col-12 col-md-9 col-lg-10 text-center text-md-left align-self-center py-4">
+          <div *ngIf="footer" [innerHtml]="footer.copyright | safeHtml"></div>
+        </div>
+        <div class="col-12 col-md-3 col-lg-2 text-center text-md-right align-self-center py-4">
+          <img *ngIf="footer" class="img-fluid w-50 align-self-center " src="{{imageSourceUrl}}/{{footer.file}}">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

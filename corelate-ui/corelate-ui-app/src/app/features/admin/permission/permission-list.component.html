@@ -1,0 +1,135 @@
+<div class="isv-admin-permission">
+  <div class="row pt-1">
+    <div class="isv-admin-permission__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Permissions Management
+      </h3>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+  <ng-container>
+    <div class="row">
+      <div class="isv-admin-permission__new col-12 text-right">
+        <button *isAuthorized="['PERMISSION_MANAGEMENT_ADD']" type="button" class="btn btn-md blue darken-1 waves-effect waves-light" (click)="addModule()" mdbRippleRadius><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add A New Module</button>
+      </div>
+    </div>
+
+    <div class="row p-4">
+      <div class="col-12 px-0">
+        <ngx-datatable #datatable
+                       class="custom"
+                       [rows]="permissionGroups"
+                       [loadingIndicator]="loading"
+                       [columnMode]="'force'"
+                       [footerHeight]="'auto'"
+                       [rowHeight]="'auto'"
+                       [externalPaging]="true"
+                       [count]="params.totalElements"
+                       [offset]="params.page"
+                       [limit]="params.size"
+                       (page)='setPage($event)'>
+
+          <ngx-datatable-column name="module">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <strong>Module</strong>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <h4 class="title h4-responsive blue-text py-2 mb-0 pl-2 mr-3">
+                <a *isAuthorized="['PERMISSION_MANAGEMENT_EDIT']" (click)="editModule(row.id)" class="clickable">{{ row.module }}</a>
+                <span *isNotAuthorized="['PERMISSION_MANAGEMENT_EDIT']">{{ row.module }}</span>
+              </h4>
+              <p class="content grey-text mb-0 pl-2"><small>{{row.description}}</small></p>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column *isAuthorized="['PERMISSION_MANAGEMENT_EDIT']">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <div class="text-center">
+                <strong>Actions</strong>
+              </div>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template class="text-center">
+              <div class="text-center py-3">
+                <!--<button (click)="confirmDeleteModule(row)" type="button" class="btn btn-sm isv-btn-permission-list btn-red waves-light my-0" mdbRippleRadius mdbTooltip="Delete" placement="top">-->
+                  <!--<i class="fa fa-trash" aria-hidden="true"></i>-->
+                <!--</button>-->
+
+                <button *isAuthorized="['PERMISSION_MANAGEMENT_EDIT']" [routerLink]="['actions', row.id]" type="button" class="btn btn-sm isv-btn-permission-list btn-blue waves-light my-0" mdbRippleRadius mdbTooltip="Add Permissions" placement="top">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+
+                <button *isAuthorized="['PERMISSION_MANAGEMENT_EDIT']" (click)="editModule(row.id)" type="button" class="btn btn-sm isv-btn-permission-list btn-amber waves-light my-0" mdbRippleRadius mdbTooltip="Edit" placement="top">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+
+<div mdbModal #permissionGroupModal="mdb-modal" class="modal fade"
+     id="modalPermissionGroupForm" tabindex="-1" role="dialog" aria-labelledby="modalPermissionGroupForm" aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h4 *ngIf="!permissionGroupForm.value.module" class="modal-title isv-admin-module-modal w-100" id="myModalLabel">Add A New Module</h4>
+        <h4 *ngIf="permissionGroupForm.value.module" class="modal-title isv-admin-module-modal w-100" id="myModalLabel">Edit Module</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="permissionGroupModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <form name="permissionGroupForm" #permissionGroupForm="ngForm" (ngSubmit)="savePermissionGroup(permissionGroupForm.value)" novalidate>
+        <div class="modal-body px-4">
+          <div class="md-form">
+            <input mdbActive type="text" class="form-control" name="module" id="module" ngModel required autofocus>
+            <label for="module" class="active">Module <span class="text-danger">*</span></label>
+          </div>
+          <div class="md-form">
+            <input mdbActive type="text" class="form-control" name="description" id="description" ngModel required autofocus>
+            <label for="description" class="active">Description <span class="text-danger">*</span></label>
+          </div>
+        </div>
+        <div class="isv-admin-permission__actions row p-4 d-flex">
+          <div class="col-6 align-self-center">
+            <button type="button" class="btn btn-outline-blue-grey" data-dismiss="modal" (click)="permissionGroupModal.hide()" mdbRippleRadius>Close</button>
+          </div>
+          <div class="col-6 text-right align-self-center">
+            <button type="submit" class="btn light-green darken-2 waves-effect waves-light" [disabled]="!permissionGroupForm.valid" mdbRippleRadius>Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div mdbModal #deleteModuleModal="mdb-modal" class="modal fade"
+     id="deleteModuleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="heading lead">Delete Module Permissions</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="deleteModuleModal.hide()">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+      </div>
+      <div class="modal-body px-4">
+        <div class="text-center">
+          <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+          <p>Are you sure you want to delete {{ permissionGroup?.module }} module?</p>
+        </div>
+      </div>
+      <div class="isv-admin-permission__actions row p-4 d-flex">
+        <div class="col-6 align-self-center">
+          <a type="button" class="btn btn-outline-blue-grey" data-dismiss="modal" (click)="deleteModuleModal.hide()" mdbRippleRadius>Cancel</a>
+        </div>
+        <div class="col-6 text-right align-self-center">
+          <a type="button" class="btn red darken-4 waves-effect waves-light" (click)="deleteModule(permissionGroup.id)" mdbRippleRadius>Delete <i class="fa fa-times ml-1"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: config
+  profiles:
+    active: dev
+
+encrypt:
+  keyStore:
+    location: classpath:/corelate-config-dev.jks
+    password: 123qwe
+    alias: corelate-test-key
+    secret: 123qwe

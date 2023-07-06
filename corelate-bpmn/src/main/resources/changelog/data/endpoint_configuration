@@ -1,0 +1,2 @@
+id,tenant_id,name,created_by,last_updated_by,protocol,host,port,pathuri,basic_auth,request_headers
+1,1,SMS Gateway Endpoint,1,1,1,localhost,8003,/api/notification/endpoint/sms/single,1,"[{""name"":""Content-Type"",""value"":""application/json""}]"

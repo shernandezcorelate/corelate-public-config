@@ -1,0 +1,195 @@
+<div class="isv-admin-rules-engine">
+  <div class="row pt-1">
+    <div class="isv-admin-rules__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Rules Engine Management
+      </h3>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+  <form (ngSubmit)="uploadRules(rulesForm.value, rulesForm.valid)" [formGroup]="rulesForm">
+    <div class="row px-4">
+      <div class="col-12 col-sm-4 isv-admin-rules-engine__upload" *isAuthorized="['RULES_ENGINE_MANAGEMENT_ADD']">
+        <div class="md-form">
+          <label for="description">Rule Description <span class="text-danger">*</span></label>
+          <input mdbActive type="text" id="description" formControlName="description" class="form-control" mdbInputValidate>
+        </div>
+
+        <div class="md-form pb-4">
+          <label>Upload Rule File <span class="text-danger">*</span></label>
+        </div>
+        <input (change)="fileChange($event)" id="rulesFile" type="file" [ngStyle]="{'visibility':'hidden', 'width':0}" accept=".drl"/>
+        <button type="button" class="btn btn-indigo waves-effect waves-light ml-0"  (click)="document.getElementById('rulesFile').click()">
+          Browse
+        </button>
+        <ng-container *ngIf="file">{{ file.name }}</ng-container>
+        <ng-container *ngIf="!file">{{ gridForm.value.rulesForm.file }}</ng-container>
+        <p class="grey-text pl-2"><small>File must be in drools format (.drl).</small></p>
+        <div class="w-100 d-block isv-admin-rules-engine__actions pt-2 text-right">
+          <button type="submit" [disabled]="rulesForm.invalid || file.name === ''" class="btn light-green darken-2 waves-effect waves-light">Upload/<!--if rule is existing -->Update</button>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-8 pr-0 pb-4">
+        <div class="row">
+          <div class="isv-admin-rules-engine__actions col-12 text-right pb-3" *isAuthorized="['RULES_ENGINE_MANAGEMENT_ADD']">
+            <button type="button" class="btn btn-md btn-amber waves-effect waves-light mr-0" [disabled]="rules == null" (click)="viewRuleDetails(rules[0]); editModal.show()" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit Current Rules</button>
+          </div>
+        </div>
+
+        <div class="isv-admin-rules__title">
+          <h4 class="h4-responsive">
+            Rules History
+          </h4>
+        </div>
+        <ngx-datatable #datatable
+                       class="custom"
+                       [rows]="rules"
+                       [loadingIndicator]="loading"
+                       [columnMode]="'force'"
+                       [footerHeight]="'auto'"
+                       [rowHeight]="'auto'"
+                       [externalPaging]="true"
+                       [count]="params.totalElements"
+                       [offset]="params.page"
+                       [limit]="params.size">
+
+          <ngx-datatable-column name="updatedDate">
+            <ng-template let-column="column" ngx-datantable-header-template>
+              <strong>Date Created</strong>
+            </ng-template>
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+              <div class="text-center">
+                <h4 class="title h4-responsive py-2 mb-0 pl-2 mr-3">{{ value | date : 'mediumDate' }}</h4>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="updatedBy">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <strong>Created By</strong>
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <div class="text-center">
+                <h4 class="title h4-responsive py-2 mb-0 pl-2 mr-3">{{ value }}</h4>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column>
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <strong>Actions</strong>
+            </ng-template>
+            <ng-template let-row="row" let-index="index" ngx-datatable-cell-template>
+              <div class="text-center">
+                <button type="button" class="btn btn-sm isv-btn-rules-list btn-blue waves-light" (click)="viewRuleDetails(row); detailModal.show()" mdbRippleRadius mdbTooltip="View Details" placement="top">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+
+        <div class="row" *isAuthorized="['RULES_ENGINE_MANAGEMENT_DOWNLOAD']">
+          <div class="isv-admin-rules-engine__actions col-12 text-right pb-3">
+            <button type="button" class="btn btn-md indigo darken-1 waves-effect waves-light mr-0" [disabled]="ruleFileContent == null" (click)="downloadRulesFile()" mdbRippleRadius><i class="fa fa-download" aria-hidden="true"></i> Download Current Rules
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+<!-- View Modal -->
+<div mdbModal
+     [config]="{backdrop: true, ignoreBackdropClick: true}"
+     #detailModal="mdb-modal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="PreviewModalLabel"
+     aria-hidden="true">
+
+  <div class="modal-dialog modal-notify modal-info" role="document">
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title white-text w-100 font-bold py-2">Rules Detail</h4>
+        <button type="button" class="close" (click)="detailModal.hide()" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="md-form">
+          <input type="text" id="createdBy" class="form-control" readonly value="{{ rule.updatedBy }}">
+          <label class="active" for="createdBy">Created By</label>
+        </div>
+        <div class="md-form">
+          <input type="text" id="createdDate" class="form-control" readonly value="{{ rule.updatedDate | date : 'medium' }}">
+          <label class="active" for="createdDate">Created Date</label>
+        </div>
+        <div class="md-form">
+          <input type="text" id="originalFile" class="form-control" readonly value="{{ rule.file }}">
+          <label class="active" for="originalFile">Original File</label>
+        </div>
+        <div class="md-form">
+          <input type="text" id="preview_description" class="form-control" readonly value="{{ rule.description }}">
+          <label class="active" for="preview_description">Description</label>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <button type="button" (click)="detailModal.hide()" class="btn btn-outline-secondary-modal waves-effect">Close</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div mdbModal
+     [config]="{backdrop: true, ignoreBackdropClick: true}"
+     #editModal="mdb-modal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="PreviewModalLabel"
+     aria-hidden="true">
+
+  <form (ngSubmit)="uploadRules(rulesEditForm.value, rulesEditForm.valid)" [formGroup]="rulesEditForm">
+    <div class="modal-dialog modal-notify modal-info" role="document">
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header text-center">
+          <h4 class="modal-title white-text w-100 font-bold py-2">Edit Rules</h4>
+          <button type="button" class="close" (click)="editModal.hide()" aria-label="Close">
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+
+        <!--Body-->
+        <div class="modal-body">
+          <div class="md-form">
+            <input type="text" mdbActive formControlName="description" id="ruleDescription" class="form-control" value="{{ rule.description }}">
+            <label for="ruleDescription">Description <span class="text-danger">*</span></label>
+          </div>
+          <div class="md-form">
+            <textarea type="text" mdbActive formControlName="content" id="ruleContent" class="md-textarea" value="{{ ruleFileContent }}"></textarea>
+            <label for="ruleContent">Content <span class="text-danger">*</span></label>
+          </div>
+        </div>
+
+        <!--Footer-->
+        <div class="modal-footer">
+          <button type="button" (click)="editModal.hide()" class="btn btn-outline-secondary-modal waves-effect">Close</button>
+          <button type="submit" [disabled]="rulesEditForm.invalid" class="btn light-green darken-2 waves-effect waves-light">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
+

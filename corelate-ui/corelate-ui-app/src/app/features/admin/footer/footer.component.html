@@ -1,0 +1,123 @@
+<div class="isv-admin-footer">
+  <div class="row pt-1">
+    <div class="isv-admin-footer__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Footer Management
+      </h3>
+      <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+  <form *ngIf="footerForm" [formGroup]="footerForm" novalidate (ngSubmit)="onSave(footerForm.value, footerForm.valid)" class="p-2">
+    <div class="isv-admin-footer__input row px-4">
+      <div class="col-12 col-sm-7 mt-3">
+        <div class="md-form">
+          <textarea mdbActive type="text" id="description" class="md-textarea" formControlName="description"></textarea>
+          <label for="description">Footer Description</label>
+        </div>
+        <div class="md-form">
+          <textarea mdbActive type="text" id="copyright" class="md-textarea" formControlName="copyright"></textarea>
+          <label for="copyright">Footer Copyright Text</label>
+        </div>
+      </div>
+      <div class="isv-admin-footer__upload col-12 col-sm-5 text-right">
+        <div class="md-form pb-4">
+          <label>Footer Logo Image <span class="text-danger">*</span></label>
+        </div>
+        <div *ngIf="file.name || footerForm.value.file" class="text-center pb-2">
+          <ng-container *ngIf="file.name">
+            <img [src]="url" class="isv-admin-footer-image__preview">
+          </ng-container>
+          <ng-container *ngIf="!file.name">
+            <img src="{{imageSourceUrl}}/{{footerForm.value.file}}" class="isv-admin-footer-image__preview">
+          </ng-container>
+        </div>
+        <input (change)="fileChange($event)" id="footerImage" type="file" [ngStyle]="{'visibility':'hidden', 'width':0}" accept=".png,.jpg"/>
+        <button type="button" class="btn btn-indigo waves-effect waves-light" (click)="document.getElementById('footerImage').click()">
+          Browse
+        </button>
+        <ng-container *ngIf="file">{{ file.name }}</ng-container>
+        <ng-container *ngIf="!file.name">{{ footerForm.value.file}}</ng-container>
+        <p class="grey-text pl-3"><small>Image height should be within 150px.</small></p>
+      </div>
+
+    </div>
+    <div class="isv-admin-footer__panel-add row px-4">
+      <div class="col-12 text-right pt-3">
+        <button (click)="addPanels()" class="btn btn-md blue darken-1 waves-effect waves-light" type="button"><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add A New Footer Panel</button>
+      </div>
+    </div>
+    <div formArrayName="panels" class="row isv-admin-footer-list">
+      <div class="col-12">
+          <mdb-squeezebox [multiple]="false" aria-multiselectable="true" class="isv-admin-footer__item">
+              <mdb-item  *ngFor="let panel of panels.controls; let i = index" [formGroupName]="i">
+                  <mdb-item-head class="grey darken-3">
+                    <div class="md-form input-group mb-0 pl-0 pr-4 float-left pb-3 tab-title">
+                        <span class="input-group-addon grey darken-3 border-0 white-text" id="basic-addon1">Panel Name &nbsp;<span class="text-danger">*</span></span>
+                        <input type="text" class="form-control white-text w-100" aria-describedby="basic-addon1" id="name" formControlName="name" mdbInputValidate>
+                    </div>
+                  </mdb-item-head>
+                  <mdb-item-body>
+                    <div class="row">
+                      <div formArrayName="links" class="col-12">
+                        <div *ngFor="let link of panels.controls[i].controls.links.controls; let j = index" [formGroupName]="j" class="row p-2">
+                          <div class="col-11">
+                            <div class="row pt-4">
+                              <div class="col-12 col-sm-6">
+                                <div class="md-form form-sm">
+                                  <input mdbActive type="text" id="name" formControlName="name" class="form-control" mdbInputValidate required length="25" mdbCharCounter>
+                                  <label for="name">Name <span class="text-danger">*</span></label>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                <div class="md-form form-sm">
+                                  <input mdbActive type="text" id="symlink" formControlName="symlink" class="form-control" mdbInputValidate required >
+                                  <label for="symlink">Link <span class="text-danger">*</span></label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-1 text-center pt-3">
+                            <h4 class="h4-responsive">
+                              <a (click)="deleteLink(i, j)" type="button" class="btn btn-md isv-btn-footer-list btn-red waves-light" mdbRippleRadius  mdbTooltip="Delete" placement="top">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                              </a>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12 text-center pt-4">
+                        <button (click)="addLinks(i)" type="button" class="btn btn-md blue darken-1 waves-effect waves-light" mdbRippleRadius>
+                          <i class="fa fa-plus" aria-hidden="true"></i> Add A Link
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12 text-right py-4">
+                        <button (click)="deletePanel(i)" type="button" class="btn btn-md red darken-3 waves-effect waves-light" mdbRippleRadius>
+                          <i class="fa fa-trash" aria-hidden="true"></i> Delete Panel
+                        </button>
+                      </div>
+                    </div>
+                  </mdb-item-body>
+              </mdb-item>
+          </mdb-squeezebox>
+      </div>
+    </div>
+    <div class="isv-admin-footer__actions row pt-3 d-flex">
+      <div class="col-6 align-self-center">
+        <button *ngIf="modal" (click)="modal.hide()" class="btn btn-outline-blue-grey" type="button">Cancel</button>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button type="submit" [disabled]="footerForm.invalid" class="btn light-green darken-2 waves-effect waves-light" [disabled]="footerForm.invalid">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

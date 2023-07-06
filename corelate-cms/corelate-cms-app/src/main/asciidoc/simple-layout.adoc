@@ -1,0 +1,36 @@
+=== Get simple layout
+
+A `GET` request is used to retrieve a single simple layout.
+
+==== Example request
+
+include::{snippets}/simpleLayoutResource/get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/simpleLayoutResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/simpleLayoutResource/get/response-fields.adoc[]
+
+[[resources-simple-layout-update]]
+=== Updating a simple layout
+
+A `PUT` request is used to update a simple layout.
+
+==== Example request
+
+include::{snippets}/simpleLayoutResource/update/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/simpleLayoutResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/simpleLayoutResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/simpleLayoutResource/update/response-fields.adoc[]

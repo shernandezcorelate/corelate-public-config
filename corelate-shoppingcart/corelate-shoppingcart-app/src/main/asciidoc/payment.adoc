@@ -1,0 +1,42 @@
+[[resources-payment-create]]
+=== Pay an item
+
+A `POST` request is used to pay an item.
+
+==== Example request
+
+include::{snippets}/paymentResource/pay/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/paymentResource/pay/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/paymentResource/pay/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/paymentResource/pay/response-fields.adoc[]
+
+
+[[resources-payment-get]]
+=== Get a payment
+
+A `GET` request is used to get a payment.
+
+==== Example request
+
+include::{snippets}/paymentResource/get/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/paymentResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/paymentResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/paymentResource/get/response-fields.adoc[]

@@ -1,0 +1,244 @@
+[[resources-general-content-create]]
+=== Creating a general content
+
+A `POST` request is used to insert a general content.
+
+==== Example request
+
+include::{snippets}/generalContentResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/generalContentResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/generalContentResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/generalContentResource/create/response-fields.adoc[]
+
+[[resources-general-content-getList]]
+=== Get general content list
+
+A `GET` request is used to retrieve general content list.
+
+==== Example request
+
+include::{snippets}/generalContentResource/getList/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/generalContentResource/getList/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/generalContentResource/getList/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/generalContentResource/getList/response-fields.adoc[]
+
+[[resources-general-content-getList-with-filter]]
+=== Get filtered general content list
+
+A `GET` request is used to retrieve general content list with filter.
+
+==== Example request
+
+include::{snippets}/generalContentResource/getListWithFilter/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/generalContentResource/getListWithFilter/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/generalContentResource/getListWithFilter/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/generalContentResource/getListWithFilter/response-fields.adoc[]
+
+[[resources-general-content-getListByCategory]]
+=== Get general content list by category
+
+A `GET` request is used to retrieve general content list by category.
+
+==== Example request
+
+include::{snippets}/generalContentResource/getListByCategory/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/generalContentResource/getListByCategory/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/generalContentResource/getListByCategory/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/generalContentResource/getListByCategory/response-fields.adoc[]
+
+[[resources-general-content-get]]
+=== Get general content by id
+
+A `GET` request is used to retrieve a single general content by id.
+
+==== Example request
+
+include::{snippets}/generalContentResource/get/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/generalContentResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/generalContentResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/generalContentResource/get/response-fields.adoc[]
+
+[[resources-general-content-getList-published]]
+=== Get published general content list
+
+A `GET` request is used to retrieve published general content.
+
+==== Example request
+
+include::{snippets}/generalContentResource/getPublished/curl-request.adoc[]
+
+==== Request Parameters
+
+include::{snippets}/generalContentResource/getPublished/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/generalContentResource/getPublished/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/generalContentResource/getPublished/response-fields.adoc[]
+
+[[resources-general-content-update]]
+=== Updating a general content
+
+A `PUT` request is used to update a general content.
+
+==== Example request
+
+include::{snippets}/generalContentResource/update/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/generalContentResource/update/path-parameters.adoc[]
+
+==== Request structure
+
+include::{snippets}/generalContentResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/generalContentResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/generalContentResource/update/response-fields.adoc[]
+
+
+[[resources-general-content-delete]]
+=== Deleting a general content
+
+A `DELETE` request is used to delete a general content.
+
+==== Example request
+
+include::{snippets}/generalContentResource/delete/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/generalContentResource/delete/path-parameters.adoc[]
+
+[[resources-general-content-upload-image]]
+=== Uploading a general content image
+
+A `POST` request is used to upload a general content image.
+
+==== Example request
+
+include::{snippets}/generalContentResource/uploadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/generalContentResource/uploadImage/path-parameters.adoc[]
+
+==== Request parts
+
+include::{snippets}/generalContentResource/uploadImage/request-parts.adoc[]
+
+==== Example response
+
+include::{snippets}/generalContentResource/uploadImage/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/generalContentResource/uploadImage/response-fields.adoc[]
+
+[[resources-general-content-download-image]]
+=== Download a general content image
+
+A `GET` request is used to download a general content image.
+
+==== Example request
+
+include::{snippets}/generalContentResource/downloadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/generalContentResource/downloadImage/path-parameters.adoc[]
+
+[[resources-general-content-publish]]
+=== Publish a general content
+
+A `PUT` request is used to publish a general content.
+
+==== Example request
+
+include::{snippets}/generalContentResource/publish/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/generalContentResource/publish/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/generalContentResource/publish/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/generalContentResource/publish/response-fields.adoc[]
+
+[[resources-general-content-unpublish]]
+=== Unpublish a general content.
+
+A `PUT` request is used to unpublish a general content.
+
+==== Example request
+
+include::{snippets}/generalContentResource/unpublish/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/generalContentResource/unpublish/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/generalContentResource/unpublish/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/generalContentResource/unpublish/response-fields.adoc[]

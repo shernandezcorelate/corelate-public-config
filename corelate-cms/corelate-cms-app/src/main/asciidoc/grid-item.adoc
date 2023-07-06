@@ -1,0 +1,37 @@
+[[resources-grid-item-upload-image]]
+=== Uploading a grid item image
+
+A `POST` request is used to upload a grid item image.
+
+==== Example request
+
+include::{snippets}/gridItemResource/uploadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/gridItemResource/uploadImage/path-parameters.adoc[]
+
+==== Request parts
+
+include::{snippets}/gridItemResource/uploadImage/request-parts.adoc[]
+
+==== Example response
+
+include::{snippets}/gridItemResource/uploadImage/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/gridItemResource/uploadImage/response-fields.adoc[]
+
+[[resources-grid-item-download-image]]
+=== Download a grid item image
+
+A `GET` request is used to download a grid item image.
+
+==== Example request
+
+include::{snippets}/gridItemResource/downloadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/gridItemResource/downloadImage/path-parameters.adoc[]

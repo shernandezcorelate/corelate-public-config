@@ -1,0 +1,44 @@
+
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="$hide()" ng-disabled="isWaitingResponse()">&times;</button>
+                <h4 class="modal-title" ng-if="!model.editedRepository.edit">
+                    {{'IDM.PROFILE-MGMT.POPUP.CREATE-ALFRESCO-REPOSITORY-TITLE' | translate:model.editedRepository}}
+                </h4>
+                <h4 class="modal-title" ng-if="model.editedRepository.edit">
+                    {{'IDM.PROFILE-MGMT.POPUP.EDIT-ALFRESCO-REPOSITORY-TITLE' | translate:model.editedRepository}}
+                </h4>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label class="control-label">{{'IDM.PROFILE-MGMT.POPUP.ALFRESCO-REPOSITORY-USERNAME' | translate}}</label>
+                    <input type="text" class="form-control" ng-model="model.editedRepository.accountUsername" auto-focus ng-disabled="isWaitingResponse()">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'IDM.PROFILE-MGMT.POPUP.ALFRESCO-REPOSITORY-PASSWORD' | translate}}</label>
+                    <input type="password" class="form-control" ng-model="model.editedRepository.password" ng-disabled="isWaitingResponse()">
+                </div>
+
+                <div ng-if="model.editedRepository.error" style="color:red" class="pull-right ng-scope">
+                     <span>{{'IDM.PROFILE-MGMT.POPUP.CREATE-ALFRESCO-REPOSITORY-ERROR' | translate:model.editedRepository}}</span>
+                </div>
+                <div class="loading pull-right ng-scope" style="margin:0" ng-show="isWaitingResponse()">
+                    <div class="l1"></div><div class="l2"></div><div class="l2"></div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="$hide()" ng-disabled="isWaitingResponse()">{{'IDM.GENERAL.ACTION.CANCEL' | translate}}</button>
+                <button type="button" class="btn btn-primary"
+                        ng-disabled="isWaitingResponse() || !credentialsProvided() || readOnly"
+                        ng-click="saveAlfrescoRepository($hide);">{{'IDM.GENERAL.ACTION.SAVE' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>

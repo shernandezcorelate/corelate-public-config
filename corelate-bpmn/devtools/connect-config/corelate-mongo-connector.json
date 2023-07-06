@@ -1,0 +1,9 @@
+{
+  "name": "corelate-mongo-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mongodb.MongoDbConnector",
+    "mongodb.hosts": "corelate-mongo/corelate_bpmn_mongodb:27017",
+    "mongodb.members.auto.discover": "false",
+    "mongodb.name": "corelate"
+  }
+}

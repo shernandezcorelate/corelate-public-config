@@ -1,0 +1,58 @@
+[[resources-contact-form-create]]
+=== Creating a contact form
+
+A `POST` request is used to insert a contact form.
+
+==== Example request
+
+include::{snippets}/contactFormResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/contactFormResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/contactFormResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/contactFormResource/create/response-fields.adoc[]
+
+[[resources-contact-form-getList]]
+=== Get contact form list
+
+A `GET` request is used to retrieve the list of contact form.
+
+==== Example request
+
+include::{snippets}/contactFormResource/getList/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/contactFormResource/getList/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/contactFormResource/getList/response-fields.adoc[]
+
+[[resources-contact-form-get]]
+=== Get contact form by id
+
+A `GET` request is used to retrieve a single contact form by id.
+
+==== Example request
+
+include::{snippets}/contactFormResource/get/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/contactFormResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/contactFormResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/contactFormResource/get/response-fields.adoc[]

@@ -1,0 +1,15 @@
+.isv-admin-group-new__title h3 {
+  font-weight: 300;
+}
+
+table {
+  td {
+    word-break: break-word;
+    &:first-child {
+      min-width: 10em;
+    }
+    &:nth-child(2) {
+      min-width: 20em;
+    }
+  }
+}

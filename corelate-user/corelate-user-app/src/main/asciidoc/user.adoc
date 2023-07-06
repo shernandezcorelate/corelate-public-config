@@ -1,0 +1,437 @@
+[[resources-user-list]]
+=== Listing users
+
+A `GET` request will list all of the users.
+
+==== Example request
+
+include::{snippets}/userAccountResource/list/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/userAccountResource/list/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/userAccountResource/list/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/userAccountResource/list/response-fields.adoc[]
+
+
+[[resources-user-create]]
+=== Creating a user
+
+A `POST` request is used to insert a user.
+
+==== Example request
+
+include::{snippets}/userAccountResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/userAccountResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/userAccountResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/userAccountResource/create/response-fields.adoc[]
+
+[[resources-user-get]]
+=== Get a user
+
+A `GET` request is used to get a user.
+
+==== Example request
+
+include::{snippets}/userAccountResource/get/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/userAccountResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/userAccountResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/userAccountResource/get/response-fields.adoc[]
+
+[[resources-user-update]]
+=== Update a user
+
+A `PUT` request is used to update a user.
+
+==== Example request
+
+include::{snippets}/userAccountResource/update/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/userAccountResource/update/path-parameters.adoc[]
+
+
+==== Request structure
+
+include::{snippets}/userAccountResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/userAccountResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/userAccountResource/update/response-fields.adoc[]
+
+[[resources-user-delete]]
+=== Delete a user
+
+A `DELETE` request is used to delete a user.
+
+==== Example request
+
+include::{snippets}/userAccountResource/delete/curl-request.adoc[]
+
+==== Path Parameter
+
+include::{snippets}/userAccountResource/delete/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/userAccountResource/delete/http-response.adoc[]
+
+[[resources-user-activation]]
+=== User Activation
+
+[[resources-user-activation-mail]]
+==== Mail user activation
+
+A `PUT` request is used to activate user using mail confirmation.
+
+===== Example request
+
+include::{snippets}/userAccountResource/mailActivation/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/mailActivation/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/mailActivation/http-response.adoc[]
+
+===== Response structure
+
+include::{snippets}/userAccountResource/mailActivation/response-fields.adoc[]
+
+[[resources-user-activation-mobile]]
+==== Mobile user activation
+
+A `PUT` request is used to activate user using mobile confirmation.
+
+===== Example request
+
+include::{snippets}/userAccountResource/mobileActivation/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/mobileActivation/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/mobileActivation/http-response.adoc[]
+
+===== Response structure
+
+include::{snippets}/userAccountResource/mobileActivation/response-fields.adoc[]
+
+[[resources-user-password]]
+=== User Password
+
+[[resources-user-password-change]]
+==== Change password
+
+A `PUT` request is used to change a user password.
+
+===== Example request
+
+include::{snippets}/userAccountResource/changePassword/curl-request.adoc[]
+
+===== Request structure
+
+include::{snippets}/userAccountResource/changePassword/request-fields.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/changePassword/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/changePassword/http-response.adoc[]
+
+
+[[resources-user-password-retrieve]]
+==== Retrieve password
+
+A `POST` request is used to retrieve a user password.
+
+===== Example request
+
+include::{snippets}/userAccountResource/retrievePassword/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/retrievePassword/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/retrievePassword/http-response.adoc[]
+
+[[resources-user-password-reset]]
+==== Reset password
+
+A `PUT` request is used to reset a user password.
+
+===== Example request
+
+include::{snippets}/userAccountResource/resetPassword/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/resetPassword/path-parameters.adoc[]
+
+===== Request structure
+
+include::{snippets}/userAccountResource/resetPassword/request-fields.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/resetPassword/http-response.adoc[]
+
+===== Response structure
+
+include::{snippets}/userAccountResource/resetPassword/response-fields.adoc[]
+
+[[resources-user-group]]
+=== User Group
+
+[[resources-user-group-add-single]]
+==== Add Single Group to User
+
+A `POST` request is used to add a single group to a user.
+
+===== Example request
+
+include::{snippets}/userAccountResource/addGroup/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/addGroup/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/addGroup/http-response.adoc[]
+
+===== Response structure
+
+include::{snippets}/userAccountResource/addGroup/response-fields.adoc[]
+
+[[resources-user-group-add-multiple]]
+==== Add Multiple Group to User
+
+A `POST` request is used to add multiple groups to a user.
+
+===== Example request
+
+include::{snippets}/userAccountResource/addGroups/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/addGroups/path-parameters.adoc[]
+
+==== Request structure
+
+include::{snippets}/userAccountResource/addGroups/request-fields.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/addGroups/http-response.adoc[]
+
+===== Response structure
+
+include::{snippets}/userAccountResource/addGroup/response-fields.adoc[]
+
+
+[[resources-user-group-delete-single]]
+==== Delete Single Group to User
+
+A `DELETE` request is used to remove a single group to a user.
+
+===== Example request
+
+include::{snippets}/userAccountResource/removeGroup/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/removeGroup/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/removeGroup/http-response.adoc[]
+
+
+[[resources-user-group-delete-multiple]]
+==== Delete Multiple Group to User
+
+A `DELETE` request is used to remove multiple groups to a user.
+
+===== Example request
+
+include::{snippets}/userAccountResource/removeGroups/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/removeGroups/path-parameters.adoc[]
+
+===== Request structure
+
+include::{snippets}/userAccountResource/removeGroups/request-fields.adoc[]
+
+====== Example response
+
+include::{snippets}/userAccountResource/removeGroups/http-response.adoc[]
+
+[[resources-user-permission]]
+=== User Permission
+
+[[resources-user-permission-add-single]]
+==== Add Single Permission to User
+
+A `POST` request is used to add a single permission to a user.
+
+===== Example request
+
+include::{snippets}/userAccountResource/addPermission/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/addPermission/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/addPermission/http-response.adoc[]
+
+===== Response structure
+
+include::{snippets}/userAccountResource/addPermission/response-fields.adoc[]
+
+[[resources-user-permission-add-multiple]]
+==== Add Multiple Permission to User
+
+A `POST` request is used to add multiple permissions to a user.
+
+===== Example request
+
+include::{snippets}/userAccountResource/addPermissions/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/addPermissions/path-parameters.adoc[]
+
+==== Request structure
+
+include::{snippets}/userAccountResource/addPermissions/request-fields.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/addPermissions/http-response.adoc[]
+
+===== Response structure
+
+include::{snippets}/userAccountResource/addPermission/response-fields.adoc[]
+
+
+[[resources-user-permission-delete-single]]
+==== Delete Single Permission to User
+
+A `DELETE` request is used to remove a single permission to a user.
+
+===== Example request
+
+include::{snippets}/userAccountResource/removePermission/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/removePermission/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/removePermission/http-response.adoc[]
+
+
+[[resources-user-group-delete-multiple]]
+==== Delete Multiple Permission to User
+
+A `DELETE` request is used to remove multiple permissions to a user.
+
+===== Example request
+
+include::{snippets}/userAccountResource/removePermissions/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/removePermissions/path-parameters.adoc[]
+
+===== Request structure
+
+include::{snippets}/userAccountResource/removePermissions/request-fields.adoc[]
+
+====== Example response
+
+include::{snippets}/userAccountResource/removePermissions/http-response.adoc[]
+
+[[resources-user-login-access]]
+=== User Login Access
+
+[[resources-user-login-access-get]]
+==== Get Login Access
+
+A `GET` request is used to get login access.
+
+===== Example request
+
+include::{snippets}/userAccountResource/getLoginAccess/curl-request.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/getLoginAccess/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/getLoginAccess/http-response.adoc[]
+
+[[resources-user-login-access-upate]]
+==== Update Login Access
+
+A `PUT` request is used to update login access.
+
+===== Example request
+
+include::{snippets}/userAccountResource/updateLoginAccess/curl-request.adoc[]
+
+===== Request structure
+
+include::{snippets}/userAccountResource/updateLoginAccess/request-fields.adoc[]
+
+===== Path Parameter
+
+include::{snippets}/userAccountResource/updateLoginAccess/path-parameters.adoc[]
+
+===== Example response
+
+include::{snippets}/userAccountResource/updateLoginAccess/http-response.adoc[]

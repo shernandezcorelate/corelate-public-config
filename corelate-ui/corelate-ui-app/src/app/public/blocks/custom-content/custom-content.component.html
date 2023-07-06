@@ -1,0 +1,90 @@
+<div class="corelate-ui-text edit">
+  <ng-container *ngIf="layout === BlockTemplate.ONE_COLUMN">
+    <ng-container *ngIf="customContent">
+      <div class="container p-4">
+        <div class="row px-4">
+          <div class="col">
+          </div>
+          <div class="col-12 col-md-10">
+            <ng-container *isAuthorized="['CMS_ADMIN','CUSTOM_CONTENT_EDIT']">
+              <button *ngIf="isLoggedIn" (click)="customContentModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+            </ng-container>
+            <div class="isv-block-name row">
+              <div class="col-12 text-center pb-2">
+                <h4 class="h4-responsive grey-text text-uppercase"><strong>{{customContent.heading}}</strong></h4>
+              </div>
+            </div>
+            <div class="isv-block-text row py-4">
+              <div class="isv-block-text__wysiwyg col-12" [innerHtml]="customContent.content | safeHtml"></div>
+            </div>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="loading">
+      <div class="d-flex justify-content-center my-4 w-100">
+        <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+      </div>
+    </ng-container>
+    <div class="isv-article-list__list col-12" *ngIf="!loading && !customContent">
+      <div class="isv-article-list__no-posts row p-3">
+        <div class="col-12 text-center p-4">
+          <h3 class="h3-responsive grey-text"><em>No Posts Yet.</em></h3>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  </div>
+
+  <ng-container *ngIf="layout === BlockTemplate.TWO_COLUMNS">
+    <ng-container *ngIf="customContent">
+      <div class="corelate-ui-text edit">
+        <button *ngIf="isLoggedIn" (click)="customContentModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+      </div>
+      <div class="isv-block-name row">
+        <div class="col-12 text-center pb-2">
+          <h4 class="h4-responsive grey-text text-uppercase"><strong>{{ customContent.heading }}</strong></h4>
+        </div>
+      </div>
+      <div class="isv-block-body row d-flex flex-grow">
+        <div class="isv-block-text__wysiwyg col-12" [innerHtml]="customContent.content | safeHtml"></div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="loading">
+      <div class="d-flex justify-content-center my-4 w-100">
+        <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+      </div>
+    </ng-container>
+    <div class="isv-article-list__list col-12" *ngIf="!loading && !customContent">
+      <div class="isv-article-list__no-posts row p-3">
+        <div class="col-12 text-center p-4">
+          <h3 class="h3-responsive grey-text"><em>No Posts Yet.</em></h3>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  (onShown)="onShowModal()"
+  (onHidden)="initModal()"
+  (onModalSave)="initModal()"
+  #customContentModal="mdb-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="customContentModal"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="card">
+      <div class="card-body">
+        <corelate-ui-custom-content-form [modal]="customContentModal"></corelate-ui-custom-content-form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+[[resources-header-get]]
+=== Get header
+
+A `GET` request is used to retrieve the header.
+
+==== Example request
+
+include::{snippets}/headerResource/get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/headerResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/headerResource/get/response-fields.adoc[]
+
+[[resources-header-update]]
+=== Updating the header
+
+A `PUT` request is used to update the header.
+
+==== Example request
+
+include::{snippets}/headerResource/update/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/headerResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/headerResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/headerResource/update/response-fields.adoc[]
+
+
+[[resources-header-upload-image]]
+=== Uploading the header image
+
+A `POST` request is used to upload an image header.
+
+==== Example request
+
+include::{snippets}/headerResource/uploadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/headerResource/uploadImage/path-parameters.adoc[]
+
+==== Request parts
+
+include::{snippets}/headerResource/uploadImage/request-parts.adoc[]
+
+==== Example response
+
+include::{snippets}/headerResource/uploadImage/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/headerResource/uploadImage/response-fields.adoc[]
+
+[[resources-header-download-image]]
+=== Download the header image
+
+A `GET` request is used to download an image header.
+
+==== Example request
+
+include::{snippets}/headerResource/downloadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/headerResource/downloadImage/path-parameters.adoc[]

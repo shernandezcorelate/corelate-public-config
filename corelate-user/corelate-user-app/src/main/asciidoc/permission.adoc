@@ -1,0 +1,83 @@
+[[resources-permission-list]]
+=== Listing permission
+
+A `GET` request will list all of the permissions.
+
+==== Example request
+
+include::{snippets}/permissionResource/list/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/permissionResource/list/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/permissionResource/list/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/permissionResource/list/response-fields.adoc[]
+
+[[resources-permission-get]]
+=== Get a permission
+
+A `GET` request is used to get a permission.
+
+==== Example request
+
+include::{snippets}/permissionResource/get/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/permissionResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/permissionResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/permissionResource/get/response-fields.adoc[]
+
+[[resources-permission-update]]
+=== Update a permission
+
+A `PUT` request is used to update a permission.
+
+==== Example request
+
+include::{snippets}/permissionResource/update/curl-request.adoc[]
+
+==== Path Parameter
+
+include::{snippets}/permissionResource/update/path-parameters.adoc[]
+
+==== Request structure
+
+include::{snippets}/permissionResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/permissionResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/permissionResource/update/response-fields.adoc[]
+
+[[resources-permission-delete]]
+=== Delete a permission
+
+A `DELETE` request is used to delete a permission.
+
+==== Example request
+
+include::{snippets}/permissionResource/delete/curl-request.adoc[]
+
+==== Path Parameter
+
+include::{snippets}/permissionResource/delete/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/permissionResource/delete/http-response.adoc[]

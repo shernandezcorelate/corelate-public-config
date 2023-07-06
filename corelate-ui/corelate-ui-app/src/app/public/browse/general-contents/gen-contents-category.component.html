@@ -1,0 +1,83 @@
+<header id="top-section" class="w-100">
+  <corelate-ui-header></corelate-ui-header>
+</header>
+
+<main>
+  <!--BACK TO TOP -->
+  <button class="isv-back-to-top btn btn-floating btn-large red waves-light" mdbPageScroll href="#top-section" mdbTooltip="Back to Top" placement="left" mdbRippleRadius [pageScrollDuration]="750">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <div class="isv-category-list container p-4">
+    <div class="row p-4">
+      <div class="col">
+      </div>
+      <div class="col-12 col-lg-10 pt-4">
+
+        <div class="isv-category-list__title row edit pt-4">
+          <div class="col-12 text-center pb-4">
+            <!--Capitalize only first letter -->
+            <h1 class="h1-responsive"><strong>{{ category }}</strong></h1>
+          </div>
+        </div>
+
+        <div class="isv-category-list__list row d-md-flex">
+          <div class="col-12 col-md-6 col-lg-4 pb-3 d-md-flex" *ngFor="let content of contents">
+            <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+              <div class="view hm-white-slight waves-light" mdbRippleRadius>
+                <img *ngIf="!content.file" src="https://isv.corelate.net/assets/images/default-post-img.png" class="img-fluid post-img" alt="">
+                <img *ngIf="content.file" src="{{imageSourceUrl}}/{{content.file}}" class="img-fluid post-img" alt="{{content.title}}">
+                <a>
+                  <div class="mask"></div>
+                </a>
+              </div>
+              <div class="card-body pb-0">
+                <div class="isv-category-list__list-title row">
+
+
+                  <div class="col-12 px-3">
+                    <h4 class="card-title title"><a [routerLink]="['/contents/browse', content.id]">{{ content.title }}</a></h4>
+                  </div>
+                </div>
+                <div class="isv-category-list__list-meta row">
+                  <div class="col-12 px-3">
+                    <p class="grey-text"><strong><small>Date</small></strong></p>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body py-0 d-md-flex flex-grow">
+                <p class="excerpt"><span>{{ content.excerpt }}</span></p>
+              </div>
+
+              <div class="card-body pt-0">
+                <div class="isv-category-list__list-button row">
+                  <div class="col-12 text-center">
+                    <a class="btn btn-sm btn-primary mb-3" [routerLink]="['/contents/browse', content.id]">Read more</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col"></div>
+        </div>
+
+        <!--SHOW MAX 6, ADD 6 -->
+        <div class="isv-article-more row mt-4">
+          <div class="col-12 text-center">
+            <p><strong><a href="#">LOAD MORE</a></strong></p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="mt-auto w-100">
+  <corelate-ui-footer></corelate-ui-footer>
+</footer>

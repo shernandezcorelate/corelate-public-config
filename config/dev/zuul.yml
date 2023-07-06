@@ -1,0 +1,55 @@
+server:
+  port: 8002
+
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    authentication:
+      path: /api/authentication/**
+      url: http://127.0.0.1:8004
+    notification:
+      path: /api/notification/**
+      url: http://127.0.0.1:8003
+    user:
+      path: /api/user/**
+      url: http://127.0.0.1:8081
+    cms:
+      path: /api/cms/**
+      url: http://127.0.0.1:8082
+    catalog:
+      path: /api/catalog/**
+      url: http://127.0.0.1:8083
+    workflow:
+      path: /api/workflow/**
+      url: http://127.0.0.1:8084
+    rules:
+      path: /api/rules/**
+      url: http://127.0.0.1:8085
+    shopping-cart:
+      path: /api/shopping-cart/**
+      url: http://127.0.0.1:8086
+    bpmn:
+      path: /bpmn/**
+      url: http://127.0.0.1:9999
+  include-debug-header: true
+  debug:
+    request: true
+
+ribbon:
+  eureka:
+    enabled: false
+
+proxy:
+  auth:
+    routes:
+      user: oauth2
+      cms: oauth2
+      notification: oauth2
+
+user:
+  ribbon:
+    listOfServers: http://localhost:8081/
+
+config:
+  ribbon:
+    listOfServers: http://localhost:8001/

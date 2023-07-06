@@ -1,0 +1,73 @@
+<div class="isv-admin-user">
+  <div class="row pt-1">
+    <div class="isv-admin-user__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Users Management
+      </h3>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+  <ng-container>
+    <div class="row">
+      <div class="isv-admin-user__new col-12 text-right">
+        <button *isAuthorized="['USER_MANAGEMENT_ADD']" type="button" class="btn btn-md blue darken-1 waves-effect waves-light" routerLink="add" mdbRippleRadius><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add A New User</button>
+      </div>
+    </div>
+
+    <div class="row p-4">
+      <div class="col-12 px-0">
+        <ngx-datatable #datatable
+                       class="custom"
+                       [rows]="users"
+                       [loadingIndicator]="loading"
+                       [columnMode]="'force'"
+                       [footerHeight]="'auto'"
+                       [rowHeight]="'auto'"
+                       [externalPaging]="true"
+                       [count]="params.totalElements"
+                       [offset]="params.page"
+                       [limit]="params.size"
+                       (page)='setPage($event)'>
+
+          <ngx-datatable-column name="username">
+            <ng-template let-column="column" ngx-datatable-header-template>
+             <strong>Username</strong>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <h4 class="title h4-responsive blue-text py-2 mb-0 pl-2 mr-3">
+                <a *isAuthorized="['USER_MANAGEMENT_EDIT']" [routerLink]="['edit', row.id]" class="clickable blue-text">{{ row.username }}</a>
+                <span *isNotAuthorized="['USER_MANAGEMENT_EDIT']">{{ row.username }}</span>
+              </h4>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="name">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <strong>Name</strong>
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <h4 class="title h4-responsive py-2 mb-0 mr-3">{{value.givenName}} {{value.familyName}}</h4>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column *isAuthorized="['USER_MANAGEMENT_EDIT','USER_MANAGEMENT_DELETE']">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              <strong>Actions</strong>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <div class="text-center py-3">
+                <button *isAuthorized="['USER_MANAGEMENT_DELETE']" (click)="delete(row)" type="button" class="btn btn-sm isv-btn-user-list btn-red waves-light" mdbRippleRadius mdbTooltip="Delete" placement="top">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+
+                <button *isAuthorized="['USER_MANAGEMENT_EDIT']" [routerLink]="['edit', row.id]" type="button" class="btn btn-sm isv-btn-user-list btn-amber waves-light" mdbRippleRadius mdbTooltip="Edit" placement="top">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

@@ -1,0 +1,78 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "Corelate UI"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "resources"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "corelate-ui",
+      "styles": [
+        "../node_modules/material-design-lite/dist/material.orange-blue.min.css",
+        "../node_modules/material-design-icons/iconfont/material-icons.css",
+        "../node_modules/sweetalert2/dist/sweetalert2.css",
+        "../node_modules/angular2-busy/build/style/busy.css",
+        "../node_modules/font-awesome/scss/font-awesome.scss",
+        "../node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
+        "../scss/mdb.scss",
+        "styles.scss"
+      ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "./alfresco-ng2-components/ng2-components/ng2-alfresco-core/styles"
+        ]
+      },
+      "scripts": [
+        "../node_modules/chart.js/dist/Chart.js",
+        "../node_modules/easy-pie-chart/dist/easypiechart.js",
+        "../node_modules/screenfull/dist/screenfull.js",
+        "../node_modules/material-design-lite/material.min.js",
+        "../node_modules/sweetalert2/dist/sweetalert2.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts",
+        "qa": "environments/environment.qa.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {
+    }
+  },
+  "packageManager": "yarn"
+}

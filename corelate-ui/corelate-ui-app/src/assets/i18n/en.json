@@ -1,0 +1,128 @@
+{
+  "HOME": {
+    "HELLO": "Hello"
+  },
+  "GENERIC_FORM": {
+    "BTN": {
+      "SAVE": "Save",
+      "SUBMIT": "Submit",
+      "UPDATE_INTERVAL": "Update  Interval",
+      "CANCEL": "Cancel",
+      "UPLOAD": "Upload",
+      "CREATE_NEW": "Create New",
+      "SEARCH": "Search"
+    },
+    "VALIDATION": {
+      "REQUIRED": "Required"
+    }
+  },
+  "GENERIC_TABLE": {
+    "NO_RECORD_FOUND": "No Records Found"
+  },
+  "FAQ": {
+    "LABEL": "Frequently Asked Questions",
+    "SEE_ALL": "See All Frequently Asked Questions",
+    "SHARE_ARTICLE": "Share this article",
+    "FORM": {
+      "NEW": "Create new FAQ",
+      "UPDATE": "Update existing FAQ",
+      "QUESTION": "Question",
+      "ANSWER": "Answer",
+      "PUBLISH": "Publish"
+    },
+    "MANAGEMENT": {
+      "CREATE_NEW": "Create New"
+    },
+    "TABLE": {
+      "COLUMN": {
+        "QUESTION": "Question",
+        "ANSWER": "Answer",
+        "PUBLISHED": "Published"
+      }
+    }
+  },
+  "CONTACT_US": {
+    "FORM": {
+      "LABEL": "Contact Us",
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "PHONE_NUMBER": "Phone Number",
+      "DESCRIPTION": "Description"
+    }
+  },
+  "CAROUSEL": {
+    "MODAL": {
+      "HEADER": "Update Carousel"
+    },
+    "FORM": {
+      "INTERVAL": "Interval",
+      "LINK_TRIGGER": "Link Trigger",
+      "LINK_TRIGGER_VALUES": {
+        "IMAGE": "Image",
+        "BUTTON": "Button"
+      }
+    },
+    "MANAGEMENT": {
+      "HEADER": "FAQ Management",
+      "ADD_NEW": "Add new slide"
+    },
+    "TABLE": {
+      "COLUMN": {
+        "HEADER": "Header",
+        "SUB_HEADER": "Sub Header",
+        "PUBLISHED": "Published"
+      }
+    },
+    "SLIDE": {
+      "FORM": {
+        "CREATE": "Create new slide",
+        "UPDATE": "Update slide",
+        "IMAGE_URL": "Image Url",
+        "HEADER": "Header",
+        "SUB_HEADER": "Sub Header",
+        "LINK": "Link",
+        "PUBLISHED": "Published",
+        "BUTTON_LABEL": "Button Label"
+      }
+    }
+  },
+  "CATALOG": {
+    "UPLOAD": "Upload Catalog",
+    "BATCH_SAVE": "Catalog Batch Save",
+    "CATALOG": "Catalog",
+    "FORM": {
+      "KEY": "Key",
+      "LABEL": "Label",
+      "FILE": "File",
+      "ADD_ROW": "Add Row"
+    }
+  },
+  "SHOPPING_CART": {
+    "PAY_NOW": "Pay Now",
+    "PAYMENT_HISTORY": "Payment History",
+    "TABLE": {
+      "COLUMN": {
+        "PAY": "Pay",
+        "DESCRIPTION": "Description",
+        "REQUESTOR": "Requestor",
+        "MERCHANT_ID": "Merchant ID",
+        "PROCESS_INSTANCE_ID": "Item Process Instance ID",
+        "ACTIVITY_ID": "Activity ID",
+        "AMOUNT": "Amount",
+        "AMOUNT_PAID": "Amount Paid",
+        "RECEIPT_NO": "Receipt No.",
+        "DATE_PAID": "Date Paid"
+      }
+    }
+  },
+  "INBOX": {
+    "HEADER": "Inbox",
+    "TABLE": {
+      "COLUMN": {
+        "FROM": "From",
+        "MESSAGE": "Message",
+        "DATE": "Date"
+      }
+    }
+  }
+}

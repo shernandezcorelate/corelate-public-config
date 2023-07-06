@@ -1,0 +1,29 @@
+.isv-btn-catalog-list {
+  margin: 0;
+  padding: 0.2rem .1rem;
+  cursor: pointer;
+
+}
+
+.isv-admin-catalog-batch__title h3 {
+  font-weight: 300;
+}
+
+.isv-admin-catalog-batch__result-table {
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  table {
+    tr {
+      th {
+        min-width: 120px;
+      }
+    }
+  }
+}
+
+.catalog-input input {
+  margin: 0;
+  padding: 0;
+
+}

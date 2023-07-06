@@ -1,0 +1,60 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+spring:
+  datasource:
+    username: '{cipher}AQBHp6PUNIGKcTApxmj8uyV9PGPH5JYoAsuu1FEK4CRMTBKeFNO0XLrhWgjcafZvRiLRjS7miNbNbkHMvb7+3+twrO8Q4IOeE0XdJrlp6Of0EoQ1iKadLlS5oXHbyAgCe4IrO4pCuq+QHe0kXZposL3e13rwECFdR5jjmErJtyVoiEcaH7DbZBTK8WmEMdIQ5xBTy36eUAKkCg2F4QMcllfC1+iwZMqaD1vL5gxmG3rTq1TJGbwofgTCZqUBqil8t3w9xTOLIIUVkkSKyhAs+4QL2KXtoHtNH5I47Wf4EeMyH75Jk6Q3klI+5bOZBUBQaQDLHH4cAe5tvm7XbMcCoodGV5c2TRzls9OdLnNsdUiVsycg4yiBU6mMbfseY4YpOK4='
+    password: '{cipher}AQABZ+HqXarT3R8VKJaeiZfrrrH6FVRO1YUPyCblMnJwxdlZIhHOfUeHFpoRjQ+3/Hwz35R3jB7jw8oI6pXzgrxYN+621+7A91n+MrSkR2AOMhh+ruua/gh49CmcfR+ARm6a0oMt/CVSKGWSvTlbQPjc8gFvP0gAyGsJ6JVU1CKCzX8eTYhgnIXA8jPgp0NVKkyrzSC493FHQkDUCGBH2MGG+x4fnltthNlWOPKhLdB8dvvfghybfxj07e0IWNgVIS2V8h5VSt9vKODXAuQ7Q3YL81ckdr7RiQKjD2gcwPHzavOXXmWnwyTJ58JdxsogZkjeAeGJLkdSRZLxQHCswmDrQSxb5ETg0RmoPlpmeim0KqtJR6IgrcUL3qzqLhlnaTg='
+    driverClassName: '{cipher}AQAtvLXremhlrIY5LUEZO34epba/47/fqYlrLiK/uKReVh06SNOfp1Puz+zF/mMaPzvyiSLsL3/mzT2FUSCzq/tyX2ZfI82FmqCwuQrtDYhX+6VUmRGpt/Zocx8PuMs/WK/pBJ52tVuIQ0GpStKr/GMJgmUPrXz5RmFpz2NTkyIqCUuWV8HKn93hBVVtC477tDW6p0W+4AgmezB2prN2gCYZlbBcBc044CLdxgXQVba9fmAZcSMGKnkCuJS3bD3OCvTzUdarZJ7Dr2xPzekDruCGLYLNkXRhMHheoxflvty7i1s2sBCTVfFkG23P2pX/keKm9VP1vDdDFcqNf6FBUs16Dy68pqBNY1eIVbjc9uhEeY0jx/+nfIe1spAbZmVKSzgwC6d/E19BnfkIEcjck+j0'
+    hikari:
+      maxIdleTime: 20000
+      idleTimeout: 20000
+    cachePrepStmts: true
+    prepStmtCacheSize: 250
+    prepStmtCacheSqlLimit: 2048
+    connection-test-query: SELECT 1
+    continue-on-error: true
+  jpa:
+    hibernate.ddl-auto: update
+    database-platform: '{cipher}AQCV1YeuN8wHaLEq1PSJUSCjNbCIawRWNR1enqSYv/zuZQtftJHVnZpl2W8JklUiB0xJO2uSpQ0aKFYYS8fjnih5H7yu1LqPuZtWxRo7dAInwhsLKq+3LGkmj16KCWguDmGEEbJwpF17uxDj8Hvc+um75cpw3DJeH3mURIQjXzLTSqn+wuN9d8XR3uIuSxeYy69CZLDibIejcDOhPXlZIUCc6kOPJ82A5D6BxoSJyL42WVuzSV+wrdQxEFJ2GF+hEtIRgCyPhRq90G+w2GbrADnnVnXuq5Ez/pjXHFhsCvIatN0t/yUphLvu17qj4RJCuQfWvQ/q3F7q3Xy7WJtuv9rYjSSyvD4hnnQ5k4k3Kz78gXRu7LmcnbLDTWDZOTtq5n/qtYZV40SdQA2mJr1dpfvu6/XxPqEif+5jNvugs6I4WQ=='
+
+logging:
+  level:
+    com.beacon.corelate: DEBUG
+    org.springframework.security: TRACE
+
+ribbon:
+  ReadTimeout: 60000
+
+file:
+  storage:
+    enabled: false
+    domain: http://127.0.0.1:9000
+    accessKey: VV2V7IK1NOEY636AGLKO
+    secretKey: iUlGKax02hsgClCLPCpy50DpD6ltW1kOV4pYcT2A
+
+oauth:
+  server:
+    url: /api/authentication/oauth/check_token
+    clientId: corelate_password_client
+    clientSecret: 123qwe
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    resource:
+      tokenInfoUri: http://127.0.0.1:8004/api/authentication/oauth/check_token
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeznNUY0XI6TxHGaswWf
+          AQB1WaLTg2zFSN+AWFDadGHLF24PLANxCz6XMl7CeRzYaCGt1PIuMLRkC8eBc2Dn
+          r89ZIq4Y9flcLblnXl1Ddt94yi5cI9X8ea1J5uGenCCiPYbC3t2lWeBjHa7KF9Oo
+          VuZCgVRC3PSBRMz3Te5zYfwluTLR1POpK96YkNHPe3pcGgmV+LZwd9Fgdm0+OVu4
+          DJexuvD0I5MTn6jHifrZnFxXK3gdaHB3DpaWJH4Rk4Zr0ip1/hr6/JDZ6rYSLiJI
+          KLzKJn8LtBH0I59R+jT0C6eik8apl+L24g2rfFj40q8/bVRUIwgZ17bvv5utUSQR
+          cQIDAQAB
+          -----END PUBLIC KEY-----

@@ -1,0 +1,107 @@
+<header id="top-section" class="w-100">
+  <corelate-ui-header></corelate-ui-header>
+</header>
+
+<main>
+  <!--BACK TO TOP -->
+  <button class="isv-back-to-top btn btn-floating btn-large red waves-light" mdbPageScroll href="#top-section" mdbTooltip="Back to Top" placement="left" mdbRippleRadius [pageScrollDuration]="750">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <div class="isv-article-list container p-4">
+    <div class="row p-4">
+      <div class="col">
+      </div>
+      <div class="col-12 col-lg-10 pt-4">
+
+        <div class="isv-article-list__title row pt-4">
+          <div class="col-12 text-center pb-4">
+            <h1 class="h1-responsive"><strong>{{ selectedCategory || 'Recent Posts' }}</strong></h1>
+          </div>
+        </div>
+        <!--
+        <div class="row pb-4">
+          <div class="isv-article-list__lead grey-text text-center">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </div>
+        </div>
+        -->
+
+        <div class="row pb-4">
+          <div class="col-12 col-md-9">
+          </div>
+          <div class="isv-article-list__filter col-12 col-md-3 mt-3 pb-3">
+            <mdb-ng-select [options]="categories" placeholder="All Posts" (selected)="categoriesSelected($event)" [ngModel]="selectedCategory"></mdb-ng-select>
+            <label>Filter Articles</label>
+          </div>
+
+          <ng-container *ngIf="loading">
+            <div class="d-flex justify-content-center my-4 w-100">
+              <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+            </div>
+          </ng-container>
+          <!--IF NO POSTS-->
+          <div class="isv-article-list__list col-12" *ngIf="!loading && contents?.length === 0">
+            <div class="isv-article-list__no-posts row p-3">
+              <div class="col-12 text-center p-4">
+                <h3 class="h3-responsive grey-text"><em>No Posts Yet.</em></h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="isv-article-list__list col-12">
+            <div class="isv-article-list__list-item row p-3 d-flex" *ngFor="let content of contents; let last = last; let index = index">
+              <div class="isv-article-list__list-item-image col-12 col-md-3 mb-2 text-center align-self-center">
+                <a [routerLink]="['/contents/view', content.id]">
+                  <img *ngIf="!content.file" src="https://isv.corelate.net/assets/images/default-post-img.png" class="img-fluid post-img" alt="">
+                  <img *ngIf="content.file" src="{{imageSourceUrl}}/{{content.file}}" class="img-fluid post-img" alt="{{content.title}}">
+                </a>
+              </div>
+              <div class="isv-article-list__list-item-meta col-12 col-md-9 align-self-center">
+
+                <p class="grey-text pull-right mb-0"><strong><small>{{ content.createdDate | date: 'short' }}</small></strong></p>
+                <p class="font-bold pb-1 text-uppercase mb-0"><small>
+                  <a routerLink="/contents/browse" [queryParams]="{category: content.category}" [ngClass]="{'green-text': content.category == 'NEWS',
+                  'blue-text': content.category == 'ANNOUNCEMENTS',
+                  'brown-text': content.category == 'ADVOCACIES',
+                  'cyan-text': content.category == 'EVENTS'}">
+
+                  <i class="fa" [ngClass]="{'fa-newspaper-o': content.category == 'NEWS',
+                  'fa-bullhorn': content.category == 'ANNOUNCEMENTS',
+                  'fa-group': content.category == 'ADVOCACIES',
+                  'fa-clock-o': content.category == 'EVENTS'}"></i>
+                    {{ content.category }}
+                  </a></small>
+                </p>
+
+                <a [routerLink]="['/contents/view', content.id]"><h2 class="h2-responsive title mb-3"><strong>{{ content.title }}</strong></h2></a>
+
+                <p class="excerpt"><span>{{ content.excerpt }}</span></p>
+
+              </div>
+                  <div class="col-12 col-md-9 ml-md-auto text-center align-self-end">
+                    <a class="btn btn-md btn-primary mb-3" [routerLink]="['/contents/view', content.id]">Read More</a>
+                  </div>
+              <!--SHOW EXCEPT LAST ITEM -->
+              <div class="isv-article-list__list-divider col-12 px-4">
+                <hr class="grey-text" *ngIf="!last"/>
+              </div>
+            </div>
+            <!--SHOW MAX 5, ADD 5 -->
+            <div class="isv-article-more col-12 text-center mt-4">
+              <p><strong><button type="button" class="btn btn-lg btn-outline-primary waves-light" (click)="loadMore()" *ngIf="hasNextPage">Load More Articles</button></strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="mt-auto w-100">
+  <corelate-ui-footer></corelate-ui-footer>
+</footer>

@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: ddevera
+      changes:
+        - loadData:
+            tableName: GROUPS
+            file: data/groups
+            relativeToChangelogFile: true
+            encoding: UTF-8
+  - changeSet:
+      id: 2
+      author: ddevera
+      changes:
+        - loadData:
+            tableName: group_capability
+            file: data/group_capability
+            relativeToChangelogFile: true
+            encoding: UTF-8
+  - changeSet:
+        id: 3
+        author: ddevera
+        changes:
+          - loadData:
+              tableName: endpoint_basic_auth
+              file: data/endpoint_basic_auth
+              relativeToChangelogFile: true
+              encoding: UTF-8
+  - changeSet:
+        id: 4
+        author: ddevera
+        changes:
+          - loadData:
+              tableName: endpoint_configuration
+              file: data/endpoint_configuration
+              separator: ','
+              quotchar: '"'
+              relativeToChangelogFile: true
+              encoding: UTF-8
+

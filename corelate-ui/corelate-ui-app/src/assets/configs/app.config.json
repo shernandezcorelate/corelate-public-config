@@ -1,0 +1,6 @@
+{
+    "bpmHost": "http://localhost:8090/activiti-app",
+    "application": {
+        "name": "Exist ISV Dev"
+    }
+}

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: shoppingcart-test
+  profiles:
+    active: test

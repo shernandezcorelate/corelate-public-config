@@ -1,0 +1,62 @@
+[[resources-item-list]]
+=== Listing items
+
+A `GET` request will list all of the items.
+
+==== Example request
+
+include::{snippets}/itemResource/list/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/itemResource/list/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/itemResource/list/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/itemResource/list/response-fields.adoc[]
+
+[[resources-item-create]]
+=== Creating an item
+
+A `POST` request is used to insert an item.
+
+==== Example request
+
+include::{snippets}/itemResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/itemResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/itemResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/itemResource/create/response-fields.adoc[]
+
+[[resources-item-get]]
+=== Get an item
+
+A `GET` request is used to get a item.
+
+==== Example request
+
+include::{snippets}/itemResource/get/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/itemResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/itemResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/itemResource/get/response-fields.adoc[]

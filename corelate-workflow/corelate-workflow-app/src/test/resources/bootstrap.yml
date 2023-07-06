@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: workflow-test
+  profiles:
+    active: test

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Trade</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic,700|Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
+    <link href="../dist/css/app.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="../dist/img/logo.png" alt=""></a>
+        </div>
+        <ul class="navbar-right navbar-account">
+          <li><a class="btn btn-default btn-lg" href="login.html">Log In</a></li>
+          <li><a class="btn btn-primary btn-lg" href="signup.html">Sign Up</a></li>
+        </ul>
+      </div>
+      
+      <!--MAIN NAV-->
+      <div id="main-navigation">
+        <div class="container">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="main-nav-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default btn-link">Search</button>
+            </form>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div>
+      <!--END MAIN NAV-->
+    </nav>
+
+    <div class="main-content">
+      <div class="page-header">
+        <div class="container">
+          <h1>Duties and Tax Calculations Results</h1>
+        </div>
+      </div>
+
+      <section class="dark">
+        <div class="container">
+          
+          <div class="row results-box">
+            <div class="col-sm-10 col-sm-offset-1">
+              
+              <ul class="actions">
+                <li><a href="#"><i class="material-icons">mail</i> Send Email</a></li>
+                <li><a href="#"><i class="material-icons">save</i> Save Calculations</a></li>
+                <li><a href="#"><i class="material-icons">mode_edit</i> Edit Calculations</a></li>
+                <li><a href="#"><i class="material-icons">keyboard</i> New Calculations</a></li>
+              </ul>
+              
+              <div class="summary">
+                
+                <h2 class="hd">1. Type of product, value, and where it was manufactured</h2>
+                
+                <div class="tbl-wrap">
+                  <a href="#" class="edit-product"><i class="material-icons">mode_edit</i> Edit</a>
+                  <table class="table">
+                    <tr class="danger">
+                      <td>
+                        Product Description
+                      </td>
+                      <td>
+                        Louis Vuitton Handbag<br>
+                        <a href="#"><small>(this is a regulated item. Apply for permit here)</small></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Product Category
+                      </td>
+                      <td>
+                        Handbags of leather | other leather<br>
+                        <a href="#"><small>0900 222 4032 320</small></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Product Value:
+                      </td>
+                      <td>
+                        Php 25, 000.00
+                      </td>
+                    </tr>
+                  </table>
+                </div><!--tbl-wrap-->
+
+                <hr>
+
+                <div class="tbl-wrap">
+                  <a href="#" class="edit-product"><i class="material-icons">mode_edit</i> Edit</a>
+                  <table class="table">
+                    <tr class="danger">
+                      <td>
+                        Product Description
+                      </td>
+                      <td>
+                        Louis Vuitton Handbag<br>
+                        <a href="#"><small>(this is a regulated item. Apply for permit here)</small></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Product Category
+                      </td>
+                      <td>
+                        Handbags of leather | other leather<br>
+                        <a href="#"><small>0900 222 4032 320</small></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Product Value:
+                      </td>
+                      <td>
+                        Php 25, 000.00
+                      </td>
+                    </tr>
+                  </table>
+                </div><!--tbl-wrap-->
+                
+                <h2 class="hd">2. Cost of shipping and insurance</h2>
+                
+                <div class="tbl-wrap">
+                  <table class="table">
+                    <tr>
+                      <td>
+                        Shipping Costs:
+                      </td>
+                      <td>
+                        Php 25, 000.00
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Insurance Costs: 
+                      </td>
+                      <td>
+                        Php 100.00
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+
+                
+              </div><!--summary-->
+
+              <div class="results">
+                <div class="hd-wrap">
+                  <h2 class="hd">Calculation Results</h2>
+                  <select name="" id="">
+                    <option value="">Php - Philippine Peso</option>
+                    <option value="">USD - US DOllar</option>
+                  </select>
+                </div>
+
+                <div class="tbl-wrap">
+                  <table class="table">
+                    <tr>
+                      <td>
+                        Total customs value:
+                      </td>
+                      <td>
+                        Php 32, 870.30
+                      </td>
+                      <td>
+                        <small>The amount that customs values your import at</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Duty:
+                      </td>
+                      <td>
+                        Php 11, 439.30
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="info">
+                      <td>
+                        Total import duty and taxes due:
+                      </td>
+                      <td>
+                        Php 50, 857.80
+                      </td>
+                      <td>
+                        <small>The amount that needs to be paid to customs</small>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <hr>
+
+                  <div class="notes">
+                    <h5>Notes on duty &amp; taxes rates and compliance</h5>
+                    <ul>
+                      <li>Louis Vuitton Handbags has an import duty rate of 3% and a VAT rate of 20%.</li>
+                    </ul>
+                    
+                    <h5>Notes on import taxes due</h5>
+                    <ul>
+                      <li>Please note that your shipping provider may add an additional handling fee</li>
+                    </ul>
+                  </div>
+                </div>
+
+
+              </div><!--results-->
+
+
+              <ul class="actions">
+                <li><a href="#"><i class="material-icons">mail</i> Send Email</a></li>
+                <li><a href="#"><i class="material-icons">save</i> Save Calculations</a></li>
+                <li><a href="#"><i class="material-icons">mode_edit</i> Edit Calculations</a></li>
+                <li><a href="#"><i class="material-icons">keyboard</i> New Calculations</a></li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+      
+    </div>
+
+    
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4 class="hd">
+              Trade is a joint effort by Department of Trade and Industry, Department of Science &amp; Technology and Bureau of Customs.
+            </h4>
+            <p class="footer-logo">
+              <img src="../dist/img/footer-logo.png" alt="" />
+            </p>
+          </div>
+          <div class="col-sm-8">
+            <div class="row">
+              
+              <div class="col-sm-3">
+                
+                <div class="menu-group">
+                  <h3 class="hd">Quick Links</h3>
+                  <ul>
+                    <li>
+                      <a href="#">About Trade.ph</a>
+                    </li>
+                    <li>
+                      <a href="#">Import Transactions</a>
+                    </li>
+                    <li>
+                      <a href="#">Export Transactions</a>
+                    </li>
+                    <li>
+                      <a href="#">Airport Operations</a>
+                    </li>
+                  </ul>
+                </div>    
+
+              </div>
+
+              <div class="col-sm-3">
+                
+                <div class="menu-group">
+                  <h3 class="hd">Other Services</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Trade Repository</a>
+                    </li>
+                    <li>
+                      <a href="#">Unde Omnis Iste</a>
+                    </li>
+                    <li>
+                      <a href="#">Error sit Volupten</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <div class="col-sm-3">
+                
+                <div class="menu-group">
+                  <h3 class="hd">Issuances</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Memoranda</a>
+                    </li>
+                    <li>
+                      <a href="#">Customs Memorandum Circular</a>
+                    </li>
+                    <li>
+                      <a href="#">Customs Memorandum Order</a>
+                    </li>
+                    <li>
+                      <a href="#">Customs Administrative Order</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <div class="col-sm-2">
+                
+                <div class="menu-group">
+                  <h3 class="hd">Community</h3>
+                  <ul>
+                    <li>
+                      <a href="#">Facebook</a>
+                    </li>
+                    <li>
+                      <a href="#">Twitter</a>
+                    </li>
+                    <li>
+                      <a href="#">Google+</a>
+                    </li>
+                    <li>
+                      <a href="#">Youtube</a>
+                    </li>
+                    <li>
+                      <a href="#">RSS Feed</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          
+          <div class="col-sm-12">
+            <hr>
+            <p class="copyright text-center">&copy; 2016&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Trade</a>&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Privacy</a>&nbsp; &nbsp; &nbsp; &nbsp;<a href="#">Terms</a></p>
+          </div>
+          
+        </div>
+
+      </div>
+    </footer>
+    <script src="../dist/js/scripts.js"></script>
+  </body>
+</html>

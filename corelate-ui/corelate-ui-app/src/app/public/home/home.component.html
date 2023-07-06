@@ -1,0 +1,239 @@
+<header id="top-section" class="w-100">
+  <corelate-ui-header [modal]="headerModal"></corelate-ui-header>
+</header>
+
+<main>
+  <!--BACK TO TOP -->
+  <button class="isv-back-to-top btn btn-floating btn-large red waves-light" mdbPageScroll href="#top-section" mdbTooltip="Back to Top" placement="left" mdbRippleRadius [pageScrollDuration]="750">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+  <!--SHOW IF LOGGED IN-->
+  <!--BLOCK MANAGER -->
+  <div *ngIf="isLoggedIn">
+    <div *isAuthorized="['CMS_ADMIN']" class="isv-block-manager fixed-action-btn">
+      <a class="btn-floating btn-large black waves-light" mdbTooltip="Edit Site" placement="left" mdbRippleRadius (click)="fixed.toggle()"><i class="fa fa-pencil"></i></a>
+
+      <div class="fixed_collapse" [mdbCollapse]="isCollapsed" #fixed="bs-collapse">
+        <!--<ng-container *isAuthorized="['COLOR_CONFIGURATION_VIEW']">-->
+          <a (click)="colorConfigModal.show()" class="btn-floating pink waves-light" mdbTooltip="Color Configuration" placement="top" mdbRippleRadius><i class="fa fa-gear"></i></a><!--  -->
+        <!--</ng-container>-->
+        <a (click)="blocksModal.show()" class="btn-floating cyan waves-light" mdbTooltip="Layout Management" placement="top" mdbRippleRadius><i class="fa fa-th-large"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCKS -->
+  <ng-container *ngFor="let blockPanel of block.blockPanels; let i = index">
+    <div class="isv-block row no-gutters">
+      <ng-container *ngIf="blockPanel.template == BlockTemplate.ONE_COLUMN">
+        <!--CAROUSEL-->
+        <ng-container *ngIf="blockPanel.contents[0].content === BlockType.CAROUSEL">
+          <corelate-ui-carousel class="col-12"></corelate-ui-carousel>
+        </ng-container>
+        <!--GENERAL CONTENT-->
+        <ng-container *ngIf="isGeneralContent(blockPanel.contents[0].content)">
+          <corelate-ui-general-content [layout]="BlockTemplate.ONE_COLUMN" [content]="blockPanel.contents[0].content" class="col-12 py-4"></corelate-ui-general-content>
+        </ng-container>
+        <!-- HELP -->
+        <ng-container *ngIf="blockPanel.contents[0].content === BlockType.HELP">
+          <corelate-ui-help [layout]="BlockTemplate.ONE_COLUMN" class="col-12 py-4"></corelate-ui-help>
+        </ng-container>
+        <!-- FAQ -->
+        <ng-container *ngIf="blockPanel.contents[0].content === BlockType.FAQ">
+          <corelate-ui-faq [layout]="BlockTemplate.ONE_COLUMN" class="col-12 py-4"></corelate-ui-faq>
+        </ng-container>
+        <!-- CONTACT FORM -->
+        <ng-container *ngIf="blockPanel.contents[0].content === BlockType.CONTACT_FORM">
+          <corelate-ui-contact-form [layout]="BlockTemplate.ONE_COLUMN" class="col-12 py-4"></corelate-ui-contact-form>
+        </ng-container>
+        <!-- CONTACT INFO -->
+        <ng-container *ngIf="blockPanel.contents[0].content === BlockType.CONTACT_INFO">
+          <corelate-ui-contact-info [layout]="BlockTemplate.ONE_COLUMN" class="col-12 py-4"></corelate-ui-contact-info>
+        </ng-container>
+        <!-- TEXT (WYSIWYG) -->
+        <ng-container *ngIf="blockPanel.contents[0].content === BlockType.CUSTOM_CONTENT">
+          <corelate-ui-custom-content [layout]="BlockTemplate.ONE_COLUMN" class="col-12 py-4"></corelate-ui-custom-content>
+        </ng-container>
+        <!-- GRID -->
+        <ng-container *ngIf="blockPanel.contents[0].content === BlockType.GRID">
+          <corelate-ui-grid [layout]="BlockTemplate.ONE_COLUMN" class="col-12 py-4"></corelate-ui-grid>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="blockPanel.template == BlockTemplate.TWO_COLUMNS">
+        <div class="col-12">
+          <div class="container">
+            <div class="row px-2">
+              <div class="col"></div>
+              <div class="col-12 col-md-10 px-4">
+                <div class="isv-block-two-column row p4 d-flex">
+                  <!-- FIRST COLUMN -->
+                  <!--GENERAL CONTENT-->
+                  <ng-container *ngIf="isGeneralContent(blockPanel.contents[0].content)">
+                    <corelate-ui-general-content [layout]="BlockTemplate.TWO_COLUMNS" [content]="blockPanel.contents[0].content" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-general-content>
+                  </ng-container>
+                  <!-- HELP -->
+                  <ng-container *ngIf="blockPanel.contents[0].content === BlockType.HELP">
+                    <corelate-ui-help [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-help>
+                  </ng-container>
+                  <!-- FAQ -->
+                  <ng-container *ngIf="blockPanel.contents[0].content === BlockType.FAQ">
+                    <corelate-ui-faq [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-faq>
+                  </ng-container>
+                  <!-- CONTACT FORM -->
+                  <ng-container *ngIf="blockPanel.contents[0].content === BlockType.CONTACT_FORM">
+                    <corelate-ui-contact-form [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-contact-form>
+                  </ng-container>
+                  <!-- CONTACT INFO -->
+                  <ng-container *ngIf="blockPanel.contents[0].content === BlockType.CONTACT_INFO">
+                    <corelate-ui-contact-info [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-contact-info>
+                  </ng-container>
+                  <!-- TEXT -->
+                  <ng-container *ngIf="blockPanel.contents[0].content === BlockType.CUSTOM_CONTENT">
+                    <corelate-ui-custom-content [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-custom-content>
+                  </ng-container>
+                  <!-- GRID -->
+                  <ng-container *ngIf="blockPanel.contents[0].content === BlockType.GRID">
+                    <corelate-ui-grid [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-grid>
+                  </ng-container>
+                  <!-- SECOND COLUMN -->
+                  <!--GENERAL CONTENT-->
+                  <ng-container *ngIf="isGeneralContent(blockPanel.contents[1].content)">
+                    <corelate-ui-general-content [layout]="BlockTemplate.TWO_COLUMNS" [content]="blockPanel.contents[1].content" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-general-content>
+                  </ng-container>
+                  <!-- HELP -->
+                  <ng-container *ngIf="blockPanel.contents[1].content === BlockType.HELP">
+                    <corelate-ui-help [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-help>
+                  </ng-container>
+                  <!-- FAQ -->
+                  <ng-container *ngIf="blockPanel.contents[1].content === BlockType.FAQ">
+                    <corelate-ui-faq [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-faq>
+                  </ng-container>
+                  <!-- CONTACT FORM -->
+                  <ng-container *ngIf="blockPanel.contents[1].content === BlockType.CONTACT_FORM">
+                    <corelate-ui-contact-form [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-contact-form>
+                  </ng-container>
+                  <!-- CONTACT INFO -->
+                  <ng-container *ngIf="blockPanel.contents[1].content === BlockType.CONTACT_INFO">
+                    <corelate-ui-contact-info [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-contact-info>
+                  </ng-container>
+                  <!-- TEXT -->
+                  <ng-container *ngIf="blockPanel.contents[1].content === BlockType.CUSTOM_CONTENT">
+                    <corelate-ui-custom-content [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-custom-content>
+                  </ng-container>
+                  <!-- GRID -->
+                  <ng-container *ngIf="blockPanel.contents[1].content === BlockType.GRID">
+                    <corelate-ui-grid [layout]="BlockTemplate.TWO_COLUMNS" class="col-12 col-md-6 p-3 my-4 d-flex flex-column align-content-stretch"></corelate-ui-grid>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="col"></div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <!--HR except last block-->
+      <div class="col-12 p-4">
+        <div class="row">
+          <div class="col">
+          </div>
+          <div *ngIf="showDivider(i)" class="col-12 col-md-8">
+            <hr/>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</main>
+
+<footer class="mt-auto w-100">
+  <corelate-ui-footer [modal]="footerModal"></corelate-ui-footer>
+</footer>
+<!-- BLOCKS MODAL -->
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  (onShown)="onShownBlocksModal()"
+  (onHidden)="onHiddenBlocksModal()"
+  #blocksModal="mdb-modal"
+  class="modal fade right"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="blocksModal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="blocksModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Layout Management</h4>
+      </div>
+      <div class="modal-body">
+        <corelate-ui-block-setup [modal]="blocksModal"></corelate-ui-block-setup>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COLOR CONFIG MODAL -->
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  #colorConfigModal="mdb-modal"
+  class="modal fade right"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="colorConfigModal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="card">
+      <div class="card-body">
+        <corelate-ui-color-config [modal]="colorConfigModal"></corelate-ui-color-config>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER MODAL -->
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  (onShow)="onShowHeaderModal()"
+  (onHide)="onHideHeaderModal()"
+  #headerModal="mdb-modal"
+  class="modal fade right"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="headerModal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="card">
+      <div class="card-body">
+        <corelate-ui-admin-header [modal]="headerModal"></corelate-ui-admin-header>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER MODAL -->
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  (onShow)="onShowFooterModal()"
+  (onHide)="onHideFooterModal()"
+  #footerModal="mdb-modal"
+  class="modal fade right"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="footerModal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="card">
+      <div class="card-body">
+        <corelate-ui-admin-footer [modal]="footerModal"></corelate-ui-admin-footer>
+      </div>
+    </div>
+  </div>
+</div>

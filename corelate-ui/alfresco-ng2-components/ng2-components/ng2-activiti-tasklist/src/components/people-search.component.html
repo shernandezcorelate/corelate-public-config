@@ -1,0 +1,38 @@
+<div class="search-text-header">
+    <ng-content select="[people-search-title]"></ng-content>
+</div>
+<md-input-container class="search-text-container">
+	<input mdInput placeholder="{{'PEOPLE.SEARCH_USER'|translate}}" type="text" id="userSearchText" [value]="" [formControl]="searchUser">
+</md-input-container>
+<div class="search-list-container" id="search-people-list" *ngIf="hasUsers()">
+    <adf-people-list
+    [users]="users"
+    (clickRow)="onRowClick($event)">
+        <data-columns>
+            <data-column key="firstName">
+                <ng-template let-entry="$implicit">
+                        <div *ngIf="!entry.row.obj.userImage" class="people-pic">
+                            {{getInitialUserName(entry.row.obj.firstName, entry.row.obj.lastName)}}</div>
+                        <div>
+                            <img *ngIf="entry.row.obj.userImage" class="people-img"
+                                [src]="entry.row.obj.userImage"
+                                (error)="onErrorImageLoad(entry.row.obj)"/>
+                        </div>
+                </ng-template>
+            </data-column>
+            <data-column key="email" class="full-width">
+                <ng-template let-entry="$implicit">
+                    <div class="people-full-name">{{ getDisplayUser(entry.row.obj.firstName, entry.row.obj.lastName, ' ') }}</div>
+                </ng-template>
+            </data-column>
+        </data-columns>
+    </adf-people-list>
+</div>
+<div class="search-list-action-container">
+    <button md-button type="button" id="close-people-search" (click)="closeSearchList()">
+        {{'PEOPLE.DIALOG_CLOSE' | translate }}
+    </button>
+    <button md-button type="button" id="add-people" (click)="involveUserAndClose()">
+        <ng-content select="[people-search-action-label]"></ng-content>
+    </button>
+</div>

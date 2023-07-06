@@ -1,0 +1,37 @@
+[[resources-blocks-getList]]
+=== Get blocks
+
+A `GET` request is used to retrieve all blocks
+
+==== Example request
+
+include::{snippets}/blocksResource/get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/blocksResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/blocksResource/get/response-fields.adoc[]
+
+[[resources-blocks-update]]
+=== Updating blocks
+
+A `PUT` request is used to update the blocks.
+
+==== Example request
+
+include::{snippets}/blocksResource/update/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/blocksResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/blocksResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/blocksResource/update/response-fields.adoc[]

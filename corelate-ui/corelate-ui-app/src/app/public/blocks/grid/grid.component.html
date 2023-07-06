@@ -1,0 +1,130 @@
+<div class="corelate-ui-grid edit">
+  <ng-container *ngIf="layout === BlockTemplate.ONE_COLUMN">
+    <div class="container p-4">
+      <div class="row px-4">
+        <div class="col">
+        </div>
+        <div class="col-12 col-md-10">
+          <ng-container *isAuthorized="['CMS_ADMIN','GRID_EDIT']">
+            <button *ngIf="isLoggedIn" (click)="gridModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+          </ng-container>
+          <div class="isv-block-name row">
+            <div class="col-12 text-center pb-2">
+              <h4 class="h4-responsive grey-text text-uppercase"><strong>Grid Layout</strong></h4>
+            </div>
+          </div>
+          <!--
+          <div class="isv-block-lead row">
+            <div class="col-12 text-center pb-4">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna.</p>
+            </div>
+          </div>
+          -->
+          <div class="row">
+            <div class="col-12">
+              <div class="isv-block-grid row py-4">
+                <ng-container *ngIf="grid?.gridItems?.length !== 0">
+                  <div *ngFor="let item of grid?.gridItems" class="isv-block-grid__item col-12 col-md-6 p-4 d-flex">
+                  <div class="row d-flex justify-content-end">
+                    <div class="isv-block-grid__img text-center col-12">
+                      <img *ngIf="!item.files[0]" src="{{imageSourceUrl}}/default-post-img.png" class="img-fluid w-100" alt="">
+                      <img *ngIf="item.files[0]" src="{{imageSourceUrl}}/{{item.files[0]}}" class="img-fluid" alt="Article Name">
+                    </div>
+                    <div class="isv-block-grid__text col-12 text-center py-4">
+                      <a href="#"><h5 class="h5-responsive"><strong>{{item.title}}</strong></h5></a>
+                      <p>{{item.excerpt}}</p>
+                    </div>
+                  </div>
+                </div>
+                </ng-container>
+                <ng-container *ngIf="loading">
+                  <div class="d-flex justify-content-center my-4 w-100">
+                    <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+                  </div>
+                </ng-container>
+                <div class="isv-article-list__list col-12" *ngIf="!loading && grid?.gridItems.length === 0">
+                  <div class="isv-article-list__no-posts row p-3">
+                    <div class="col-12 text-center p-4">
+                      <h3 class="h3-responsive grey-text"><em>No Grid Items Yet.</em></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  </div>
+<!--Delete two column layout -->
+  <ng-container *ngIf="layout === BlockTemplate.TWO_COLUMNS">
+    <div class="corelate-ui-grid edit">
+      <button *ngIf="isLoggedIn" (click)="gridModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+    </div>
+    <div class="isv-block-name row">
+      <div class="col-12 pb-2">
+        <h4 class="h4-responsive grey-text text-uppercase"><strong>Grid Layout</strong></h4>
+      </div>
+    </div>
+    <div class="isv-block-body row d-flex flex-grow">
+      <!--
+      <div class="isv-block-lead col-12 pb-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna.</p>
+      </div>
+      -->
+      <div class="col-12">
+        <div class="isv-block-grid row d-lg-flex">
+          <ng-container *ngIf="grid?.gridItems?.length !== 0">
+            <div *ngFor="let item of grid?.gridItems" class="isv-block-grid__item col-12 col-lg-6 d-lg-flex flex-column align-content-lg-stretch">
+            <div class="row d-lg-flex flex-grow">
+              <div class="isv-block-grid__img col-12">
+                <img *ngIf="!item.files[0]" src="{{imageSourceUrl}}/default-post-img.png" class="img-fluid w-100" alt="">
+                <img *ngIf="item.files[0]" src="{{imageSourceUrl}}/{{item.files[0]}}" class="img-fluid" alt="Article Name">
+              </div>
+              <div class="isv-block-grid__text col-12 py-4">
+                <a href="#"><h5 class="h5-responsive"><strong>{{item.title}}</strong></h5></a>
+                <p>{{item.excerpt}}</p>
+              </div>
+            </div>
+          </div>
+          </ng-container>
+          <ng-container *ngIf="loading">
+            <div class="d-flex justify-content-center my-4 w-100">
+              <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+            </div>
+          </ng-container>
+          <div class="isv-article-list__list col-12" *ngIf="!loading && grids.length === 0">
+            <div class="isv-article-list__no-posts row p-3">
+              <div class="col-12 text-center p-4">
+                <h3 class="h3-responsive grey-text"><em>No Grid Items Yet.</em></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  (onShown)="onShowModal()"
+  (onHidden)="onHideModal()"
+  #gridModal="mdb-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="gridModal"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="card">
+      <div class="card-body">
+        <corelate-ui-grid-form [modal]="gridModal"></corelate-ui-grid-form>
+      </div>
+    </div>
+  </div>
+</div>

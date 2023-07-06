@@ -1,0 +1,137 @@
+<div class="isv-header container-fluid white-text">
+  <div class="container">
+    <div class="row py-2 d-flex">
+      <ng-container *ngIf="header">
+        <div *ngIf="header.showImage && header.showLabel" class="isv-brand col-12 col-md-6 col-lg-7 d-flex align-self-center px-3">
+          <!--Edit-->
+          <button *ngIf="isLoggedIn && atHome" (click)="modal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn edit-logo" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+
+            <!--Logo Image Text -->
+            <div class="isv-brand row d-flex align-self-center w-100 py-3">
+              <div *ngIf="header.showImage" class="isv-brand__img col-4 col-sm-4 col-xl-3 align-self-center text-center">
+                <img src="{{imageSourceUrl}}/{{header.file}}" class="isv-brand img-fluid" alt="Site Name">
+              </div>
+              <div *ngIf="header.showLabel" class="isv-brand__label col-8 col-sm-8 col-xl-9 d-flex align-self-center pl-0">
+                <div class="isv-brand__site-title align-self-center">
+                  <h4 class="h4-responsive mb-0"><strong>{{ header.label }}</strong></h4>
+                  <p class="mb-0"><small>{{ header.subLabel }}</small></p>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div *ngIf="header.showImage && !header.showLabel" class="isv-brand col-12 col-md-6 col-lg-4 d-flex align-self-center px-3">
+        <!--Edit-->
+        <button *ngIf="isLoggedIn && atHome" (click)="modal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn edit-logo" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+          <!--Logo Image-->
+          <div class="isv-brand row align-self-center">
+            <div class="isv-brand__img col-12">
+              <img src="{{imageSourceUrl}}/{{header.file}}" class="isv-brand img-fluid py-3" alt="Site Name">
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!header">
+        <div class="col-12 col-md-6 col-lg-7">
+          <div class="d-flex justify-content-center my-4 w-100">
+            <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+          </div>
+        </div>
+      </ng-container>
+      <div class="col"></div>
+      <div class="col-12 col-md-5 col-lg-4 d-inline-flex justify-content-center">
+        <!--Logged Out-->
+        <div class="isv-logout row align-self-center" *ngIf="!isLoggedIn">
+          <div class="col-12">
+            <button type="button" class="btn btn-lg btn-primary waves-light" routerLink="/login" mdbRippleRadius>Log In</button>
+            <button type="button" class="btn btn-lg btn-secondary waves-light" routerLink="/register" mdbRippleRadius>Register</button>
+          </div>
+        </div>
+        <!--Logged In TBD-->
+        <div class="isv-login row align-self-center card indigo darken-4 p-2" *ngIf="isLoggedIn">
+          <div class="col-12 card-text py-2">
+            <small><a routerLink="/dashboard" class="float-left white-text pink darken-2 rounded p-1 m-1" mdbRippleRadius><i class="fa fa-dashboard" aria-hidden="true"></i> Dashboard</a></small>
+            <small><a routerLink="/my-profile" class="float-left white-text teal darken-2 rounded p-1 m-1" mdbRippleRadius><i class="fa fa-cog" aria-hidden="true"></i> Account</a></small>
+            <small><a *ngIf="isLoggedIn" (click)="logout()" class="float-right white-text blue darken-3 rounded p-1 m-1" mdbRippleRadius><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a></small>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-12 text-center py-3">
+            <h4 class="h4-responsive white-text mb-0">Hello {{ principal?.username }}!</h4>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="isv-header__menu container-fluid indigo">
+  <mdb-navbar SideClass="navbar navbar-expand-lg px-0 container navbar-dark" [containerInside]="false">
+    <links>
+      <div class="px-0">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/" class="nav-link waves-light" mdbRippleRadius>Home</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/catalogs" class="nav-link waves-light" mdbRippleRadius>Catalogs</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/frequently-asked-questions" class="nav-link waves-light" mdbRippleRadius>FAQs</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/help" class="nav-link waves-light" mdbRippleRadius>Help</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/contents/browse" class="nav-link waves-light" mdbRippleRadius>News</a>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <a href="http://isv.corelate.net:9999/#/login" class="nav-link waves-light" mdbRippleRadius>BPMN Editor</a>
+          </li>
+          <li>
+            <div class="btn-group nav-item dropdown" dropdown>
+              <a dropdownToggle class="nav-link dropdown-toggle waves-light">
+                API Documentation <span class="caret"></span>
+              </a>
+              <div class="dropdown-menu dropdown-primary">
+                <a [routerLink]="['/api/docs', 'catalog']" class="dropdown-item waves-light" mdbRippleRadius>Catalog</a>
+                <a [routerLink]="['/api/docs', 'cms']" class="dropdown-item waves-light" mdbRippleRadius>CMS</a>
+                <a [routerLink]="['/api/docs', 'rules']" class="dropdown-item waves-light" mdbRippleRadius>Rules</a>
+                <a [routerLink]="['/api/docs', 'shopping-cart']" class="dropdown-item waves-light" mdbRippleRadius>Shopping Cart</a>
+                <a [routerLink]="['/api/docs', 'user']" class="dropdown-item waves-light" mdbRippleRadius href="#">User</a>
+              </div>
+            </div>
+          </li>
+          <!--SHOW IF LOGGED OUT -->
+          <li class="isv-mobile nav-item" *ngIf="!isLoggedIn">
+            <div class="row">
+              <div class="col-6 text-center">
+                <a routerLink="/login" class="nav-link waves-light text-uppercase" mdbRippleRadius><small>Log In</small></a>
+              </div>
+              <div class="col-6 text-center">
+                <a routerLink="/register" class="nav-link waves-light text-uppercase" mdbRippleRadius><small>Register</small></a>
+              </div>
+            </div>
+
+          </li>
+          <!--SHOW IF LOGGED IN-->
+          <li class="isv-mobile nav-item" routerLinkActive="active" *ngIf="isLoggedIn">
+            <a routerLink="/" class="nav-link waves-light" mdbRippleRadius>Dashboard</a>
+          </li>
+          <li class="isv-mobile nav-item" routerLinkActive="active" *ngIf="isLoggedIn">
+            <a routerLink="/my-profile" class="nav-link waves-light" mdbRippleRadius>Account Settings</a>
+          </li>
+          <li class="isv-mobile nav-item" routerLinkActive="active" *ngIf="isLoggedIn">
+            <a (click)="logout()" class="nav-link waves-light" mdbRippleRadius>Log Out</a>
+          </li>
+        </ul>
+        <!--
+        <ul class="navbar-nav">
+          <mdb-ng-select [options]="optionsSelect" placeholder="Select Language"></mdb-ng-select>
+          <label>Language</label>
+          <corelate-ui-translation-switcher></corelate-ui-translation-switcher>
+        </ul>
+        -->
+      </div>
+    </links>
+  </mdb-navbar>
+</div>
+
+

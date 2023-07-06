@@ -1,0 +1,22 @@
+.isv-admin-catalog-edit__title h3 {
+  font-weight: 300;
+}
+
+.isv-admin-catalog-edit__list {
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  table {
+    tr {
+      td {
+        min-width: 120px;
+        padding: 0;
+      }
+    }
+  }
+
+  .form-control[readonly] {
+    border-bottom: 0 !important;
+    font-weight: bold;
+  }
+}

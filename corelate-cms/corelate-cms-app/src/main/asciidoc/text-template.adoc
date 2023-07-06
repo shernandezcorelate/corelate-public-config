@@ -1,0 +1,105 @@
+[[resources-text-template-list]]
+=== Listing text-template
+
+A `GET` request will list all of the text-templates.
+
+==== Example request
+
+include::{snippets}/textTemplateResource/list/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/textTemplateResource/list/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/textTemplateResource/list/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/textTemplateResource/list/response-fields.adoc[]
+
+
+[[resources-text-template-create]]
+=== Creating a text-template
+
+A `POST` request is used to insert a text-template.
+
+==== Example request
+
+include::{snippets}/textTemplateResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/textTemplateResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/textTemplateResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/textTemplateResource/create/response-fields.adoc[]
+
+[[resources-text-template-get]]
+=== Get a text-template
+
+A `GET` request is used to get a text-template.
+
+==== Example request
+
+include::{snippets}/textTemplateResource/get/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/textTemplateResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/textTemplateResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/textTemplateResource/get/response-fields.adoc[]
+
+[[resources-text-template-update]]
+=== Update a text-template
+
+A `PUT` request is used to update a text-template.
+
+==== Example request
+
+include::{snippets}/textTemplateResource/update/curl-request.adoc[]
+
+==== Path Parameter
+
+include::{snippets}/textTemplateResource/update/path-parameters.adoc[]
+
+==== Request structure
+
+include::{snippets}/textTemplateResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/textTemplateResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/textTemplateResource/update/response-fields.adoc[]
+
+[[resources-text-template-delete]]
+=== Delete a text-template
+
+A `DELETE` request is used to delete a text-template.
+
+==== Example request
+
+include::{snippets}/textTemplateResource/delete/curl-request.adoc[]
+
+==== Path Parameter
+
+include::{snippets}/textTemplateResource/delete/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/textTemplateResource/delete/http-response.adoc[]

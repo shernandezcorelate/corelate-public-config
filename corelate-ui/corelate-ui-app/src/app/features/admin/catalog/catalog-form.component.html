@@ -1,0 +1,49 @@
+<div class="isv-admin-catalog-edit">
+  <div class="row pt-1">
+    <div class="isv-admin-catalog-edit__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Edit Catalog {{ catalogName }} Entry
+      </h3>
+      <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+  <form *ngIf="catalogForm" [formGroup]="catalogForm" novalidate (ngSubmit)="onSave(catalogForm.value, catalogForm.valid)" class="p-2">
+    <div class="row no-gutters">
+      <div formArrayName="entries" class="isv-admin-catalog-edit__list col-12">
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <ng-container *ngFor="let entry of entries.controls; let i = index;" [formGroupName]="i">
+                <td>
+                  <div class="d-block mb-0 grey darken-3 px-3">
+                      <input formControlName="fieldName" type="text" id="fieldName" class="form-control white-text my-0" name="fieldName" readonly>
+                  </div>
+                  <div class="d-block mb-0 grey lighten-3 px-3 pb-2">
+                    <input formControlName="value" type="text" id="value" class="form-control" name="value">
+                  </div>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="isv-admin-catalog-edit__actions row mt-4 d-flex">
+      <div class="col-6 align-self-center">
+        <button (click)="modal.hide()" class="btn btn-outline-blue-grey" type="button">{{ 'GENERIC_FORM.BTN.CANCEL' | translate }}</button><!--routerLink="/admin/catalog" -->
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button class="btn light-green darken-2 waves-effect waves-light" type="submit" [disabled]="catalogForm.invalid">
+          <span *ngIf="!id">Add</span>
+          <span *ngIf="id">Save</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div [ngBusy]="catalogFormSaveSubs"></div>
+<div [ngBusy]="catalogFormGetSubs"></div>

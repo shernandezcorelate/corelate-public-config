@@ -1,0 +1,164 @@
+[[resources-faq-create]]
+=== Creating a faq
+
+A `POST` request is used to insert a faq.
+
+==== Example request
+
+include::{snippets}/faqResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/faqResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/faqResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/faqResource/create/response-fields.adoc[]
+
+[[resources-faq-getList]]
+=== Get faq list
+
+A `GET` request is used to retrieve faq list.
+
+==== Example request
+
+include::{snippets}/faqResource/getList/curl-request.adoc[]
+
+==== Request Parameters
+
+include::{snippets}/faqResource/getList/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/faqResource/getList/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/faqResource/getList/response-fields.adoc[]
+
+[[resources-faq-getList-published]]
+=== Get published faq list
+
+A `GET` request is used to retrieve published faq.
+
+==== Example request
+
+include::{snippets}/faqResource/getPublishedFaq/curl-request.adoc[]
+
+==== Request Parameters
+
+include::{snippets}/faqResource/getPublishedFaq/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/faqResource/getPublishedFaq/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/faqResource/getPublishedFaq/response-fields.adoc[]
+
+[[resources-faq-get]]
+=== Get faq by id
+
+A `GET` request is used to retrieve a single faq by id.
+
+==== Example request
+
+include::{snippets}/faqResource/get/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/faqResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/faqResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/faqResource/get/response-fields.adoc[]
+
+[[resources-faq-update]]
+=== Updating a faq
+
+A `PUT` request is used to update a faq.
+
+==== Example request
+
+include::{snippets}/faqResource/update/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/faqResource/update/path-parameters.adoc[]
+
+==== Request structure
+
+include::{snippets}/faqResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/faqResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/faqResource/update/response-fields.adoc[]
+
+
+[[resources-faq-delete]]
+=== Deleting a faq
+
+A `DELETE` request is used to delete a faq.
+
+==== Example request
+
+include::{snippets}/faqResource/delete/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/faqResource/delete/path-parameters.adoc[]
+
+[[resources-faq-publish]]
+=== Publish a faq
+
+A `PUT` request is used to publish a faq.
+
+==== Example request
+
+include::{snippets}/faqResource/publish/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/faqResource/publish/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/faqResource/publish/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/faqResource/publish/response-fields.adoc[]
+
+[[resources-faq-unpublish]]
+=== Unpublish a faq.
+
+A `PUT` request is used to unpublish a faq.
+
+==== Example request
+
+include::{snippets}/faqResource/unpublish/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/faqResource/unpublish/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/faqResource/unpublish/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/faqResource/unpublish/response-fields.adoc[]

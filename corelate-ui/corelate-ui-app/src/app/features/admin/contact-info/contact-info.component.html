@@ -1,0 +1,83 @@
+<div class="isv-admin-contact-info">
+  <div class="row pt-1">
+    <div class="isv-admin-contact-info__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Contact Info Management
+      </h3>
+      <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+  <form *ngIf="contactInfoForm" [formGroup]="contactInfoForm" novalidate (ngSubmit)="onSave(contactInfoForm.value, contactInfoForm.valid)" class="p-2">
+    <div class="isv-admin-contact-info__input row px-4">
+      <div class="col-12 col-sm-8">
+        <div class="row">
+          <div class="col-12">
+            <div class="md-form">
+              <input mdbActive type="text" id="address" formControlName="address" class="form-control" mdbInputValidate>
+              <label for="address">Address <span class="text-danger">*</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <div class="md-form">
+              <input mdbActive type="text" id="latitude" formControlName="latitude" class="form-control" mdbInputValidate>
+              <label for="latitude">Google Maps Latitude <span class="text-danger">*</span></label>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="md-form">
+              <input mdbActive type="text" id="longitude" formControlName="longitude" class="form-control" mdbInputValidate>
+              <label for="longitude">Google Maps Longitude <span class="text-danger">*</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 text-right pt-3">
+        <button (click)="addContactDetails()" class="btn btn-md blue darken-1 waves-effect waves-light" type="button"><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add New Contact Info</button>
+      </div>
+    </div>
+
+    <div formArrayName="contactDetails" class="isv-admin-contact-info__input row p-4">
+      <div *ngFor="let detail of contactDetails.controls; let i = index" [formGroupName]="i" class="col-12">
+        <div class="row">
+          <div class="col-11">
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="md-form">
+                  <input mdbActive type="text" class="form-control" id="contactType" formControlName="contactType" mdbInputValidate/>
+                  <label for="contactDetails">Contact Type <span class="text-danger">*</span></label>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="md-form">
+                  <input mdbActive type="text" class="form-control" id="contactDetails" formControlName="contactDetails" mdbInputValidate/>
+                  <label for="contactDetails">Contact Details <span class="text-danger">*</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-1 text-center pt-3">
+            <button (click)="deleteDetails(i)" class="btn btn-md isv-btn-contact-info-list btn-red waves-light" type="button" mdbTooltip="Delete" placement="top">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="isv-admin-contact-info__actions row d-flex">
+      <div class="col-6 align-self-center">
+        <button *ngIf="modal" (click)="cancel()" class="btn btn-outline-blue-grey" type="button">Cancel</button>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button type="submit" [disabled]="contactInfoForm.invalid" class="btn light-green darken-2 waves-effect waves-light">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div [ngBusy]="contactInfoGetSubs"></div>
+<div [ngBusy]="contactInfoSaveSubs"></div>

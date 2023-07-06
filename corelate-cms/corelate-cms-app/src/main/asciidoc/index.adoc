@@ -1,0 +1,147 @@
+
+= RESTful API Guide
+CMS Microservice Module Restful API;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+This RESTful API tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update an existing resource, including partial updates
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+
+This RESTful API tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's
+`Location` header
+
+| `204 No Content`
+| An update to an existing resource has been applied successfully
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+|===
+
+[[resources]]
+= Resources
+
+[[resources-header]]
+== Header
+
+include::header.adoc[]
+
+[[resources-site-head]]
+== Site Head
+
+include::site-head.adoc[]
+
+[[resources-faq]]
+== FAQ
+
+include::faq.adoc[]
+
+[[resources-carousel]]
+== Carousel
+
+include::carousel.adoc[]
+
+[[resources-carousel-slide]]
+== Carousel Slide
+
+include::carousel-slide.adoc[]
+
+[[resources-general-content]]
+== General Content
+
+include::general-content.adoc[]
+
+[[resources-help-topic]]
+== Help Topic
+
+include::help-topic.adoc[]
+
+[[resources-contact-info]]
+== Contact Information
+
+include::contact-info.adoc[]
+
+[[resources-contact-form]]
+== Contact Form
+
+include::contact-form.adoc[]
+
+[[resources-simple-layout]]
+== Simple Layout
+
+include::simple-layout.adoc[]
+
+[[resources-grid-layout]]
+== Grid Layout
+
+include::grid-layout.adoc[]
+
+[[resources-grid-item]]
+== Grid Item
+
+include::grid-item.adoc[]
+
+[[resources-project-site]]
+== Project Site
+
+include::project-site.adoc[]
+
+[[resources-footer]]
+== Footer
+
+include::footer.adoc[]
+
+[[resources-color-config]]
+== Color Configuration
+
+include::color-config.adoc[]
+
+== Text Template
+
+include::text-template.adoc[]
+
+[[resources-blocks-layout]]
+== Blocks
+
+include::blocks.adoc[]

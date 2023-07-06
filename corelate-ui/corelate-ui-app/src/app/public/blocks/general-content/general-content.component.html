@@ -1,0 +1,119 @@
+<div class="corelate-ui-general-content edit">
+  <ng-container *ngIf="layout === BlockTemplate.ONE_COLUMN">
+    <div class="container p-4">
+      <div class="row px-4">
+        <div class="col">
+        </div>
+        <div class="col-12 col-md-10">
+          <ng-container *isAuthorized="['CMS_ADMIN','GENERAL_CONTENTS_EDIT']">
+            <button *ngIf="isLoggedIn" (click)="generalContentModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+          </ng-container>
+          <div class="isv-block-name row">
+            <div class="col-12 text-center pb-2">
+              <h4 class="h4-responsive grey-text text-uppercase"><strong>Latest {{content}}</strong></h4>
+            </div>
+          </div>
+          <ng-container *ngIf="generalContents.length !== 0">
+            <div *ngFor="let content of generalContents" class="isv-block-article row py-4 d-flex">
+              <div class="isv-block-article__img col-12 col-md-4 mb-4 align-self-center text-center">
+                <img *ngIf="content.file" src="{{imageSourceUrl}}/{{content.file}}" class="article-img img-fluid">
+                <img *ngIf="!content.file" src="https://isv.corelate.net/assets/images/default-post-img.png" class="article-img img-fluid">
+              </div>
+              <div class="isv-block-article__text col-12 col-md-8 py-2 align-self-center">
+                <a [routerLink]="['/contents/view', content.id]"><h2 class="h1-responsive title"><strong>{{content.title}}</strong></h2></a>
+                <h6 class="h6-responsive grey-text">{{ content.createdDate | date: 'short'  }}</h6>
+                <p class="excerpt"><span>{{content.excerpt}}</span></p>
+                <p><a [routerLink]="['/contents/view', content.id]" class="text-uppercase">Read More</a></p>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container>
+            <div class="d-flex justify-content-center my-4 w-100" *ngIf="loading">
+              <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+            </div>
+            <div class="isv-article-list__list col-12" *ngIf="!loading && generalContents.length === 0">
+              <div class="isv-article-list__no-posts row p-3">
+                <div class="col-12 text-center p-4">
+                  <h3 class="h3-responsive grey-text"><em>No Posts Yet.</em></h3>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <div class="isv-block-more row py-4">
+            <div class="col-12 text-center">
+              <a routerLink="/contents/browse" [queryParams]="{category: content}" type="button" class="btn btn-lg btn-outline-primary waves-light" mdbRippleRadius>View More {{content}} Articles</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+  <ng-container *ngIf="layout === BlockTemplate.TWO_COLUMNS">
+    <div class="corelate-ui-general-content edit">
+      <button *ngIf="isLoggedIn" (click)="generalContentModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+    </div>
+    <div class="isv-block-name row no-gutters pb-2">
+      <div class="col-12">
+        <h4 class="h4-responsive grey-text text-uppercase"><strong>Latest {{content}}</strong></h4>
+      </div>
+    </div>
+    <div class="isv-block-body row d-flex flex-grow">
+      <ng-container *ngIf="generalContents.length !== 0">
+        <div *ngFor="let content of generalContents" class="isv-block-article-item col-12">
+          <div class="row no-gutters pb-3 d-flex">
+            <div class="isv-block-article__img col-12 col-md-5 mb-4 text-center align-self-center">
+              <img *ngIf="content.file" src="{{imageSourceUrl}}/{{content.file}}" class="img-fluid article-img pr-3">
+              <img *ngIf="!content.file" src="https://isv.corelate.net/assets/images/default-post-img.png" class="img-fluid article-img pr-3">
+            </div>
+            <div class="isv-block-article-item__text col-12 col-md-7 align-self-center">
+              <a [routerLink]="['/contents/view', content.id]"><h3 class="h3-responsive title"><strong>{{content.title}}</strong></h3></a>
+              <p class="grey-text"><small>{{content.createdDate | date: 'short'}}</small></p>
+              <p class="excerpt"><span>{{content.excerpt}}</span></p>
+              <p><a [routerLink]="['/contents/view', content.id]" class="text-uppercase">Read More</a></p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="loading">
+        <div class="d-flex justify-content-center my-4 w-100">
+          <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+        </div>
+      </ng-container>
+      <div class="isv-article-list__list col-12" *ngIf="!loading && generalContents.length === 0">
+        <div class="isv-article-list__no-posts row p-3">
+          <div class="col-12 text-center p-4">
+            <h3 class="h3-responsive grey-text"><em>No Posts Yet.</em></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="isv-block-more row py-4">
+      <div class="col-12 text-center">
+        <a routerLink="/contents/browse" [queryParams]="{category: content}" type="button" class="btn btn-md btn-outline-primary waves-light" mdbRippleRadius>View More {{content}} Articles</a>
+      </div>
+    </div>
+  </ng-container>
+
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  (onShown)="onShowModal()"
+  (onHidden)="onHideModal()"
+  #generalContentModal="mdb-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="generalContentModal"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="card">
+      <div class="card-body">
+        <corelate-ui-general-content-list [modal]="generalContentModal"></corelate-ui-general-content-list>
+      </div>
+    </div>
+  </div>
+</div>

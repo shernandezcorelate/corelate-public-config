@@ -1,0 +1,116 @@
+{
+    "APPS": {
+        "NONE": "No apps found."
+    },
+    "TASK_LIST": {
+        "MESSAGES": {
+            "NONE": "No tasks list found."
+        }
+    },
+    "TASK_DETAILS": {
+        "LABELS": {
+            "ASSIGNEE": "Assignee",
+            "DUE": "Due",
+            "FORM": "Form",
+            "PEOPLE": "People this task is shared with",
+            "COMMENTS": "Comments",
+            "CHECKLIST": "Checklist",
+            "INVOLVED_PEOPLE": "Involved people",
+            "ADD_PEOPLE": "Add people & groups",
+            "ADD_ASSIGNEE": "Add new assignee"
+        },
+        "BUTTON": {
+            "COMPLETE": "Complete",
+            "CLAIM": "Claim",
+            "DRAG-ATTACHMENT": "Drop Files Here...",
+            "UPLOAD-ATTACHMENT": "Upload Attachment"
+        },
+        "MESSAGES": {
+            "NONE": "No task details found.",
+            "CLAIM": "To work on this task, you need to claim it first. You can do that by pressing the Claim button above."
+        },
+        "FORM": {
+            "NONE": "No form."
+        },
+        "DUE": {
+            "NONE": "No due date."
+        },
+        "ASSIGNEE": {
+            "NONE": "No assignee."
+        },
+        "PEOPLE": {
+            "NONE": "No people involved."
+        },
+        "COMMENTS": {
+            "NONE": "No comments.",
+            "ADD": "Add a comment",
+            "HEADER": "Comments",
+            "DIALOG": {
+                "TITLE": "New comment",
+                "LABELS": {
+                    "MESSAGE": "Message"
+                },
+                "BUTTON": {
+                    "ADD": "Add Comment",
+                    "CANCEL": "Cancel"
+                }
+            }
+        },
+        "CHECKLIST": {
+            "NONE": "No checklist."
+        },
+        "ERROR": {
+            "TITLE": "Something went wrong",
+            "DESCRIPTION": "Could not complete the specified action. Please try again or check that you have permission.",
+            "CLOSE": "Close"
+        }
+    },
+    "TASK_FILTERS": {
+        "MESSAGES": {
+            "NONE": "No task filter selected."
+        }
+    },
+    "START_TASK": {
+        "BUTTON": "CREATE TASK",
+        "FORM": {
+            "TITLE": "Start Task",
+            "LABEL": {
+                "NONE": "None",
+                "NAME": "Name",
+                "DESCRIPTION": "Description",
+                "ATTACHFORM": "Attach a Form",
+                "ASSIGNEE": "Assignee",
+                "FORM": "Form",
+                "DATE": "Choose a Date"
+            },
+            "ACTION": {
+                "START": "Start",
+                "CANCEL": "Cancel"
+            },
+            "DATE": {
+                "ERROR": "Date format DD/MM/YYYY"
+            }
+        }
+    },
+    "PEOPLE": {
+        "DIALOG_CLOSE": "CLOSE",
+        "ADD_USER": "ADD",
+        "ADD_ASSIGNEE": "ASSIGN",
+        "SEARCH_USER": "Search user",
+        "SEARCH": {
+            "NO_USERS": "No user found to involve"
+        }
+    },
+    "TASK-ATTACHMENT": {
+        "EMPTY": {
+            "HEADER": "This list is empty",
+            "DRAG-AND-DROP": {
+                "TITLE": "Drag and drop",
+                "SUBTITLE": "any files here to add"
+            }
+        },
+        "EMPTY-LIST": {
+            "HEADER": "No documents are available"
+        }
+    }
+}

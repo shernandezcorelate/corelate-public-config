@@ -1,0 +1,60 @@
+<div class="corelate-ui-carousel">
+  <ng-container *ngIf="isLoggedIn">
+    <button *isAuthorized="['CMS_ADMIN','CAROUSEL_EDIT']" (click)="carouselManagementModal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn edit-carousel" mdbRippleRadius>
+      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+    </button>
+  </ng-container>
+  <ng-container *ngIf="carousel && carouselSlides">
+    <mdb-carousel [animation]="'slide'" [interval]="carousel.interval">
+        <mdb-slide *ngFor="let slide of carouselSlides">
+           <a [attr.href]="slide.linkTrigger === 'IMAGE' ? slide.link : null" class="w-100">
+            <div class="view hm-black-light">
+              <img src="{{imageSourceUrl}}/{{slide.file}}" class="d-block w-100 img-carousel">
+              <div class="mask"></div>
+              <div *ngIf="slide.linkTrigger === 'IMAGE'" class="waves-light link" mdbRippleRadius></div>
+            </div>
+           </a>
+          <div class="carousel-caption">
+              <h1 class="h1-responsive">{{ slide.header }}</h1>
+              <h5 class="h5-responsive my-4">{{ slide.subHeader }}</h5>
+              <a *ngIf="slide.linkTrigger === 'BUTTON'" [attr.href]="slide.link" class="btn btn-lg btn-primary waves-effect waves-light mb-4" href="#" role="button" mdbRippleRadius>
+                {{ slide.buttonLabel }}
+              </a>
+          </div>
+        </mdb-slide>
+    </mdb-carousel>
+  </ng-container>
+  <ng-container *ngIf="loading">
+    <div class="d-flex justify-content-center my-5">
+      <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+    </div>
+  </ng-container>
+  <div class="isv-article-list__list col-12" *ngIf="!loading && carouselSlides.length == 0">
+    <div class="isv-article-list__no-posts row p-3">
+      <div class="col-12 text-center p-4">
+        <h3 class="h3-responsive grey-text"><em>No Published Slides Yet.</em></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  mdbModal
+  [config]="{backdrop: true, ignoreBackdropClick: true}"
+  (onShown)="onShowModal()"
+  (onHidden)="onHideModal()"
+  #carouselManagementModal="mdb-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="card">
+      <div class="card-body">
+        <corelate-ui-admin-carousel [modal]="carouselManagementModal"></corelate-ui-admin-carousel>
+      </div>
+    </div>
+  </div>
+</div>

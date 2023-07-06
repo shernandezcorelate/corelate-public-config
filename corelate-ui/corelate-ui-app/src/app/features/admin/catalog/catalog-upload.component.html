@@ -1,0 +1,84 @@
+<div class="isv-admin-catalog-upload">
+  <div class="row pt-1">
+    <div class="isv-admin-catalog-upload__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        {{ 'CATALOG.UPLOAD' | translate }}
+      </h3>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+  <form (ngSubmit)="upload(catalogUpload)" #catalogUpload="ngForm" class="p-4">
+    <div class="isv-admin-catalog-upload__input row px-4">
+
+      <div class="col-12 col-md-6 col-lg-7 order-2 order-md-1">
+        <div class="md-form">
+          <input [(ngModel)]="catalog.label" #label="ngModel" type="text" id="label" class="form-control" name="label" required mdbActive>
+          <label for="label">Catalog Name<!--{{ 'CATALOG.FORM.LABEL' | translate }}--></label>
+          <div *ngIf="!label.valid && (!label.pristine || catalogUpload.submitted)" class="mt-5">
+            {{ 'GENERIC_FORM.VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+        <div class="md-form">
+          <input [(ngModel)]="catalog.key" #key="ngModel" type="text" id="key" class="form-control" name="key" required mdbActive>
+          <label for="key">Catalog {{ 'CATALOG.FORM.KEY' | translate }}</label>
+          <div *ngIf="!key.valid && (!key.pristine || catalogUpload.submitted)" class="mt-5">
+            {{ 'GENERIC_FORM.VALIDATION.REQUIRED' | translate }}
+          </div>
+        </div>
+        <div class="md-form pb-4">
+          <label>Catalog File <span class="text-danger">*</span></label>
+        </div>
+        <input (change)="fileChange($event)" id="headerImage" type="file" [ngStyle]="{'visibility':'hidden', 'width':0}" accept=".csv,.json"/>
+        <button type="button" class="btn btn-indigo waves-effect waves-light ml-0" (click)="document.getElementById('headerImage').click()">
+          Browse
+        </button>
+        <ng-container *ngIf="file">{{ file.name }}</ng-container>
+        <p class="grey-text pl-2"><small>File should be in <code>csv</code> or <code>json</code> format.</small></p>
+      </div>
+      <div class="col-12 col-md-6 col-lg-5 order-1 order-md-2">
+        <blockquote class="isv-desktop blockquote bq-warning">
+          <p class="bq-title mb-0">Attention</p>
+          <p>If you are uploading to edit/override a catalog, please don't forget to first delete the existing catalog.</p>
+        </blockquote>
+
+        <blockquote class="isv-mobile blockquote bq-warning">
+          <p class="amber-text mb-0">Attention</p>
+          <p><small>If you are uploading to edit/override a catalog, please don't forget to first delete the existing catalog.</small></p>
+        </blockquote>
+      </div>
+    </div>
+    <div class="isv-admin-catalog-upload__result row px-4">
+      <!--<div class="col-12 py-4">-->
+        <!--<label for="label">{{ 'CATALOG.FORM.FILE' | translate }}</label>-->
+        <!--<input (change)="fileChange($event)" type="file"  placeholder="Upload file" accept=".csv,.json">-->
+        <!--<div *ngIf="!file && catalogUpload.submitted" class="mt-5">-->
+          <!--{{ 'GENERIC_FORM.VALIDATION.REQUIRED' | translate }}-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--Please Apply https://mdbootstrap.com/angular/components/inputs/#file-input-->
+      <div class="col-12 py-4">
+        <!--<div class="file-field">-->
+          <!--<div class="btn btn-primary btn-sm waves-light" mdbRippleRadius>-->
+            <!--<span>Upload File</span>-->
+            <!--<input type="file" mdbFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput">-->
+          <!--</div>-->
+          <!--<div class="file-path-wrapper">-->
+            <!--<input class="file-path" type="text" placeholder="Upload your file" [value]="showFiles()">-->
+          <!--</div>-->
+        <!--</div>-->
+        <!-- WORKING -->
+
+      </div>
+    </div>
+    <div class="isv-admin-catalog-upload__actions row mt-3 d-flex">
+      <div class="col-6 align-self-center">
+        <button routerLink="../" class="btn btn-outline-blue-grey" type="button">Cancel</button>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button type="submit" class="btn light-green darken-2 waves-effect waves-light">Upload</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div [ngBusy]="catalogUploadSubs"></div>

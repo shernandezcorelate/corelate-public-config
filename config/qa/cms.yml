@@ -1,0 +1,6 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: '{cipher}AQATOnIrCagRmSGfeohEsf7Mf1AFa0fsAE2bYWnmKVDBt7GJKZG9Crq9fUmpfiysns6d+ZEP0H8cztw0KOvpsVtGjY6EgGxB+9iKGlNA8iQsq1zvT9vYtPPPS9ArrPMPZx1XUjNaz2BbhJ1qL7SaVHsgHvYL3vJLWwbkwAfgPoXct6AGDRfX3AZCh+QnwJ/aDBtM0ck4nOJDFsQ6MzM4dPUVIPIY1COj9IwtlKlxGn/HmxCT71K+IqanEmNleb0iWhwszm34h79i8m7Qix+V6fB49YK0RJ8EHOygYsqGLj7VXjGydYLYC4fwnnfKvAJ8J0A9HunfcMzBjqCeZab2XJEbK+ru3CAPHguQeQc+YbZn0Nft4peREXiRvA+tbM0HQgeZ93eh6K2bylSRUR3wJi8g15iHRWtmMOtDc5r9aQImzw=='

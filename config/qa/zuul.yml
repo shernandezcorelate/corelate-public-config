@@ -1,0 +1,29 @@
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    notification:
+      path: /api/notification/**
+    user:
+      path: /api/user/**
+    cms:
+      path: /api/cms/**
+    catalog:
+      path: /api/catalog/**
+    workflow:
+      path: /api/workflow/**
+    rules:
+      path: /api/rules/**
+    shoppingcart:
+      path: /api/shopping-cart/**
+
+ribbon:
+  eureka:
+    enabled: true
+
+server:
+  port: 8002
+
+proxy:
+  auth:
+    routes:
+      user: oauth2

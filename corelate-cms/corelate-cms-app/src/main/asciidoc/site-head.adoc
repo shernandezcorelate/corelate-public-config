@@ -1,0 +1,76 @@
+[[resources-site-head-get]]
+=== Get site head details
+
+A `GET` request is used to retrieve the site head details.
+
+==== Example request
+
+include::{snippets}/siteHeadResource/get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/siteHeadResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/siteHeadResource/get/response-fields.adoc[]
+
+[[resources-site-head-update]]
+=== Updating the site head details
+
+A `PUT` request is used to update the site head details.
+
+==== Example request
+
+include::{snippets}/siteHeadResource/update/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/siteHeadResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/siteHeadResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/siteHeadResource/update/response-fields.adoc[]
+
+
+[[resources-site-head-upload-image]]
+=== Uploading the site favicon
+
+A `POST` request is used to upload site favicon.
+
+==== Example request
+
+include::{snippets}/siteHeadResource/uploadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/siteHeadResource/uploadImage/path-parameters.adoc[]
+
+==== Request parts
+
+include::{snippets}/siteHeadResource/uploadImage/request-parts.adoc[]
+
+==== Example response
+
+include::{snippets}/siteHeadResource/uploadImage/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/siteHeadResource/uploadImage/response-fields.adoc[]
+
+[[resources-site-head-download-image]]
+=== Download the site favicon
+
+A `GET` request is used to download site favicon.
+
+==== Example request
+
+include::{snippets}/siteHeadResource/downloadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/siteHeadResource/downloadImage/path-parameters.adoc[]

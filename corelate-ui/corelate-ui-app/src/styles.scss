@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700|Vollkorn:400,700');
+
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+@import 'styles/ng2-dragula/dragula.min.css';
+// @import 'styles/ng2-select/ng2-select.css';
+
+// @import 'styles/custom/_paddings.scss';
+// @import 'styles/custom/_margins.scss';
+
+/*@import 'styles/variables';
+
+@import 'styles/padding';
+@import 'styles/margin';
+@import 'styles/animation';
+@import 'styles/alignment';
+@import 'styles/form';*/
+
+@import 'styles/bootstrap/bootstrap.scss';
+
+@import 'styles/workaround.scss';
+
+
+
+@import '../../alfresco-ng2-components/ng2-components/ng2-alfresco-core/styles/theming';
+@import '../../alfresco-ng2-components/ng2-components/ng2-alfresco-core/styles/index';
+@import '../../alfresco-ng2-components/ng2-components/ng2-activiti-analytics/styles/index';
+@import '../../alfresco-ng2-components/ng2-components/ng2-activiti-diagrams/styles/index';
+@import '../../alfresco-ng2-components/ng2-components/ng2-activiti-form/styles/index';
+@import '../../alfresco-ng2-components/ng2-components/ng2-activiti-processlist/styles/index';
+@import '../../alfresco-ng2-components/ng2-components/ng2-activiti-tasklist/styles/index';
+@import '../../alfresco-ng2-components/ng2-components/ng2-alfresco-datatable/styles/index';
+@import '../../alfresco-ng2-components/ng2-components/ng2-alfresco-documentlist/styles/index';
+@import '../../alfresco-ng2-components/ng2-components/ng2-alfresco-login/styles/index';
+@import '../../alfresco-ng2-components/ng2-components/ng2-alfresco-upload/styles/index';
+@import '../../alfresco-ng2-components/ng2-components/ng2-alfresco-userinfo/styles/index';
+
+
+@include mat-core();
+
+$primary: mat-palette($alfresco-accent-orange);
+$accent:  mat-palette($alfresco-accent-purple);
+$warn:    mat-palette($alfresco-warn);
+$theme:   mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+@include alfresco-core-theme($theme);
+@include alfresco-activity-analytics-theme($theme);
+@include alfresco-activity-diagrams-theme($theme);
+@include alfresco-activity-form-theme($theme);
+@include alfresco-activity-processlist-theme($theme);
+@include alfresco-activity-tasklist-theme($theme);
+@include alfresco-datatable-theme($theme);
+@include alfresco-documentlist-theme($theme);
+@include alfresco-login-theme($theme);
+@include alfresco-upload-theme($theme);
+@include alfresco-userinfo-theme($theme);

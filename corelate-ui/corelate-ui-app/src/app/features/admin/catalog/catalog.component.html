@@ -1,0 +1,16 @@
+<div class="isv-admin-catalog">
+  <div class="row pt-1">
+    <div class="isv-admin-catalog__title col-12 col-lg-5">
+      <h3 class="h3-responsive">{{ 'CATALOG.CATALOG' | translate }} Management</h3>
+    </div>
+
+    <div class="isv-admin-catalog__new col-12 col-lg-7 text-center text-md-right">
+      <!--<button routerLink="../add" class="btn btn-md green darken-1 waves-effect waves-light" type="button"><i class="fa fa-plus pr-1" aria-hidden="true"></i> Create new Entry</button>-->
+      <button *isAuthorized="['CATALOG_ADD']" routerLink="../batch-save" class="btn btn-md blue darken-1 waves-effect waves-light" type="button"><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add A New Catalog</button>
+      <button *isAuthorized="['CATALOG_ADD']" routerLink="../upload" class="btn btn-md indigo darken-1 waves-effect waves-light" type="button"><i class="fa fa-upload pr-1" aria-hidden="true"></i> {{ 'GENERIC_FORM.BTN.UPLOAD' | translate }} A Catalog</button>
+    </div>
+  </div>
+
+  <hr class="mb-4 mt-3"/>
+  <corelate-ui-catalog-list [isAdmin]="true"></corelate-ui-catalog-list>
+</div>

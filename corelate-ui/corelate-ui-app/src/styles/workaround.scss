@@ -1,0 +1,6 @@
+// fix for color picker position when shown on a modal
+.modal-dialog .color-picker {
+  position: absolute!important;
+  top:0px !important;
+  left: 330px !important;
+}

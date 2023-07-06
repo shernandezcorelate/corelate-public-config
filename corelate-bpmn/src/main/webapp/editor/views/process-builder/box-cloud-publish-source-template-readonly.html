@@ -1,0 +1,44 @@
+<div class="detail-group clearfix first">
+    <div class="col-xs-12">
+        <div class="btn-group span">
+            {{step.meta.boxSourceOption.title}}
+        </div>
+    </div>
+</div>
+<div class="detail-group clearfix" ng-show="step.meta.boxSourceOption.id == 'field'">
+    <div class="form-group clearfix">
+        <div class="col-xs-3">
+            <label>{{'PROCESS-BUILDER.PUBLISH-STEP.SOURCE.FORM-FIELD' | translate}}:</label>
+        </div>
+        <div class="col-xs-9" ng-if="step.contentContainerField && step.contentContainerField.id">
+            <label>{{step.contentContainerField.name}}</label>
+        </div>
+    </div>
+</div>
+
+<div class="detail-group clearfix" ng-show="step.meta.boxSourceOption && isMetaDataAllowed">
+
+    <div ng-controller="PublishStepMetadataMappingController">
+
+        <div class="form-group clearfix">
+            <div class="col-xs-12">
+                <label>{{'PROCESS-BUILDER.PUBLISH-STEP.METADATA-MAPPING.POPUP.TITLE' | translate}}</label>
+            </div>
+            <div class="col-xs-12">
+                <div class="step-editor-inline-grid" ui-grid="metaDataGridOptions" ui-grid-selection></div>
+                <div class="pull-right">
+                    <div class="btn-group">
+                        <a class="btn btn-icon btn-lg" rel="tooltip"
+                           data-title="{{ACTION.VIEW | translate}}"
+                           ng-disabled="!metaDataSelectedColumnDefinition" data-placement="bottom"
+                           data-original-title=""
+                           title="" id="edit-request-mapping-button" ng-click="showPropertyMapping()"><i
+                                class="glyphicon glyphicon-eye-open"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

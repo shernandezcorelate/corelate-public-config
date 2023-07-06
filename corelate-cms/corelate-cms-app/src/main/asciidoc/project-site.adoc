@@ -1,0 +1,206 @@
+[[resources-project-site-create]]
+=== Creating a project site
+
+A `POST` request is used to insert a project site.
+
+==== Example request
+
+include::{snippets}/projectSiteResource/create/curl-request.adoc[]
+
+==== Request structure
+
+include::{snippets}/projectSiteResource/create/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/projectSiteResource/create/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/projectSiteResource/create/response-fields.adoc[]
+
+[[resources-project-site-get]]
+=== Get a project site
+
+A `GET` request is used to get a project site.
+
+==== Example request
+
+include::{snippets}/projectSiteResource/get/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/projectSiteResource/get/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/projectSiteResource/get/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/projectSiteResource/get/response-fields.adoc[]
+
+[[resources-project-site-list]]
+=== Get project site list
+
+A `GET` request will list all of the project sites.
+
+==== Example request
+
+include::{snippets}/projectSiteResource/getList/curl-request.adoc[]
+
+==== Request parameters
+
+include::{snippets}/projectSiteResource/getList/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/projectSiteResource/getList/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/projectSiteResource/getList/response-fields.adoc[]
+
+[[resources-project-site-getList-published]]
+=== Get published project site list
+
+A `GET` request is used to retrieve published project site list.
+
+==== Example request
+
+include::{snippets}/projectSiteResource/getPublishedProjectSite/curl-request.adoc[]
+
+==== Request Parameters
+
+include::{snippets}/projectSiteResource/getPublishedProjectSite/request-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/projectSiteResource/getPublishedProjectSite/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/projectSiteResource/getPublishedProjectSite/response-fields.adoc[]
+
+[[resources-project-site-update]]
+=== Update a project site
+
+A `PUT` request is used to update a project site.
+
+==== Example request
+
+include::{snippets}/projectSiteResource/update/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/projectSiteResource/update/path-parameters.adoc[]
+
+
+==== Request structure
+
+include::{snippets}/projectSiteResource/update/request-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/projectSiteResource/update/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/projectSiteResource/update/response-fields.adoc[]
+
+[[resources-project-site-delete]]
+=== Delete a project site
+
+A `DELETE` request is used to delete a project site.
+
+==== Example request
+
+include::{snippets}/projectSiteResource/delete/curl-request.adoc[]
+
+==== Path Parameter
+
+include::{snippets}/projectSiteResource/delete/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/projectSiteResource/delete/http-response.adoc[]
+
+[[resources-project-site-upload-image]]
+=== Uploading a project site image
+
+A `POST` request is used to upload a project site image.
+
+==== Example request
+
+include::{snippets}/projectSiteResource/uploadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/projectSiteResource/uploadImage/path-parameters.adoc[]
+
+==== Request parts
+
+include::{snippets}/projectSiteResource/uploadImage/request-parts.adoc[]
+
+==== Example response
+
+include::{snippets}/projectSiteResource/uploadImage/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/projectSiteResource/uploadImage/response-fields.adoc[]
+
+[[resources-project-site-download-image]]
+=== Download a project site image
+
+A `GET` request is used to download a project site image.
+
+==== Example request
+
+include::{snippets}/projectSiteResource/downloadImage/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/projectSiteResource/downloadImage/path-parameters.adoc[]
+
+[[resources-project-site-publish]]
+=== Publish a project site
+
+A `PUT` request is used to publish a project site.
+
+==== Example request
+
+include::{snippets}/projectSiteResource/publish/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/projectSiteResource/publish/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/projectSiteResource/publish/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/projectSiteResource/publish/response-fields.adoc[]
+
+[[resources-project-site-unpublish]]
+=== Unpublish a project site.
+
+A `PUT` request is used to unpublish a project site.
+
+==== Example request
+
+include::{snippets}/projectSiteResource/unpublish/curl-request.adoc[]
+
+==== Path parameter
+
+include::{snippets}/projectSiteResource/unpublish/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/projectSiteResource/unpublish/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/projectSiteResource/unpublish/response-fields.adoc[]

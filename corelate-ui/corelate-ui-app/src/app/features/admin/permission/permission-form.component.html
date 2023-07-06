@@ -1,0 +1,55 @@
+<div class="isv-admin-permission-new">
+  <div class="row pt-1">
+    <div class="isv-admin-permission-new__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Add Permissions for {{ permissionGroup?.module }}
+      </h3>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+
+  <form *ngIf="permissionForm" [formGroup]="permissionForm" novalidate (ngSubmit)="onSave(permissionForm.value, permissionForm.valid)" class="p-4">
+    <div formArrayName="permissions">
+      <div class="row px-2">
+        <div class="col-12 col-md-3">
+          <div class="md-form pb-4">
+            <label>Permissions <span class="text-danger">*</span></label>
+          </div>
+        </div>
+        <div class="col-12 col-md-9">
+          <div *ngFor="let permission of permissionForm.get('permissions').controls; let i=index">
+            <div [formGroupName]="i">
+              <div class="md-form input-group">
+                <input type="text" class="form-control" formControlName="action">
+
+                <!--<span class="input-group-btn">
+                  <button type="button" class="btn btn-sm isv-btn-permission-new btn-red waves-light my-0" mdbRippleRadius mdbTooltip="Delete" (click)="removePermission(i)" placement="top">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </span>-->
+              </div>
+
+              <!--<div class="md-form form-group" *ngIf="permissionForm.get('permissions').controls.length > 1">-->
+              <!--<button type="button" class="btn btn-flat btn-sm" (click)="removePermission(i)"><span class="fa fa-times"></span></button>-->
+              <!--</div>-->
+            </div>
+          </div>
+          <div class="text-center pb-4">
+            <button class="btn btn-md blue darken-1 waves-effect waves-light" (click)="addPermission()"  [disabled]="permissionForm.invalid" mdbRippleRadius><i class="fa fa-plus pr-1" aria-hidden="true"></i> Add Action</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="isv-admin-permission-new__actions row d-flex">
+      <div class="col-6 align-self-center">
+        <button type="button" class="btn btn-outline-blue-grey" routerLink="/admin/permission">Cancel</button>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button type="submit" [disabled]="permissionForm.invalid" class="btn light-green darken-2 waves-effect waves-light">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div [ngBusy]="saving"></div>

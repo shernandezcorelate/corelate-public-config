@@ -1,0 +1,109 @@
+---
+version: '2'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    volumes:
+      - corelate_bpmn_zk:/var/lib/zookeeper/data
+  broker:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://broker:9092'
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    volumes:
+      - corelate_bpmn_kafka:/var/lib/zookeeper/data
+  schema_registry:
+    image: confluentinc/cp-schema-registry
+    depends_on:
+      - zookeeper
+      - broker
+    ports:
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema_registry
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: 'zookeeper:2181'
+  connect:
+    image: confluentinc/cp-kafka-connect
+    depends_on:
+      - zookeeper
+      - broker
+      - schema_registry
+    ports:
+      - "8083:8083"
+    environment:
+      CONNECT_BOOTSTRAP_SERVERS: broker:9092
+      CONNECT_REST_ADVERTISED_HOST_NAME: connect
+      CONNECT_REST_PORT: 8083
+      CONNECT_GROUP_ID: "corelate-isv"
+      CONNECT_CONFIG_STORAGE_TOPIC: "corelate-isv-config"
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_OFFSET_STORAGE_TOPIC: "corelate-isv-offsets"
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_STATUS_STORAGE_TOPIC: "corelate-isv-status"
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: 'http://schema_registry:8081'
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: 'http://schema_registry:8081'
+      CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_LOG4J: DEBUG
+    volumes:
+      - ./jars:/etc/kafka-connect/jars
+  cc:
+    image: confluentinc/cp-enterprise-control-center
+    depends_on:
+      - zookeeper
+      - broker
+      - schema_registry
+      - connect
+    ports:
+      - "9021:9021"
+    environment:
+      CONTROL_CENTER_BOOTSTRAP_SERVERS: 'broker:9092'
+      CONTROL_CENTER_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      CONTROL_CENTER_CONNECT_CLUSTER: 'connect:8083'
+      CONTROL_CENTER_REPLICATION_FACTOR: 1
+      CONTROL_CENTER_INTERNAL_TOPICS_PARTITIONS: 1
+      CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: 1
+      CONFLUENT_METRICS_TOPIC_REPLICATION: 1
+      PORT: 9021
+  mongodb:
+    container_name: corelate_bpmn_mongodb
+    build:
+      context: corelate-mongo/
+      dockerfile: Dockerfile
+    image: corelate/mongo:3
+    ports:
+      - '27017:27017'
+    volumes:
+      - corelate_bpmn_mongodata:/data/db
+  db:
+      container_name: corelate_bpmn_db
+      build:
+        context: corelatedb/
+        dockerfile: Dockerfile
+      image: corelate/postgres:9.6-alpine
+      ports:
+        - '5432:5432'
+      environment:
+        POSTGRES_PASSWORD: 'postgres'
+      volumes:
+        - corelate_bpmn_dbdata:/var/lib/postgresql/data
+volumes:
+  corelate_bpmn_dbdata:
+  corelate_bpmn_mongodata:
+  corelate_bpmn_zk:
+  corelate_bpmn_kafka:
+

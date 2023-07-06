@@ -1,0 +1,42 @@
+<ng-container *ngIf="footer">
+  <div class="isv-footer container-fluid blue darken-4 white-text py-4">
+    <div class="isv-footer container py-4">
+      <div class="row py-2">
+        <div class="isv-footer__description col-12 col-md-4">
+          <p>{{ footer.description }}</p>
+        </div>
+
+        <div class="isv-footer__panel col-12 col-md-8">
+          <div *ngIf="footer.panels" class="row edit">
+            <button *ngIf="isLoggedIn && atHome" (click)="modal.show()" type="button" class="btn btn-sm btn-amber waves-light black-text edit-btn edit-logo" mdbRippleRadius><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+
+            <div *ngFor="let panel of footer.panels" class="isv-footer__panel-item col-12 col-md-4">
+              <!--<div [class]="'col-sm-'+ 12 / footer.panels.length">
+        </div>-->
+              <p class="text-uppercase"><strong>{{ panel.name }}</strong></p>
+              <ul *ngFor="let link of panel.links" class="isv-footer-panel-list list-unstyled">
+                <li><a [href]="link.symlink" class="white-text"><small>{{ link.name }}</small></a></li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="isv-admin-footer row mt-4 d-flex">
+        <div class="col-8 col-md-10 align-self-center">
+          <div [innerHtml]="footer.copyright | safeHtml"></div>
+        </div>
+        <div class="col-4 col-md-2 px-4 d-flex align-self-center">
+          <img class="img-fluid w-75 pull-right align-self-center " src="{{imageSourceUrl}}/{{footer.file}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!footer">
+  <div class="d-flex justify-content-center my-4 w-100">
+    <mdb-spinner spinnerType="big" spinnerColor="blue"></mdb-spinner>
+  </div>
+</ng-container>
+

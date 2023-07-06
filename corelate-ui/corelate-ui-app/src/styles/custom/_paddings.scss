@@ -1,0 +1,64 @@
+$isv-padding: 5px;
+$isv-padding-xs: $isv-padding;
+$isv-padding-sm: $isv-padding * 2;
+$isv-padding-md: $isv-padding * 3;
+$isv-padding-lg: $isv-padding * 4;
+$isv-padding-xl: $isv-padding * 5;
+$isv-padding-xxl: $isv-padding * 6;
+$isv-padding-xxxl: $isv-padding * 7;
+
+.p-0  { padding: 0 }
+.pt-0 { padding-top: 0 }
+.pr-0 { padding-right: 0 }
+.pb-0 { padding-bottom: 0 }
+.pl-0 { padding-left: 0 }
+.px-0 { padding-left: 0; padding-right:  0 }
+.py-0 { padding-top: 0;  padding-bottom: 0 }
+
+.p-xs  { padding: $isv-padding-xs }
+.pt-xs { padding-top: $isv-padding-xs }
+.pr-xs { padding-right: $isv-padding-xs }
+.pb-xs { padding-bottom: $isv-padding-xs }
+.pl-xs { padding-left: $isv-padding-xs }
+.px-xs { padding-left: $isv-padding-xs; padding-right:  $isv-padding-xs }
+.py-xs { padding-top: $isv-padding-xs;  padding-bottom: $isv-padding-xs }
+
+.p-sm  { padding: $isv-padding-sm }
+.pt-sm { padding-top: $isv-padding-sm }
+.pr-sm { padding-right: $isv-padding-sm }
+.pb-sm { padding-bottom: $isv-padding-sm }
+.pl-sm { padding-left: $isv-padding-sm }
+.px-sm { padding-left: $isv-padding-sm; padding-right:  $isv-padding-sm }
+.py-sm { padding-top: $isv-padding-sm;  padding-bottom: $isv-padding-sm }
+
+.p-md  { padding: $isv-padding-md }
+.pt-md { padding-top: $isv-padding-md }
+.pr-md { padding-right: $isv-padding-md }
+.pb-md { padding-bottom: $isv-padding-md }
+.pl-md { padding-left: $isv-padding-md }
+.px-md { padding-left: $isv-padding-md; padding-right:  $isv-padding-md }
+.py-md { padding-top: $isv-padding-md;  padding-bottom: $isv-padding-md }
+
+.p-lg  { padding: $isv-padding-lg }
+.pt-lg { padding-top: $isv-padding-lg }
+.pr-lg { padding-right: $isv-padding-lg }
+.pb-lg { padding-bottom: $isv-padding-lg }
+.pl-lg { padding-left: $isv-padding-lg }
+.px-lg { padding-left: $isv-padding-lg; padding-right:  $isv-padding-lg }
+.py-lg { padding-top: $isv-padding-lg;  padding-bottom: $isv-padding-lg }
+
+.p-xl  { padding: $isv-padding-xl }
+.pt-xl { padding-top: $isv-padding-xl }
+.pr-xl { padding-right: $isv-padding-xl }
+.pb-xl { padding-bottom: $isv-padding-xl }
+.pl-xl { padding-left: $isv-padding-xl }
+.px-xl { padding-left: $isv-padding-xl; padding-right:  $isv-padding-xl }
+.py-xl { padding-top: $isv-padding-xl;  padding-bottom: $isv-padding-xl }
+
+.p-xxl  { padding: $isv-padding-xxl }
+.pt-xxl { padding-top: $isv-padding-xxl }
+.pr-xxl { padding-right: $isv-padding-xxl }
+.pb-xxl { padding-bottom: $isv-padding-xxl }
+.pl-xxl { padding-left: $isv-padding-xxl }
+.px-xxl { padding-left: $isv-padding-xxl; padding-right:  $isv-padding-xxl }
+.py-xxl { padding-top: $isv-padding-xxl;  padding-bottom: $isv-padding-xxl }

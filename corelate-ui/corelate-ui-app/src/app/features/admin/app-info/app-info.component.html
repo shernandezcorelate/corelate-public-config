@@ -1,0 +1,79 @@
+<div class="isv-admin-app-info">
+  <div class="row pt-1">
+    <div class="isv-admin-app-info__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        System Information
+      </h3>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+  <div class="row py-2 px-4">
+    <div class="col-12">
+      <dl class="row">
+        <dt class="col-sm-3"><strong>UI:</strong></dt>
+        <dd class="col-sm-9">
+          {{ui?.git.commit.time | date:'short'}} &nbsp; | &nbsp;
+          {{ui?.git.commit.id}} &nbsp;
+          <span class="badge badge-primary">{{ui?.git.branch}}</span>
+        </dd>
+        <dt class="col-sm-3"><strong>Authentication:</strong></dt>
+        <dd class="col-sm-9">
+          {{authentication?.git.commit.time | date:'short'}} &nbsp; | &nbsp;
+          {{authentication?.git.commit.id}} &nbsp;
+          <span class="badge badge-primary">{{authentication?.git.branch}}</span>
+        </dd>
+        <dt class="col-sm-3"><strong>Catalog:</strong></dt>
+        <dd class="col-sm-9">
+          {{catalog?.git.commit.time | date:'short'}} &nbsp; | &nbsp;
+          {{catalog?.git.commit.id}} &nbsp;
+          <span class="badge badge-primary">{{catalog?.git.branch}}</span>
+        </dd>
+        <dt class="col-sm-3"><strong>CMS:</strong></dt>
+        <dd class="col-sm-9">
+          {{cms?.git.commit.time | date:'short'}} &nbsp; | &nbsp;
+          {{cms?.git.commit.id}} &nbsp;
+          <span class="badge badge-primary">{{cms?.git.branch}}</span>
+        </dd>
+        <dt class="col-sm-3"><strong>Config:</strong></dt>
+        <dd class="col-sm-9">
+          {{config?.git.commit.time | date:'short'}} &nbsp; | &nbsp;
+          {{config?.git.commit.id}} &nbsp;
+          <span class="badge badge-primary">{{config?.git.branch}}</span>
+        </dd>
+        <dt class="col-sm-3"><strong>Notification:</strong></dt>
+        <dd class="col-sm-9">
+          {{notification?.git.commit.time | date:'short'}} &nbsp; | &nbsp;
+          {{notification?.git.commit.id}} &nbsp;
+          <span class="badge badge-primary">{{notification?.git.branch}}</span>
+        </dd>
+        <dt class="col-sm-3"><strong>Shopping Cart:</strong></dt>
+        <dd class="col-sm-9">
+          {{shoppingCart?.git.commit.time | date:'short'}} &nbsp; | &nbsp;
+          {{shoppingCart?.git.commit.id}} &nbsp;
+          <span class="badge badge-primary">{{shoppingCart?.git.branch}}</span>
+        </dd>
+        <dt class="col-sm-3"><strong>User:</strong></dt>
+        <dd class="col-sm-9">
+          {{user?.git.commit.time | date:'short'}} &nbsp; | &nbsp;
+          {{user?.git.commit.id}} &nbsp;
+          <span class="badge badge-primary">{{user?.git.branch}}</span>
+        </dd>
+        <dt class="col-sm-3"><strong>Workflow:</strong></dt>
+        <dd class="col-sm-9">
+          {{workflow?.git.commit.time | date:'short'}} &nbsp; | &nbsp;
+          {{workflow?.git.commit.id}} &nbsp;
+          <span class="badge badge-primary">{{workflow?.git.branch}}</span>
+        </dd>
+        <dt class="col-sm-3"><strong>Zuul:</strong></dt>
+        <dd class="col-sm-9">
+          {{zuul?.git.commit.time | date:'short'}} &nbsp; | &nbsp;
+          {{zuul?.git.commit.id}} &nbsp;
+          <span class="badge badge-primary">{{zuul?.git.branch}}</span>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+
+

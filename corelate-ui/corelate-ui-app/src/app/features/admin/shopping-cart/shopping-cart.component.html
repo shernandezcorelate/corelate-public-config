@@ -1,0 +1,124 @@
+<div class="isv-admin-shopping-cart">
+  <div class="row pt-1">
+    <div class="isv-admin-shopping-cart__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        Shopping Cart
+      </h3>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+  <ng-container>
+    <ng-container>
+      <form (ngSubmit)="pay()" #shoppingCartForm="ngForm">
+
+        <div class="row">
+          <div class="isv-admin-article__new col-12 text-right">
+            <button type="button" (click)="showHistory()" class="btn btn-md blue-grey"><i class="fa fa-history" aria-hidden="true"></i> {{ 'SHOPPING_CART.PAYMENT_HISTORY' | translate }}</button>
+          </div>
+        </div>
+
+        <div class="row p-4">
+          <div class="col-12 px-0">
+            <ngx-datatable
+              class="custom"
+              [rows]="cartItems"
+              [columnMode]="'force'"
+              [footerHeight]="'auto'"
+              [rowHeight]="'auto'"
+              [count]="params.totalElements"
+              [offset]="params.page"
+              [limit]="params.size"
+              [selected]="selectedItems"
+              [selectionType]="'checkbox'"
+              (select)='onSelect($event)'
+              (page)='setPage($event)'>
+
+              <ngx-datatable-column name="toBePayed" [checkboxable]="true" [maxWidth]="50">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.PAY' | translate }}</strong>
+                </ng-template>
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template let-isSelected="isSelected">
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="description">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.DESCRIPTION' | translate }}</strong>
+                </ng-template>
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  <h5 class="h5-responsive py-2 mb-0 pl-4"><strong>{{ value }}</strong></h5>
+                  <p class="mb-0 pl-4"><small><strong>Merchant ID : </strong> {{ row.merchantId }}</small></p>
+                  <p class="mb-0 pl-4"><small><strong>Process Instance ID : </strong> {{ row.processInstanceId }}</small></p>
+                  <p class="mb-0 pl-4"><small><strong>Activity ID : </strong> {{ row.activityId }}</small></p>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="requestor">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.REQUESTOR' | translate }}</strong>
+                </ng-template>
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <div class="text-center my-4 py-4">
+                    <h5 class="h5-responsive py-1 mb-0">{{ value }}</h5>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <!--
+              <ngx-datatable-column name="merchantId">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.MERCHANT_ID' | translate }}</strong>
+                </ng-template>
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <div class="text-center py-2">
+                    <p class="py-2"><small>{{ value }}</small></p>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="processInstanceId">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.PROCESS_INSTANCE_ID' | translate }}</strong>
+                </ng-template>
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <div class="text-center py-2">
+                    <p class="py-2"><small>{{ value }}</small></p>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="activityId">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.ACTIVITY_ID' | translate }}</strong>
+                </ng-template>
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <p class="py-2"><small>{{ value }}</small></p>
+                </ng-template>
+              </ngx-datatable-column>
+            -->
+              <ngx-datatable-column name="amount">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                    <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.AMOUNT' | translate }}</strong>
+                </ng-template>
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <div class="text-center my-4 py-4">
+                    <h4 class="h4-responsive mb-0">Php {{ value | number : '1.2-2' }}</h4>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+
+        <div class="row p-4">
+          <div class="col-12 text-right">
+            <h3 class="h3-responsive"><strong>Subtotal : </strong>{{ subTotal | number : '1.2-2'}}</h3>
+          </div>
+        </div>
+
+        <div class="isv-admin-shopping-cart__actions row" *isAuthorized="['SHOPPING_CART_EDIT']">
+          <div class="col-12 text-right">
+            <button type="submit" class="btn light-green darken-2 waves-effect waves-light" [disabled]="!isFormValid()"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> {{ 'SHOPPING_CART.PAY_NOW' | translate }}</button>
+          </div>
+        </div>
+
+      </form>
+    </ng-container>
+  </ng-container>
+</div>

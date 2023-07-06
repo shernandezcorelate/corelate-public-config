@@ -1,0 +1,79 @@
+<div class="isv-admin-help-new">
+  <div class="row pt-1">
+    <div class="isv-admin-help-new__title col-12">
+      <h3 *ngIf="!id && !paramId" class="h3-responsive w-75 float-left pt-0">
+        Add A New Help Topic
+      </h3>
+      <h3 *ngIf="id || paramId" class="h3-responsive w-75 float-left pt-0">
+        Edit Help Topic
+      </h3>
+      <button *ngIf="modal" (click)="modal.hide()" class="close pull-right" aria-hidden="true">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3" />
+  <form *ngIf="helpForm" [formGroup]="helpForm" novalidate (ngSubmit)="onSave(helpForm.value, helpForm.valid)" class="p-2">
+    <div class="isv-admin-help-new__input row px-4">
+      <div class="col-12 col-sm-8">
+        <div class="md-form">
+          <input mdbActive type="text" id="topic" formControlName="topic" class="form-control" mdbInputValidate>
+          <label for="topic">Topic <span class="text-danger">*</span></label>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 text-right pt-3">
+        <button (click)="addSubTopic()" class="btn btn-md blue darken-1 waves-effect waves-light" type="button"><i class="fa fa-plus pr-1" aria-hidden="true"></i>  Add Sub Topics</button>
+      </div>
+    </div>
+    <div formArrayName="subTopics" class="row isv-admin-help-new__list">
+      <div class="col-12">
+        <mdb-squeezebox [multiple]="false" aria-multiselectable="true" class="isv-admin-help-new__item">
+            <mdb-item  *ngFor="let subTopic of subTopics.controls; let i=index" [formGroupName]="i">
+                <mdb-item-head class="grey darken-3">
+                  <div class="md-form input-group mb-0 pl-0 pr-4 float-left pb-3 tab-title">
+                      <span class="input-group-addon grey darken-3 border-0 white-text" id="basic-addon1">SubTopic Name &nbsp;<span class="text-danger">*</span></span>
+                      <input type="text" class="form-control white-text w-100" aria-describedby="basic-addon1" id="title" formControlName="title" mdbInputValidate>
+                  </div>
+                </mdb-item-head>
+                <mdb-item-body>
+                  <div class="row isv-admin-help-new__input p-4">
+                    <div class="col-12">
+                      <div class="md-form">
+                        <textarea mdbActive type="text" id="content" formControlName="content" class="md-textarea"></textarea>
+                        <label for="content">Content</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 text-right pt-4">
+                      <button (click)="deleteSubTopic(i)" type="button" class="btn btn-md red darken-3 waves-effect waves-light" mdbRippleRadius>
+                        <i class="fa fa-trash" aria-hidden="true"></i> Delete Subtopic
+                      </button>
+                    </div>
+                  </div>
+                </mdb-item-body>
+            </mdb-item>
+        </mdb-squeezebox>
+      </div>
+    </div>
+    <div class="isv-admin-help-new__options row px-3">
+      <div class="col-12 text-right pt-2">
+        <input type="checkbox" class="filled-in" id="published" formControlName="published">
+        <label for="published">Publish</label>
+      </div>
+    </div>
+    <div class="isv-admin-help-new__actions row pt-3 d-flex">
+      <div class="col-6 align-self-center">
+        <button (click)="cancel()" class="btn btn-outline-blue-grey" type="button">Cancel</button>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button class="btn light-green darken-2 waves-effect waves-light" type="submit" [disabled]="helpForm.invalid">
+          <span *ngIf="!id && !paramId">Add</span>
+          <span *ngIf="id || paramId">Save</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div [ngBusy]="helpSubs"></div>
+<div [ngBusy]="helpFormSubs"></div>

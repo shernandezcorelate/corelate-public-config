@@ -1,0 +1,52 @@
+eureka:
+  client:
+    enabled: false
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+    driverClassName: org.h2.Driver
+    hikari:
+      maxIdleTime: 20000
+      idleTimeout: 20000
+    cachePrepStmts: true
+    prepStmtCacheSize: 250
+    prepStmtCacheSqlLimit: 2048
+    connection-test-query: SELECT 1
+  jpa:
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+
+logging:
+  level:
+    com.beacon.corelate: DEBUG
+
+bpmn:
+  username: admin
+  password: admin
+  ribbon:
+    listOfServers: http://localhost:9999
+
+file:
+  storage:
+    enabled: false
+    domain: http://127.0.0.1:9000
+    accessKey: VV2V7IK1NOEY636AGLKO
+    secretKey: iUlGKax02hsgClCLPCpy50DpD6ltW1kOV4pYcT2A
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeznNUY0XI6TxHGaswWf
+          AQB1WaLTg2zFSN+AWFDadGHLF24PLANxCz6XMl7CeRzYaCGt1PIuMLRkC8eBc2Dn
+          r89ZIq4Y9flcLblnXl1Ddt94yi5cI9X8ea1J5uGenCCiPYbC3t2lWeBjHa7KF9Oo
+          VuZCgVRC3PSBRMz3Te5zYfwluTLR1POpK96YkNHPe3pcGgmV+LZwd9Fgdm0+OVu4
+          DJexuvD0I5MTn6jHifrZnFxXK3gdaHB3DpaWJH4Rk4Zr0ip1/hr6/JDZ6rYSLiJI
+          KLzKJn8LtBH0I59R+jT0C6eik8apl+L24g2rfFj40q8/bVRUIwgZ17bvv5utUSQR
+          cQIDAQAB
+          -----END PUBLIC KEY-----

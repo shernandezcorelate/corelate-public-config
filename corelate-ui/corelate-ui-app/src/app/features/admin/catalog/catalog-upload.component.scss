@@ -1,0 +1,30 @@
+.isv-admin-catalog-upload__title h3 {
+  font-weight: 300;
+}
+
+blockquote {
+  font-style: normal !important;
+}
+
+blockquote:before,
+blockquote:after {
+  display: none !important;
+}
+
+.isv-mobile {
+  display: block;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+}
+
+.isv-desktop {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+
+}

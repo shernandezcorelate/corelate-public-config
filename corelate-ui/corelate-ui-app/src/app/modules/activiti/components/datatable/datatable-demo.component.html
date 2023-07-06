@@ -1,0 +1,41 @@
+<div class="p-10">
+    <alfresco-datatable
+        [data]="data"
+        [selectionMode]="selectionMode"
+        [multiselect]="multiselect"
+        [actions]="true"
+        rowStyleClass="custom-row-style"
+        (showRowActionsMenu)="onShowRowActionsMenu($event)"
+        (executeRowAction)="onExecuteRowAction($event)"
+        (row-click)="onRowClick($event)"
+        (row-dblclick)="onRowDblClick($event)">
+      <!-- HTML column definition demo -->
+        <!--
+        <data-columns>
+            <data-column type="image" key="icon" [sortable]="false"></data-column>
+            <data-column key="id" title="Id"></data-column>
+            <data-column key="createdOn" title="Created"></data-column>
+            <data-column key="name" title="Name" class="full-width name-column"></data-column>
+            <data-column key="createdBy.name" title="Created By"></data-column>
+        </data-columns>
+        -->
+    </alfresco-datatable>
+</div>
+<div class="p-10" data-automation-id="multiselect">
+    <md-checkbox [(ngModel)]="multiselect">Multiselect</md-checkbox>
+</div>
+<div class="p-10">
+    <p>For 'Multiple' selection mode use Cmd (macOS) or Ctrl (Win) to toggle selection of multiple items.</p>
+    <md-select placeholder="Selection Mode" [(ngModel)]="selectionMode" name="food">
+        <md-option *ngFor="let mode of selectionModes" [value]="mode.value">
+            {{mode.viewValue}}
+        </md-option>
+    </md-select>
+</div>
+<div class="p-10">
+    <button md-raised-button (click)="reset()">Reset to default</button>
+    <button md-raised-button (click)="addRow()">Add row</button>
+    <button md-raised-button (click)="replaceRows()">Replace rows</button>
+    <button md-raised-button (click)="replaceColumns()">Replace columns</button>
+    <button md-raised-button (click)="getRowForNode()">Load Node</button>
+</div>

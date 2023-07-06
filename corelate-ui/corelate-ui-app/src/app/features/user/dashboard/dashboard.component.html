@@ -1,0 +1,508 @@
+<corelate-ui-sidenav></corelate-ui-sidenav>
+<main>
+  <div class="isv-admin container-fluid grey darken-4 pb-4 d-flex flex-column justify-content-end">
+    <div class="isv-admin__body container pb-4">
+      <div class="card my-4">
+        <div class="card-body pt-4">
+          <div class="isv-admin-dashboard">
+            <div class="row pt-1">
+              <div class="isv-admin-dashboard__title col-12">
+                <h3 class="h3-responsive">Dashboard</h3>
+              </div>
+            </div>
+            <hr class="mb-4 mt-3"/>
+            <!--Generic -->
+            <div class="isv-admin-dashboard__user row p-2">
+              <div *isAuthorized="['DASHBOARD_PROJECTION_GRAPH_VIEW']" class="isv-admin-dashboard__user-statistics col-12 p-4">
+                <div class="card">
+                  <div class="card-header indigo white-text">
+                    Team Statistics
+                  </div>
+                  <div class="card-body py-4">
+                    <!--https://mdbootstrap.com/angular/advanced/charts/-->
+                    <div style="display: block">
+                      <canvas mdbChart
+                              [chartType]="chartType"
+                              [datasets]="chartDatasets"
+                              [labels]="chartLabels"
+                              [colors]="chartColors"
+                              [options]="chartOptions"
+                              [legend]="true">
+                      </canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="isv-admin-dashboard__user-status col-12">
+
+                <div class="row px-3">
+                  <div *isAuthorized="['DASHBOARD_SHOPPING_CART_VIEW']" class="col-12 col-md-6 col-lg-3 p-2">
+                    <div class="card text-center z-depth-2">
+                      <div class="card-body">
+                        <h1 class="mb-0"><i class="fa fa-shopping-cart" aria-hidden="true"></i></h1>
+                        <p class="text-uppercase mb-0"><small><strong>Shopping Cart</strong></small></p>
+                        <h2 class="h2-responsive mb-0 green-text">{{ cartParams.totalElements }}</h2>
+                        <p class="mb-0"><small>Items</small></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *isAuthorized="['DASHBOARD_SHOPPING_CART_VIEW']" class="col-12 col-md-6 col-lg-3 p-2">
+                    <div class="card text-center z-depth-2">
+                      <div class="card-body">
+                        <h1 class="mb-0"><i class="fa fa-users" aria-hidden="true"></i></h1>
+                        <p class="text-uppercase mb-0"><small><strong>System Users</strong></small></p>
+                        <h2 class="h2-responsive mb-0 cyan-text">120</h2>
+                        <p class="mb-0"><small>Users</small></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *isAuthorized="['DASHBOARD_OPEN_TASKS_VIEW']" class="col-12 col-md-6 col-lg-3 p-2">
+                    <div class="card text-center z-depth-2">
+                      <div class="card-body">
+                        <h1 class="mb-0"><i class="fa fa-tasks" aria-hidden="true"></i></h1>
+                        <p class="text-uppercase mb-0"><small><strong>Open Tasks</strong></small></p>
+                        <h2 class="h2-responsive mb-0 pink-text">120</h2>
+                        <p class="mb-0"><small>Tasks</small></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *isAuthorized="['DASHBOARD_SITE_STATS_VIEW']" class="col-12 col-md-6 col-lg-3 p-2">
+                    <div class="card text-center z-depth-2">
+                      <div class="card-body">
+                        <h1 class="mb-0"><i class="fa fa-area-chart" aria-hidden="true"></i></h1>
+                        <p class="text-uppercase mb-0"><small><strong>Site Stats</strong></small></p>
+                        <h2 class="h2-responsive mb-0 indigo-text">120</h2>
+                        <p class="mb-0"><small>Visits</small></p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="isv-dasboard__flex col-12">
+                <div class="row d-md-flex px-2 py-4">
+                  <div *isAuthorized="['DASHBOARD_LATEST_UPDATES_VIEW']" class="isv-admin-dashboard__user-updates col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        Latest Updates
+                      </div>
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <table class="table table-hover table table-responsive text-left">
+                          <thead>
+                          <tr>
+                            <th><strong>Page</strong></th>
+                            <th><strong>Updated Date</strong></th>
+                            <th><strong>Updated By</strong></th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <th scope="row"><strong>FAQ</strong></th>
+                            <td>12:34 PM 09/32/2017</td>
+                            <td class="blue-text">Admin</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><strong>Help Topics</strong></th>
+                            <td>12:34 PM 09/32/2017</td>
+                            <td class="blue-text">Admin</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><strong>Catalog</strong></th>
+                            <td>12:34 PM 09/32/2017</td>
+                            <td class="blue-text">Admin</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><strong>News</strong></th>
+                            <td>12:34 PM 09/32/2017</td>
+                            <td class="blue-text">Admin</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><strong>API</strong></th>
+                            <td>12:34 PM 09/32/2017</td>
+                            <td class="blue-text">Admin</td>
+                          </tr>
+                          </tbody>
+                        </table>
+
+                      </div>
+                      <!--SHOW ONLY IF EMPTY -->
+                      <!--
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <p class="grey-text"><em>Looks Good! No Recent Updates.</em></p>
+                      </div>
+                      -->
+                    </div>
+                  </div>
+                  <div *isAuthorized="['DASHBOARD_TASKS_LIST_VIEW']" class="isv-admin-dashboard__user-tasks col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        Task List
+                      </div>
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <div class="list-group text-left w-100">
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <h6 class="mb-1"><strong>Task Name</strong></h6>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <h6 class="mb-1"><strong>Task Name</strong></h6>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <h6 class="mb-1"><strong>Task Name</strong></h6>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <h6 class="mb-1"><strong>Task Name</strong></h6>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <h6 class="mb-1"><strong>Task Name</strong></h6>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                        </div>
+
+                      </div>
+                      <!--SHOW ONLY IF EMPTY -->
+                      <!--
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <p class="grey-text py-4"><em>Looks Good! No Upcoming Tasks.</em></p>
+                      </div>
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="isv-dasboard__flex col-12">
+                <div class="row d-md-flex px-2 py-4">
+                  <div *isAuthorized="['DASHBOARD_ACTIVITY_LOG_VIEW']" class="isv-admin-dashboard__user-activity col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        Activity Log
+                      </div>
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <div class="list-group text-left w-100">
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h6 class="mb-1"><strong>Activity Item</strong></h6>
+                              <span><small><em>3 days ago</em></small></span>
+                            </div>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h6 class="mb-1"><strong>Activity Item</strong></h6>
+                              <span><small><em>3 days ago</em></small></span>
+                            </div>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h6 class="mb-1"><strong>Activity Item</strong></h6>
+                              <span><small><em>3 days ago</em></small></span>
+                            </div>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h6 class="mb-1"><strong>Activity Item</strong></h6>
+                              <span><small><em>3 days ago</em></small></span>
+                            </div>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h6 class="mb-1"><strong>Activity Item</strong></h6>
+                              <span><small><em>3 days ago</em></small></span>
+                            </div>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                        </div>
+
+                      </div>
+                      <!--SHOW ONLY IF EMPTY -->
+                      <!--
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <p class="grey-text py-4"><em>Looks Good! No Recent Activity.</em></p>
+                      </div>
+                      -->
+                    </div>
+                  </div>
+                  <div *isAuthorized="['DASHBOARD_VIDEO_VIEW']" class="isv-admin-dashboard__user-demo col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        Demo
+                      </div>
+                      <div class="card-body d-md-flex flex-grow">
+                        <div class="w-100">
+                          <div class="embed-responsive embed-responsive-16by9 mb-3">
+                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/_Th1GTJmL2Y?ecver=2" allowfullscreen></iframe>
+                          </div>
+                          <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/_Th1GTJmL2Y?ecver=2" allowfullscreen></iframe>
+                          </div>
+                        </div>
+                      </div>
+                      <!--SHOW ONLY IF EMPTY -->
+                      <!--
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <p class="grey-text py-4"><em>No Videos Available.</em></p>
+                      </div>
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+            <!--Consumer -->
+            <div *ngFor="let app of activitiAppDefinitions" class="isv-admin-dashboard__user row p-2">
+              <div class="col-12 px-4">
+                <h2 class="h2-responsive">Process Name: {{app.name}}</h2>
+                <h4 class="h4-responsive grey-text">Consumer</h4>
+              </div>
+              <div class="isv-dasboard__flex col-12">
+                <div class="row d-md-flex px-2 py-4">
+                  <div *isAuthorized="['DASHBOARD_MY_PROCESS_VIEW']" class="isv-admin-dashboard__user-processes col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        My Processes
+                      </div>
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <div class="list-group text-left w-100">
+                          <ng-container *ngIf="activitiProcessDefinitions[app.id]">
+                            <div *ngFor="let process of activitiProcessDefinitions[app.id] | slice:0:5" class="list-group-item list-group-item-action flex-column align-items-start">
+                              <div class="d-flex w-100 justify-content-between">
+                                <h6 class="p-2 mb-0"><strong>{{process.name}}</strong></h6>
+                                <div>
+                                  <button (click)="startProcess(process.id, process.name)" class="btn btn-sm light-green darken-2 isv-btn-dashboard-list" mdbTooltip="Start Task" placement="top"><i class="fa fa-play" aria-hidden="true"></i></button>
+                                  <button class="btn btn-sm red darken-2 isv-btn-dashboard-list" mdbTooltip="Delete Task" placement="top"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <p *ngIf="activitiProcessDefinitions[app.id].length === 0" class="grey-text py-4"><em>No process to be started. Create One!</em></p>
+                            <button class="btn btn-sm light-green darken-2 mb-4"><i class="fa fa-plus" aria-hidden="true"></i> Create Task</button>
+                          </ng-container>
+                          <ng-container *ngIf="!activitiProcessDefinitions[app.id]">
+                            Loading
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="grey-text pt-4"><em></em></p>
+                  </div>
+                  <div *isAuthorized="['DASHBOARD_RUNNING_PROCESS_VIEW']" class="isv-admin-dashboard__running-processes col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        Running Process
+                      </div>
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <div class="list-group text-left w-100">
+                          <ng-container *ngIf="activitiRunningProcessTaskForms[app.id]">
+                            <div *ngFor="let taskForm of activitiRunningProcessTaskForms[app.id] | slice:0:5" class="list-group-item list-group-item-action flex-column align-items-start">
+                              <div class="d-flex w-100 justify-content-between">
+                                <h5 class="p-2 mb-0"><strong>{{taskForm.name}}</strong></h5>
+                                <div>
+                                  <button [routerLink]="['/admin/task-form/', taskForm.taskFormId]" class="btn btn-sm light-green darken-2 isv-btn-dashboard-list" mdbTooltip="Start Task" placement="top"><i class="fa fa-wpforms" aria-hidden="true"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <p *ngIf="activitiRunningProcessTaskForms[app.id].length === 0" class="grey-text py-4"><em>No process is running</em></p>
+                          </ng-container>
+                          <ng-container *ngIf="!activitiRunningProcessTaskForms[app.id]">
+                            Loading
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="grey-text pt-4"><em></em></p>
+                  </div>
+                </div>
+              </div>
+              <div class="isv-dasboard__flex col-12">
+                <div class="row d-md-flex px-2 py-4">
+                  <div *isAuthorized="['DASHBOARD_MY_OPEN_TASKS_VIEW']" class="isv-admin-dashboard__user-open-tasks col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        My Open Tasks
+                      </div>
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <div class="list-group text-left w-100">
+                          <ng-container *ngIf="activitiOpenTask[app.id]">
+                            <a *ngFor="let task of activitiOpenTask[app.id] | slice:0:5" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                              <h5 class="mb-1"><strong>{{task.name ? task.name : 'Nameless Task'}}</strong></h5>
+                            </a>
+                            <p *ngIf="activitiOpenTask[app.id].length === 0" class="grey-text py-4"><em>Looks Good! No Incomplete Tasks.</em></p>
+                          </ng-container>
+                          <ng-container *ngIf="!activitiOpenTask[app.id]">
+                            Loading
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="grey-text pt-4"><em></em></p>
+                  </div>
+                  <div *isAuthorized="['DASHBOARD_ALL_FINISHED_TASKS_VIEW']" class="isv-admin-dashboard__user-completed-tasks col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        My Completed Tasks
+                      </div>
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <div class="list-group text-left w-100">
+                          <ng-container *ngIf="activitiCompletedTask[app.id]">
+                            <a *ngFor="let task of activitiCompletedTask[app.id] | slice:0:5" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                              <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1"><strong>{{task.name ? task.name : 'Nameless Task'}}</strong></h6>
+                                <small>{{timeSince(task.created)}}</small>
+                              </div>
+                            </a>
+                            <p *ngIf="activitiCompletedTask[app.id].length === 0" class="grey-text py-4"><em>No Completed Tasks.</em></p>
+                          </ng-container>
+                          <ng-container *ngIf="!activitiCompletedTask[app.id]">
+                            Loading
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="isv-dasboard__flex col-12">
+                <div class="row d-md-flex px-2 py-4">
+                  <div *isAuthorized="['DASHBOARD_UPCOMING_TASKS_VIEW']" class="isv-admin-dashboard__user-upcoming-tasks col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        Upcoming Tasks
+                      </div>
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <div class="list-group text-left w-100">
+                          <ng-container *ngIf="activitiQueuedTask[app.id]">
+                            <div *ngFor="let task of activitiQueuedTask[app.id] | slice:0:5" class="list-group-item list-group-item-action flex-column align-items-start">
+                              <div class="d-flex w-100 justify-content-between">
+                                <h6 class="p-2 mb-0"><strong>{{task.name ? task.name : 'Nameless Task'}}</strong></h6>
+                                <div>
+                                  <button class="btn btn-sm blue darken-2 isv-btn-dashboard-list" mdbTooltip="Assign to Me" placement="top"><i class="fa fa-mail-reply" aria-hidden="true"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <p *ngIf="activitiQueuedTask[app.id].length === 0" class="grey-text py-4"><em>Looks Good! No Upcoming Tasks.</em></p>
+                          </ng-container>
+                          <ng-container *ngIf="!activitiQueuedTask[app.id]">
+                            Loading
+                          </ng-container>
+                        </div>
+                      </div>
+                      <!--SHOW ONLY IF EMPTY -->
+                      <!--
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <p class="grey-text py-4"><em>Looks Good! No Recent Activity.</em></p>
+                      </div>
+                      -->
+                    </div>
+                  </div>
+                  <div *isAuthorized="['DASHBOARD_PARTICIPATING_TASKS_VIEW']" class="isv-admin-dashboard__user-participating-tasks col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        Participating Tasks
+                      </div>
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <div class="list-group text-left w-100">
+                          <ng-container *ngIf="activitiInvolvedTask[app.id]">
+                            <div *ngFor="let task of activitiInvolvedTask[app.id] | slice:0:5" class="list-group-item list-group-item-action flex-column align-items-start">
+                              <div class="d-flex w-100 justify-content-between">
+                                <h6 class="p-2 mb-0"><strong>{{task.name ? task.name : 'Nameless Task'}}</strong></h6>
+                                <div>
+                                  <button class="btn btn-sm blue darken-2 isv-btn-dashboard-list" mdbTooltip="Assign to Me" placement="top"><i class="fa fa-mail-reply" aria-hidden="true"></i></button>
+                                  <button class="btn btn-sm grey darken-3 isv-btn-dashboard-list" mdbTooltip="Assign to Others" placement="top"><i class="fa fa-mail-forward" aria-hidden="true"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <p *ngIf="activitiInvolvedTask[app.id].length === 0" class="grey-text py-4"><em>Looks Good! You Are Not Yet Assigned Tasks.</em></p>
+                          </ng-container>
+                          <ng-container *ngIf="!activitiInvolvedTask[app.id]">
+                            Loading
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="isv-dasboard__flex col-12">
+                <div class="row d-md-flex px-2 py-4">
+                  <div *isAuthorized="['DASHBOARD_ACTIVITY_LOG_VIEW']" class="isv-admin-dashboard__user-activity col-12 col-md-6 d-md-flex">
+                    <div class="card d-md-flex flex-column align-content-md-stretch w-100">
+                      <div class="card-header indigo white-text">
+                        Activity Log
+                      </div>
+                      <div class="card-body text-center d-md-flex flex-grow">
+                        <div class="list-group text-left w-100">
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h6 class="mb-1"><strong>Activity Item</strong></h6>
+                              <span><small><em>3 days ago</em></small></span>
+                            </div>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h6 class="mb-1"><strong>Activity Item</strong></h6>
+                              <small>3 days ago</small>
+                            </div>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h6 class="mb-1"><strong>Activity Item</strong></h6>
+                              <small>3 days ago</small>
+                            </div>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h6 class="mb-1"><strong>Activity Item</strong></h6>
+                              <small>3 days ago</small>
+                            </div>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h6 class="mb-1"><strong>Activity Item</strong></h6>
+                              <small>3 days ago</small>
+                            </div>
+                            <small>by <span class="blue-text">Admin</span></small>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="isv-admin__footer container mt-auto">
+      <div class="row no-gutters d-flex">
+        <div class="col-12 col-md-9 col-lg-10 text-center text-md-left align-self-center py-4">
+          <div *ngIf="footer" [innerHtml]="footer.copyright | safeHtml"></div>
+        </div>
+        <div class="col-12 col-md-3 col-lg-2 text-center text-md-right align-self-center py-4">
+          <img *ngIf="footer" class="img-fluid w-50 align-self-center " src="{{imageSourceUrl}}/{{footer.file}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+

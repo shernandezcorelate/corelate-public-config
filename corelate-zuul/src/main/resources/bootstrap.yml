@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: zuul
+  cloud:
+    config:
+      uri: @config.server.host@:@config.server.port@
+      username: @config.server.username@
+      password: @config.server.password@
+      failFast: true
+  profiles:
+    active: dev

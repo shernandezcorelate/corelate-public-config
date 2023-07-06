@@ -1,0 +1,84 @@
+<div class="isv-admin-shopping-history">
+  <div class="row pt-1">
+    <div class="isv-admin-shopping-history__title col-12">
+      <h3 class="h3-responsive w-75 float-left pt-0">
+        {{ 'SHOPPING_CART.PAYMENT_HISTORY' | translate }}
+      </h3>
+    </div>
+  </div>
+  <hr class="mb-4 mt-3"/>
+
+  <ng-container>
+    <ng-container>
+      <form>
+
+        <div class="row p-4">
+          <div class="col-12 px-0">
+            <ngx-datatable
+              class="custom"
+              [rows]="paymentHistory"
+              [columnMode]="'force'"
+              [footerHeight]="'auto'"
+              [rowHeight]="'auto'"
+              [count]="params.totalElements"
+              [offset]="params.page"
+              [limit]="params.size"
+              (page)='setPage($event)'>
+
+              <ngx-datatable-column name="items">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.DESCRIPTION' | translate }}</strong>
+                </ng-template>
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  <ng-template ngFor let-item [ngForOf]="row.items">
+                    <h6 class="h6-responsive py-2 mb-0 pl-2 blue-text">{{ item.description }}</h6>
+                  </ng-template>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="receiptNumber">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <div class="text-center">
+                    <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.RECEIPT_NO' | translate }}</strong>
+                  </div>
+                </ng-template>
+                <ng-template let-value="value" ngx-datatable-cell-template class="text-center">
+                  <div class="text-center">
+                    <h5 class="h4-responsive py-2 mb-0">{{ value }}</h5>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="amount">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.AMOUNT_PAID' | translate }}</strong>
+                </ng-template>
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                  <div class="text-center py-1">
+                    <h4 class="h4-responsive mb-0">Php {{ value | number : '1.2-2' }}</h4>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="createdDate" [maxWidth]="150">
+                <ng-template let-column="column" ngx-datatable-header-template>
+                  <strong>{{ 'SHOPPING_CART.TABLE.COLUMN.DATE_PAID' | translate }}</strong>
+                </ng-template>
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <div class="text-center">
+                      <h5 class="h5-responsive py-2 mb-0">{{ value | date : 'mediumDate' }}</h5>
+                    </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+
+        <div class="isv-admin-shopping-history__actions row">
+          <div class="col-12 text-right">
+            <button type="button" (click)="back()" class="btn btn-md btn-outline-blue-grey"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Back to Cart</button>
+          </div>
+
+        </div>
+
+      </form>
+    </ng-container>
+  </ng-container>
+</div>

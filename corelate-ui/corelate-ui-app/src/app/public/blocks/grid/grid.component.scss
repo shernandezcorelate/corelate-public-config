@@ -1,0 +1,10 @@
+.isv-block-grid__img {
+  .post-img {
+    max-height: 300px;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      max-height: 100%;
+    }
+  }
+}

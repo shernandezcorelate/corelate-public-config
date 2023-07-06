@@ -1,0 +1,42 @@
+<div class="popover" click-anywhere="$hide()" ignore-class="decision-table-selection" auto-scroll>
+    <div class="arrow"></div>
+    <div class="popover-header">
+        <span class="title">Select decision table</span>
+
+        <div class="actions">
+            <a ng-click="$hide()">
+                {{'GENERAL.ACTION.CLOSE' | translate}}</a>
+        </div>
+    </div>
+
+    <div class="popover-wrapper">
+        <div class="center">
+            <div class="btn-group">
+                <button class="btn btn-xs" ng-click="createDecisionTable()">+ Create decision table</button>
+                <button class="btn btn-xs" ng-click="clearDecisionTable()">Clear decision table</button>
+            </div>
+        </div>
+        <div class="section">
+            <label translate="GENERAL.TITLE.FILTER"></label>
+            <div>
+                <input class="form-control" type="text" placeholder="Search decision table" auto-focus custom-keys
+                       up-pressed="previousDecisionTable()" down-pressed="nextDecisionTable()" enter-pressed="confirmDecisionTable()"
+                       delayed-model="popupModel.filter" delay="200"/>
+
+                <div class="inline-help" translate="GENERAL.MESSAGE.SELECT-PEOPLE-HELP"></div>
+            </div>
+            <label>Matching decision tables</label>
+            <div class="people-select">
+                <ul class="simple-list">
+                    <li ng-click="confirmDecisionTable(decisionTable);" ng-repeat="decisionTable in popupModel.decisionTableResults"
+                        ng-class="{'active': decisionTable.id === popupModel.selectedDecisionTable.id}">
+                        {{decisionTable.name && decisionTable.name || '(Nameless decision table)'}}
+                    </li>
+                </ul>
+                <div class="nothing-to-see" ng-show="!popupModel.decisionTableResults || popupModel.decisionTableResults.length == 0">No matching
+                    decision tables
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

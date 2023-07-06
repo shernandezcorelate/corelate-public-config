@@ -1,0 +1,70 @@
+<div class="isv-register container-fluid blue darken-4 py-4">
+  <div class="row d-flex justify-content-center py-4 my-4">
+    <div class="col-12 col-sm-10 col-lg-8 col-xl-6">
+      <div class="isv-register__brand row d-flex justify-content-center">
+        <div class="isv-brand col-12 align-self-center d-flex justify-content-center pb-3">
+          <!--Logo Image-->
+
+          <img src="assets/images/logo-corelate.png" class="isv-brand img-fluid py-3" alt="Corelate">
+        </div>
+      </div>
+      <div class="isv-register__form row d-flex justify-content-center p-4">
+        <div class="col-12 col-md-6 card d-flex p-0">
+          <form [formGroup]="registrationForm" novalidate (ngSubmit)="onRegister(registrationForm.value, registrationForm.valid)" class="align-self-center w-100 p-4">
+            <h3 class="text-center my-4">Register</h3>
+
+            <div class="md-form pb-2" formGroupName="name">
+              <i class="fa fa-user prefix grey-text"></i>
+              <input mdbActive type="text" class="form-control" formControlName="givenName" id="givenName">
+              <label for="givenName">First Name <span class="text-danger">*</span></label>
+            </div>
+
+            <div class="md-form pb-2" formGroupName="name">
+              <i class="fa fa-profile prefix grey-text"></i>
+              <input mdbActive type="text" class="form-control" formControlName="familyName" id="familyName">
+              <label for="familyName">Last Name <span class="text-danger">*</span></label>
+            </div>
+
+            <div class="md-form pb-2">
+              <i class="fa fa-envelope prefix grey-text"></i>
+              <input mdbActive type="email" class="form-control" formControlName="username" id="username">
+              <label for="username">Your email <span class="text-danger">*</span></label>
+              <small class="input-validate-prefix text-danger" *ngIf="registrationForm.controls['username'].invalid && registrationForm.controls['username'].touched">
+                     Email is required and format should be <i>john@doe.com</i>.
+              </small>
+            </div>
+
+            <div class="md-form pb-2">
+              <i class="fa fa-lock prefix grey-text"></i>
+              <input mdbActive type="password" class="form-control" formControlName="password" id="password" minlength="6">
+              <label for="password">Your password <span class="text-danger">*</span></label>
+              <small class="input-validate-prefix text-danger"
+                     *ngIf="registrationForm.controls['password'].touched && registrationForm.controls['password'].value !== ''">
+                <span *ngIf="registrationForm.controls['password'].hasError('MatchPassword')">Password mismatch</span>
+                <span *ngIf="registrationForm.controls['password'].hasError('minlength')">Password must be at least 6 characters</span>
+              </small>
+              <ng2-password-strength-bar class="pull-right"
+                [passwordToCheck]="registrationForm.controls['password'].value">
+              </ng2-password-strength-bar>
+            </div>
+
+            <div class="md-form pb-2">
+              <i class="fa fa-profile prefix grey-text"></i>
+              <input mdbActive type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword" minlength="6">
+              <label for="confirmPassword">Confirm password</label>
+              <small class="input-validate-prefix text-danger"
+                     *ngIf="registrationForm.controls['confirmPassword'].hasError('MatchPassword') && registrationForm.controls['confirmPassword'].touched && registrationForm.controls['confirmPassword'].value !== ''">
+                Password mismatch
+              </small>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-lg light-green darken-3 waves-light" [disabled]="registrationForm.invalid" mdbRippleRadius>Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div [ngBusy]="userSub"></div>

@@ -1,0 +1,94 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$isv-primary: mat-palette($mat-blue-grey);
+$isv-accent:  mat-palette($mat-pink, 500, 900, A100);
+$isv-warn:    mat-palette($mat-deep-orange);
+
+$isv-theme: mat-light-theme($isv-primary, $isv-accent, $isv-warn);
+
+@include angular-material-theme($isv-theme);
+
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-light-blue);
+  $alternate-accent:  mat-palette($mat-yellow, 400);
+
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+
+  @include angular-material-theme($alternate-theme);
+}
+//CONTAINERS
+.row {
+    @media (min-width:$isv-breakpoint-tablet) {
+        width: 100%;
+    }
+}
+.isv-container-fluid {
+    width: 100%!important;
+}
+// IMAGES
+.isv-img-responsive {
+    width: 100%;
+    height: auto;
+}
+//BUTTONS
+
+.isv-align {
+    &--right {
+        text-align: right;
+    }
+    &--left {
+        text-align: left;
+    }
+    &--center {
+        text-align: center;
+    }
+}
+
+.isv-edit {
+    position: relative;
+    text-align: right;
+    z-index: 5000;
+}
+.isv-edit-component {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    z-index: 9000;
+    width: 20px;
+    height: 20px;
+    line-height: 0;
+
+    .mat-icon {
+        padding: 0 $isv-padding-lg/5 0 0;
+        line-height: 18px;
+    }
+
+    .material-icons {
+        font-size: 14px;
+    }
+
+    @media (min-width: $isv-breakpoint-laptop) {
+        .mat-icon {
+            line-height: 15px;
+        }
+    }
+    @media (min-width: $isv-breakpoint-hd-screen) {
+        .mat-icon {
+            line-height: 15px;
+        }
+    }
+    @media (min-width: $isv-breakpoint-4k-screen) {
+        width: 40px;
+        height: 40px;
+
+        .mat-icon {
+            padding: 0 8px 0 0;
+            line-height: 24px;
+        }
+
+        .material-icons {
+        font-size: 24px;
+        }
+    }
+}

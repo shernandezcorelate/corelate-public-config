@@ -1,0 +1,66 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Corelate ISV</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" type="text/css" href="styles/font-awesome.css">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap-core.css">
+
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="styles/material-design.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" type="text/css" href="styles/custom.css">
+
+</head>
+<body>
+<div class="isv-login container-fluid blue darken-4 py-4">
+  <div class="row d-flex justify-content-center py-4 my-4">
+    <div class="col-12 col-sm-10 col-lg-8 col-xl-6">
+      <div class="isv-login__brand row d-flex justify-content-center">
+        <div class="isv-brand col-12 align-self-center d-flex justify-content-center pb-3">
+          <!--Logo Image-->
+          <a href="https://isv.corelate.net/">
+          <img src="https://isv.corelate.net/assets/images/logo-corelate.png" class="isv-brand img-fluid py-3" alt="Corelate"></a>
+        </div>
+      </div>
+      <div class="isv-login__form row d-flex justify-content-center p-4">
+        <div class="col-12 col-md-6 card d-flex p-0">
+          <form action="/authentication/login.html" method="post" enctype="application/x-www-form-urlencoded" class="align-self-center w-100 p-4">
+            <h3 class="text-center mb-4">Log In</h3>
+            <div class="md-form">
+              <i class="fa fa-envelope prefix grey-text"></i>
+              <input type="email" class="form-control" id="username" name="username">
+              <label class="active" for="username">Your email</label>
+            </div>
+            <div class="md-form">
+              <i class="fa fa-lock prefix grey-text"></i>
+              <input type="password" class="form-control" id="password" name="password">
+              <label class="active" for="password">Your password</label>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-lg light-green darken-3 waves-light">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<!-- Popper -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+</html>
