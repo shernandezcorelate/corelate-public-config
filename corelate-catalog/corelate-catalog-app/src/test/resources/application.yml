@@ -32,7 +32,7 @@ logging:
 file:
   storage:
     enabled: false
-    domain: http://127.0.0.1:9000
+    domain: http://192.168.100.19:9000
     accessKey: VV2V7IK1NOEY636AGLKO
     secretKey: iUlGKax02hsgClCLPCpy50DpD6ltW1kOV4pYcT2A
 
