@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/shernandezcorelate/corelate-isv/tree/main/config
+          uri: https://github.com/shernandezcorelate/corelate-isv/tree/corelate-isv-v1/config
           searchPaths: '{profile}'
 
 security:
