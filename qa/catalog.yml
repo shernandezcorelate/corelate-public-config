@@ -1,0 +1,18 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    url: '{cipher}AQAoIsrbv7jxf03840aiof/PLovvsFWVgYQObCqziJ9kEpvb4XlLclTrFJf7sVPnbJFgHHneDK9K95cGromWgdQctqfIJP+8chn9CuCI4Kv9dqkOKbThiuWDCQHE0sHNrvI998FDgLlJ1xSbIoZxeyVhyoX5ctvMz2qEsQ2w9VAItsnfyTgFo4Hj1zojPWCNl07iwSjh25J+O/YzG5sqCv+nPhjr6NNDIT7CfHt526tSRPJBe5lAm/uewz7FvX3PabmZA8pyt/kFJJm2naguXCzJGWqcO8ysSqHn1dSHntr4htvoSQcb2bgHmv6a3FbQQYdWuM9xyuEiOyiJA0nW1DMGp7Recjoq7eP5OvOjOhbDYkvPQCAuEdf9D3wI5B7WptJEt1XFkkuTnjW1Rd7ks1lFnP6LocgfQhqw58XXLRLFgdazIaUn+doKvhQ8urbHf3k='
+  jpa:
+    properties:
+      hibernate:
+        search:
+          default:
+            directory_provider: filesystem
+            indexBase: lucene/indexes
+
+lucene:
+  queryParser:
+    leadingWildcard: true
+
